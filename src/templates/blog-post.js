@@ -5,9 +5,11 @@ import { Link, graphql } from 'gatsby'
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import { rhythm, scale } from '../utils/typography'
+const _ = require("lodash")
 
 class BlogPostTemplate extends React.Component {
   render() {
+    console.log(this.props.data);
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
@@ -33,9 +35,32 @@ class BlogPostTemplate extends React.Component {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
-            marginBottom: rhythm(1),
+            margin: rhythm(1),
           }}
         />
+        {post.frontmatter.tags.map(tag=>{
+          return (
+            <a
+              key={tag}
+              style={{
+                padding: rhythm(1/4),
+                backgroundColor: "grey",
+                color: "white",
+                marginLeft: rhythm(1/4),
+              }}
+              href={`/blog/tags/${tag}`}
+            >
+              {tag}
+            </a>
+          )
+        })}
+
+        <hr
+          style={{
+            margin: rhythm(1),
+          }}
+        />
+
         <Bio />
 
         <ul
@@ -87,6 +112,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
       }
     }
   }

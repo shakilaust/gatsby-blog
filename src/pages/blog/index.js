@@ -21,6 +21,9 @@ class BlogIndex extends React.Component {
           title={siteTitle}
         />
         <Bio />
+        <small>
+          {`${data.allMarkdownRemark.totalCount} posts`}
+        </small>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -63,6 +66,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
       edges {
         node {
           excerpt
@@ -73,6 +77,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            tags
           }
         }
       }
