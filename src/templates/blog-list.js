@@ -2,9 +2,10 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Bio from '../../components/Bio'
-import Layout from '../../components/Layout'
-import { rhythm } from '../../utils/typography'
+import Bio from '../components/Bio'
+import Tag from '../components/Tag'
+import Layout from '../components/Layout'
+import { rhythm } from '../utils/typography'
 
 class BlogIndex extends React.Component {
   render() {
@@ -12,6 +13,8 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const siteDescription = data.site.siteMetadata.description
     const posts = data.allMarkdownRemark.edges
+    const { previous, next, indx} = this.props.pageContext
+    console.log({ previous, next, indx })
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -26,6 +29,7 @@ class BlogIndex extends React.Component {
         </small>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          console.log(node.frontmatter.tags)
           return (
             <div key={node.fields.slug}>
               <h3
@@ -47,9 +51,38 @@ class BlogIndex extends React.Component {
                 }} 
                 dangerouslySetInnerHTML={{ __html: node.excerpt }} 
               />
+              {node.frontmatter.tags.map(tag=>(
+                <Tag tag={tag} key={tag}/>
+                ))}
             </div>
           )
         })}
+        <ul
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
+            padding: 0,
+          }}
+        >
+          <li>
+            {
+              previous &&
+              <Link to={previous} rel="prev">
+                ← previous
+              </Link>
+            }
+          </li>
+          <li>
+            {
+              next &&
+              <Link to={next} rel="next">
+                next →
+              </Link>
+            }
+          </li>
+        </ul>
       </Layout>
     )
   }
@@ -57,16 +90,21 @@ class BlogIndex extends React.Component {
 
 export default BlogIndex
 
-export const pageQuery = graphql`
-  query {
+export const blogListQuery = graphql`
+  query blogListQuery($skip: Int!, $limit: Int!) {
     site {
-      siteMetadata {
-        title
-        description
+        siteMetadata {
+          title
+          description
+        }
       }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
+
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+        totalCount
       edges {
         node {
           excerpt

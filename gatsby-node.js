@@ -11,7 +11,10 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+            allMarkdownRemark(
+              sort: { fields: [frontmatter___date], order: DESC }, 
+              limit: 1000
+            ) {
               edges {
                 node {
                   fields {
@@ -49,6 +52,56 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
         })
+
+
+        const postsPerPage = 1
+        const numPages = Math.ceil(posts.length / postsPerPage)
+
+        const hasNext = (index) => index<numPages-1?
+                        (index===0? `/blog/2` : `/blog/${index+1+1}`) : null;
+        const hasPrev = (index) => index>0?
+                        (index===1? `/blog`: `/blog/${index+1-1}`): null;
+
+        // 0th page -> /blog or /blog/1 
+        createPage({
+          path: `/blog`,
+          component: path.resolve("./src/templates/blog-list.js"),
+          context: {
+            limit: postsPerPage,
+            skip: 0,
+            indx: 0,
+            previous: hasPrev(0),
+            next: hasNext(0),
+          },
+        })
+
+        createPage({
+          path: `/blog/1`,
+          component: path.resolve("./src/templates/blog-list.js"),
+          context: {
+            limit: postsPerPage,
+            skip: 0,
+            indx: 0,
+            previous: hasPrev(0),
+            next: hasNext(0),
+          },
+        })
+        
+        // page 1 to last
+        // blog/2 to blog/n+1
+        for(let i = 1; i < numPages; i++) {
+          createPage({
+            path: `/blog/${i + 1}`,
+            component: path.resolve("./src/templates/blog-list.js"),
+            context: {
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+              indx: i,
+              previous: hasPrev(i),
+              next: hasNext(i),
+            },
+          })
+        }
 
 
         // Tag pages:

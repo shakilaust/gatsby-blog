@@ -9,7 +9,7 @@ class Layout extends React.Component {
     const blogRootPath = `${__PATH_PREFIX__}/blog`
     let header
 
-    if (location.pathname === blogRootPath) {
+    if (location.pathname.replace(/\/$/, "") === blogRootPath) {
       header = (
         <h1
           style={{

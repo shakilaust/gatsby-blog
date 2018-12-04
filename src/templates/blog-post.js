@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import { rhythm, scale } from '../utils/typography'
+import  Tag  from '../components/Tag';
 const _ = require("lodash")
 
 class BlogPostTemplate extends React.Component {
@@ -38,22 +39,9 @@ class BlogPostTemplate extends React.Component {
             margin: rhythm(1),
           }}
         />
-        {post.frontmatter.tags.map(tag=>{
-          return (
-            <a
-              key={tag}
-              style={{
-                padding: rhythm(1/4),
-                backgroundColor: "grey",
-                color: "white",
-                marginLeft: rhythm(1/4),
-              }}
-              href={`/blog/tags/${tag}`}
-            >
-              {tag}
-            </a>
-          )
-        })}
+        {post.frontmatter.tags.map(tag=>(
+          <Tag tag={tag} key={tag}/>
+        ))}
 
         <hr
           style={{
