@@ -9,6 +9,9 @@ const Tags = ({ pageContext, data }) => {
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
 
+  const { previous, next, indx} = pageContext
+  console.log({ previous, next, indx })
+
   return (
     <div>
       <h1>{tagHeader}</h1>
@@ -23,6 +26,33 @@ const Tags = ({ pageContext, data }) => {
           )
         })}
       </ul>
+
+      <ul
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
+            padding: 0,
+          }}
+        >
+          <li>
+            {
+              previous &&
+              <Link to={previous} rel="prev">
+                ← previous
+              </Link>
+            }
+          </li>
+          <li>
+            {
+              next &&
+              <Link to={next} rel="next">
+                next →
+              </Link>
+            }
+          </li>
+        </ul>
     </div>
   )
 }
@@ -30,10 +60,12 @@ const Tags = ({ pageContext, data }) => {
 export default Tags
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query($tag: String, $limit: Int!, $skip: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
+      limit: $limit
+      skip: $skip
     ) {
       totalCount
       edges {

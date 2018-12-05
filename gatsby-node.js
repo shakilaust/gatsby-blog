@@ -1,6 +1,5 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const _ = require("lodash")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -106,19 +105,65 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Tag pages:
         const tagTemplate = path.resolve('./src/templates/tags.js')
-        let tags = []
+        let tagCount = {}
         posts.forEach(post => {
-          post.node.frontmatter.tags.forEach(tag => tags.push(tag))
+          post.node.frontmatter.tags.forEach(tag => {
+            if(tagCount[tag]) tagCount[tag]++;
+            else tagCount[tag]=1;
+          })
         })
-        tags = _.uniq(tags)
-        tags.forEach(tag => {
+        Object.keys(tagCount).forEach(tag => {
+          const numPages = Math.ceil(tagCount[tag] / postsPerPage)
+          console.warn(tag, tagCount[tag], numPages)
+
+          const hasNext = (index) => index<numPages-1?
+                          (index===0? `/blog/tags/${tag}/2` : `/blog/tags/${tag}/${index+1+1}`) : null;
+          const hasPrev = (index) => index>0?
+                          (index===1? `/blog/tags/${tag}`: `/blog/tags/${tag}/${index+1-1}`): null;
+
+
           createPage({
-            path: `/blog/tags/${tag}/`,
+            path: `/blog/tags/${tag}`,
             component: tagTemplate,
             context: {
               tag,
+              limit: postsPerPage,
+              skip: 0,
+              indx: 0,
+              previous: hasPrev(0),
+              next: hasNext(0),
             },
           })
+  
+          createPage({
+            path: `/blog/tags/${tag}/1`,
+            component: tagTemplate,
+            context: {
+              tag,
+              limit: postsPerPage,
+              skip: 0,
+              indx: 0,
+              previous: hasPrev(0),
+              next: hasNext(0),
+            },
+          })
+
+          for(let i = 1; i < numPages; i++) {
+            createPage({
+              path: `/blog/tags/${tag}/${i + 1}`,
+              component: tagTemplate,
+              context: {
+                tag,
+                limit: postsPerPage,
+                skip: i * postsPerPage,
+                indx: i,
+                previous: hasPrev(i),
+                next: hasNext(i),
+              },
+            })
+          }
+
+
         })
 
       })
