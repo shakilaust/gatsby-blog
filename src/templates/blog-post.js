@@ -5,16 +5,25 @@ import { Link, graphql } from 'gatsby'
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import { rhythm, scale } from '../utils/typography'
-import  Tag  from '../components/Tag';
-const _ = require("lodash")
+import Tag from '../components/Tag'
+import Disqus from 'disqus-react'
+
+const _ = require('lodash')
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log(this.props.data);
+    console.log(this.props.data)
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = post.excerpt
-    const { previous, next } = this.props.pageContext
+    const { previous, next, slug } = this.props.pageContext
+
+    const disqusShortname = 'mehamasum'
+    const disqusConfig = {
+      url: `http://localhost:8000${slug}`,
+      identifier: slug,
+      title: post.frontmatter.title,
+    }
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -39,8 +48,8 @@ class BlogPostTemplate extends React.Component {
             margin: rhythm(1),
           }}
         />
-        {post.frontmatter.tags.map(tag=>(
-          <Tag tag={tag} key={tag}/>
+        {post.frontmatter.tags.map(tag => (
+          <Tag tag={tag} key={tag} />
         ))}
 
         <hr
@@ -61,22 +70,25 @@ class BlogPostTemplate extends React.Component {
           }}
         >
           <li>
-            {
-              previous &&
+            {previous && (
               <Link to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
-            }
+            )}
           </li>
           <li>
-            {
-              next &&
+            {next && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
-            }
+            )}
           </li>
         </ul>
+
+        <Disqus.DiscussionEmbed
+          shortname={disqusShortname}
+          config={disqusConfig}
+        />
       </Layout>
     )
   }
