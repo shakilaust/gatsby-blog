@@ -6,7 +6,7 @@ class SiteIndex extends React.Component {
     return (
       <React.Fragment>
         <div>Hello world</div>
-        <Link to='/blog'>Blog</Link>
+        <Link to="/blog">Blog</Link>
       </React.Fragment>
     )
   }

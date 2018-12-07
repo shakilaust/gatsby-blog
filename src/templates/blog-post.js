@@ -6,7 +6,15 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import { rhythm, scale } from '../utils/typography'
 import Tag from '../components/Tag'
+
 import Disqus from 'disqus-react'
+import {
+  FacebookProvider,
+  Like,
+  Share,
+  Comments,
+  CommentsCount,
+} from 'react-facebook'
 
 const _ = require('lodash')
 
@@ -15,6 +23,7 @@ class BlogPostTemplate extends React.Component {
     console.log(this.props.data)
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+    const fbAppId = this.props.data.site.siteMetadata.fbAppId
     const siteDescription = post.excerpt
     const { previous, next, slug } = this.props.pageContext
 
@@ -43,6 +52,14 @@ class BlogPostTemplate extends React.Component {
           {` • ${post.timeToRead} min read`}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <div>
+          <FacebookProvider appId={fbAppId}>
+            <Like href={disqusConfig.url} colorScheme="dark" share />
+            <Comments href={disqusConfig.url} />
+          </FacebookProvider>
+        </div>
+
         <hr
           style={{
             margin: rhythm(1),
@@ -102,6 +119,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        fbAppId
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
