@@ -18,43 +18,55 @@ class BlogIndex extends React.Component {
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={blogTitle}>
+      <Layout
+        location={this.props.location}
+        title={blogSlogan}
+        subTitle={blogTitle}
+      >
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
         <Bio />
-        {posts.map(post => {
-          const { node } = post
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
+        <div>
+          {posts.map(post => {
+            const { node } = post
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <div
+                key={node.fields.slug}
                 style={{
-                  marginBottom: rhythm(1 / 8),
+                  marginBottom: rhythm(1.5),
                 }}
               >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>
-                {node.frontmatter.date}
-                {` • ${node.timeToRead} min read`}
-              </small>
-              <p
-                style={{
-                  marginTop: rhythm(1 / 4),
-                }}
-                dangerouslySetInnerHTML={{ __html: node.excerpt }}
-              />
-              {node.frontmatter.tags.map(tag => (
-                <Tag tag={tag} key={tag} />
-              ))}
-            </div>
-          )
-        })}
+                <h3
+                  style={{
+                    marginBottom: rhythm(1 / 8),
+                  }}
+                >
+                  <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small>
+                  {node.frontmatter.date}
+                  {` • ${node.timeToRead} min read`}
+                </small>
+                <p
+                  style={{
+                    marginTop: rhythm(1 / 4),
+                    marginBottom: rhythm(1 / 4),
+                  }}
+                  dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                />
+                {node.frontmatter.tags.map(tag => (
+                  <Tag tag={tag} key={tag} />
+                ))}
+              </div>
+            )
+          })}
+        </div>
         <Pagination
           previous={{
             url: previous,

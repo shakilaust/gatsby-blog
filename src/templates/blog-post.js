@@ -23,7 +23,9 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    const blogTitle = this.props.data.site.siteMetadata.blogTitle
+
+    const { blogTitle, blogSlogan } = this.props.data.site.siteMetadata
+
     const fbAppId = this.props.data.site.siteMetadata.fbAppId
     const siteDescription = post.excerpt
     const { previous, next, slug } = this.props.pageContext
@@ -35,8 +37,17 @@ class BlogPostTemplate extends React.Component {
       title: post.frontmatter.title,
     }
 
+    const GITHUB_USERNAME = 'mehamasum'
+    const GITHUB_REPO_NAME = 'mehamasum.github.io'
+
+    const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/blog/src/pages${slug}index.md`
+
     return (
-      <Layout location={this.props.location} title={blogTitle}>
+      <Layout
+        location={this.props.location}
+        title={blogSlogan}
+        subTitle={blogTitle}
+      >
         <Helmet title={`${post.frontmatter.title} | ${blogTitle}`} />
         <h1>{post.frontmatter.title}</h1>
         <p
@@ -53,6 +64,17 @@ class BlogPostTemplate extends React.Component {
         {post.frontmatter.tags.map(tag => (
           <Tag tag={tag} key={tag} />
         ))}
+
+        <p
+          style={{
+            fontSize: '80%',
+            float: 'right',
+          }}
+        >
+          <a href={editUrl} target="_blank">
+            Edit on GitHub
+          </a>
+        </p>
 
         <div
           style={{
@@ -106,6 +128,7 @@ export const pageQuery = graphql`
         author
         fbAppId
         blogTitle
+        blogSlogan
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

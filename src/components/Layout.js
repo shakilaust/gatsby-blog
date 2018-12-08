@@ -6,7 +6,7 @@ import SEO from '../components/seo/SEO'
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, subTitle, children } = this.props
     const blogRootPath = `${__PATH_PREFIX__}/blog`
     let header
 
@@ -14,11 +14,11 @@ class Layout extends React.Component {
 
     if (pattern.test(location.pathname)) {
       header = (
-        <h1
+        <h2
           style={{
             ...scale(1.5),
-            marginBottom: rhythm(1.5),
             marginTop: 0,
+            marginBottom: rhythm(1 / 2),
           }}
         >
           <Link
@@ -31,12 +31,13 @@ class Layout extends React.Component {
           >
             {title}
           </Link>
-        </h1>
+        </h2>
       )
     } else {
       header = (
         <h3
           style={{
+            marginBottom: rhythm(1 / 2),
             marginTop: 0,
           }}
         >
@@ -60,12 +61,27 @@ class Layout extends React.Component {
             marginLeft: 'auto',
             marginRight: 'auto',
             maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            paddingTop: rhythm(1.5),
+            paddingBottom: rhythm(1.5),
           }}
         >
           <SEO />
           {header}
-          {children}
+          <h4
+            style={{
+              marginTop: 0,
+              color: 'grey',
+            }}
+          >
+            {subTitle}
+          </h4>
+          <div
+            style={{
+              marginTop: rhythm(2),
+            }}
+          >
+            {children}
+          </div>
         </div>
         <div
           style={{

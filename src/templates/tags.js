@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
+import { rhythm, scale } from '../utils/typography'
 
 const Tags = props => {
   const { pageContext, data } = props
@@ -19,7 +20,11 @@ const Tags = props => {
   return (
     <Layout location={props.location} title={blogTitle}>
       <h1>{tagHeader}</h1>
-      <ul>
+      <ul
+        style={{
+          margin: rhythm(1),
+        }}
+      >
         {edges.map(({ node }) => {
           const slug = node.fields.slug
           const { title } = node.frontmatter

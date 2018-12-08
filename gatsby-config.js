@@ -5,7 +5,7 @@ module.exports = {
     titleAlt: 'Meha Masum Resume Website',
     shortName: 'Meha Masum Resume',
 
-    blogTitle: "Meha Masum's Blog",
+    blogTitle: "Meha Masum's Tech Blog",
     blogSlogan: 'Learning in public',
 
     author: 'Meha Masum',
@@ -77,6 +77,13 @@ module.exports = {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography',
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
       },
     },
   ],
