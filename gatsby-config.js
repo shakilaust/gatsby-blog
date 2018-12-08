@@ -4,6 +4,10 @@ module.exports = {
     titleTemplate: '%s · The Real Hero',
     titleAlt: 'Meha Masum Resume Website',
     shortName: 'Meha Masum Resume',
+
+    blogTitle: "Meha Masum's Blog",
+    blogSlogan: 'Learning in public',
+
     author: 'Meha Masum',
     description: 'A starter blog demonstrating what Gatsby can do.',
     url: 'http://localhost:8000',

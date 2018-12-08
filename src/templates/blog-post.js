@@ -6,6 +6,7 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import { rhythm, scale } from '../utils/typography'
 import Tag from '../components/Tag'
+import Pagination from '../components/Pagination'
 
 import Disqus from 'disqus-react'
 import {
@@ -20,9 +21,9 @@ const _ = require('lodash')
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log(this.props.data)
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+    const blogTitle = this.props.data.site.siteMetadata.blogTitle
     const fbAppId = this.props.data.site.siteMetadata.fbAppId
     const siteDescription = post.excerpt
     const { previous, next, slug } = this.props.pageContext
@@ -35,12 +36,8 @@ class BlogPostTemplate extends React.Component {
     }
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={`${post.frontmatter.title} | ${siteTitle}`}
-        />
+      <Layout location={this.props.location} title={blogTitle}>
+        <Helmet title={`${post.frontmatter.title} | ${blogTitle}`} />
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -53,59 +50,47 @@ class BlogPostTemplate extends React.Component {
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        <div>
-          <FacebookProvider appId={fbAppId}>
-            <Like href={disqusConfig.url} colorScheme="dark" share />
-            <Comments href={disqusConfig.url} />
-          </FacebookProvider>
-        </div>
-
-        <hr
-          style={{
-            margin: rhythm(1),
-          }}
-        />
         {post.frontmatter.tags.map(tag => (
           <Tag tag={tag} key={tag} />
         ))}
 
-        <hr
+        <div
           style={{
-            margin: rhythm(1),
+            marginTop: rhythm(1),
+            marginBottom: rhythm(1),
           }}
-        />
+        >
+          <FacebookProvider appId={fbAppId}>
+            <Like href={disqusConfig.url} colorScheme="dark" share />
+          </FacebookProvider>
+        </div>
+
+        <hr />
 
         <Bio />
 
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-
-        <Disqus.DiscussionEmbed
-          shortname={disqusShortname}
-          config={disqusConfig}
+        <Pagination
+          next={
+            next && {
+              url: next.fields.slug,
+              label: next.frontmatter.title,
+            }
+          }
+          previous={
+            previous && {
+              url: previous.fields.slug,
+              label: previous.frontmatter.title,
+            }
+          }
         />
+
+        <hr />
+
+        <div>
+          <FacebookProvider appId={fbAppId}>
+            <Comments href={disqusConfig.url} />
+          </FacebookProvider>
+        </div>
       </Layout>
     )
   }
@@ -120,6 +105,7 @@ export const pageQuery = graphql`
         title
         author
         fbAppId
+        blogTitle
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

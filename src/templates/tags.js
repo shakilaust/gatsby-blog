@@ -1,19 +1,23 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Pagination from '../components/Pagination'
 
-const Tags = ({ pageContext, data }) => {
+const Tags = props => {
+  const { pageContext, data } = props
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
+    totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`
 
-  const { previous, next, indx} = pageContext
-  console.log({ previous, next, indx })
+  const { previous, next } = pageContext
+
+  const { blogTitle, blogSlogan } = data.site.siteMetadata
 
   return (
-    <div>
+    <Layout location={props.location} title={blogTitle}>
       <h1>{tagHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
@@ -27,33 +31,17 @@ const Tags = ({ pageContext, data }) => {
         })}
       </ul>
 
-      <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          <li>
-            {
-              previous &&
-              <Link to={previous} rel="prev">
-                ← previous
-              </Link>
-            }
-          </li>
-          <li>
-            {
-              next &&
-              <Link to={next} rel="next">
-                next →
-              </Link>
-            }
-          </li>
-        </ul>
-    </div>
+      <Pagination
+        previous={{
+          url: previous,
+          label: 'Previous',
+        }}
+        next={{
+          url: next,
+          label: 'Next',
+        }}
+      />
+    </Layout>
   )
 }
 
@@ -61,6 +49,15 @@ export default Tags
 
 export const pageQuery = graphql`
   query($tag: String, $limit: Int!, $skip: Int!) {
+    site {
+      siteMetadata {
+        title
+        description
+        blogTitle
+        blogSlogan
+      }
+    }
+
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }

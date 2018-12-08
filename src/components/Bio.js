@@ -1,10 +1,6 @@
 import React from 'react'
 
-// Import typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
-
-import profilePic from './profile-pic.jpg'
+import profilePic from '../assets/avatar.jpg'
 import { rhythm } from '../utils/typography'
 
 class Bio extends React.Component {
@@ -18,18 +14,19 @@ class Bio extends React.Component {
       >
         <img
           src={profilePic}
-          alt={`Kyle Mathews`}
+          alt={`Meha Masum`}
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,
             width: rhythm(2),
             height: rhythm(2),
+            borderRadius: '5%',
           }}
         />
         <p>
-          Written by <strong>Kyle Mathews</strong> who lives and works in San
+          Written by <strong>Meha Masum</strong> who lives and works in San
           Francisco building useful things.{' '}
-          <a href="https://twitter.com/kylemathews">
+          <a href="https://twitter.com/mehamasum">
             You should follow him on Twitter
           </a>
         </p>

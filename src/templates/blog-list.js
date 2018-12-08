@@ -5,32 +5,29 @@ import Helmet from 'react-helmet'
 import Bio from '../components/Bio'
 import Tag from '../components/Tag'
 import Layout from '../components/Layout'
+import Pagination from '../components/Pagination'
 import { rhythm } from '../utils/typography'
-import Disqus from 'disqus-react'
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
+    const { blogTitle, blogSlogan } = data.site.siteMetadata
     const siteTitle = data.site.siteMetadata.title
     const siteDescription = data.site.siteMetadata.description
     const posts = data.allMarkdownRemark.edges
-    const { previous, next, indx } = this.props.pageContext
-    console.log({ previous, next, indx })
+    const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={blogTitle}>
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
         <Bio />
-        <small>{`${data.allMarkdownRemark.totalCount} posts`}</small>
         {posts.map(post => {
-          console.warn(post)
           const { node } = post
           const title = node.frontmatter.title || node.fields.slug
-          console.log(node.frontmatter.tags)
           return (
             <div key={node.fields.slug}>
               <h3
@@ -45,21 +42,6 @@ class BlogIndex extends React.Component {
               <small>
                 {node.frontmatter.date}
                 {` • ${node.timeToRead} min read`}
-
-                <div
-                  style={{
-                    float: 'right',
-                  }}
-                >
-                  <Disqus.CommentCount
-                    shortname={'mehamasum'}
-                    config={{
-                      url: `http://localhost:8000${node.fields.slug}`,
-                      identifier: node.fields.slug,
-                      title: node.frontmatter.title,
-                    }}
-                  />
-                </div>
               </small>
               <p
                 style={{
@@ -73,30 +55,16 @@ class BlogIndex extends React.Component {
             </div>
           )
         })}
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
+        <Pagination
+          previous={{
+            url: previous,
+            label: 'Previous',
           }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous} rel="prev">
-                ← previous
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next} rel="next">
-                next →
-              </Link>
-            )}
-          </li>
-        </ul>
+          next={{
+            url: next,
+            label: 'Next',
+          }}
+        />
       </Layout>
     )
   }
@@ -110,6 +78,8 @@ export const blogListQuery = graphql`
       siteMetadata {
         title
         description
+        blogTitle
+        blogSlogan
       }
     }
 

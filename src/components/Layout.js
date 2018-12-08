@@ -10,7 +10,9 @@ class Layout extends React.Component {
     const blogRootPath = `${__PATH_PREFIX__}/blog`
     let header
 
-    if (location.pathname.replace(/\/$/, '') === blogRootPath) {
+    const pattern = new RegExp(`^${blogRootPath}(\/)?$`)
+
+    if (pattern.test(location.pathname)) {
       header = (
         <h1
           style={{
@@ -25,7 +27,7 @@ class Layout extends React.Component {
               textDecoration: 'none',
               color: 'inherit',
             }}
-            to={'/'}
+            to={'/blog'}
           >
             {title}
           </Link>
@@ -35,9 +37,7 @@ class Layout extends React.Component {
       header = (
         <h3
           style={{
-            fontFamily: 'Montserrat, sans-serif',
             marginTop: 0,
-            marginBottom: rhythm(-1),
           }}
         >
           <Link
@@ -46,7 +46,7 @@ class Layout extends React.Component {
               textDecoration: 'none',
               color: 'inherit',
             }}
-            to={'/'}
+            to={'/blog'}
           >
             {title}
           </Link>
@@ -54,17 +54,28 @@ class Layout extends React.Component {
       )
     }
     return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <SEO />
-        {header}
-        {children}
+      <div>
+        <div
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: rhythm(24),
+            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          }}
+        >
+          <SEO />
+          {header}
+          {children}
+        </div>
+        <div
+          style={{
+            position: 'relative',
+            bottom: rhythm(1),
+            textAlign: 'center',
+          }}
+        >
+          <small>&copy; Meha Masum, 2018</small>
+        </div>
       </div>
     )
   }
