@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
-import { rhythm, scale } from '../utils/typography'
 import Tag from '../components/Tag'
 import Pagination from '../components/Pagination'
 
@@ -52,7 +51,6 @@ class BlogPostTemplate extends React.Component {
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
-            ...scale(-1 / 5),
             display: 'block',
           }}
         >
@@ -78,8 +76,8 @@ class BlogPostTemplate extends React.Component {
 
         <div
           style={{
-            marginTop: rhythm(1),
-            marginBottom: rhythm(1),
+            marginTop: '1rem',
+            marginBottom: '1rem',
           }}
         >
           <FacebookProvider appId={fbAppId}>

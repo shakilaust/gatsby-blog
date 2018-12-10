@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import { rhythm } from '../utils/typography'
 
 class Tag extends React.Component {
   render() {
     return (
       <a
         style={{
-          padding: rhythm(1 / 4),
+          padding: '0.5rem',
           color: 'rgba(0,0,0,.68)',
           background: 'rgba(0,0,0,.05)',
-          marginRight: rhythm(1 / 4),
-          marginBottom: rhythm(1 / 4),
+          marginRight: '0.5rem',
+          marginBottom: '0.5rem',
           borderRadius: '.25em',
           display: 'inline',
           lineHeight: 1,

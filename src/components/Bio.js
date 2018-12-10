@@ -1,7 +1,6 @@
 import React from 'react'
 
 import profilePic from '../assets/avatar.jpg'
-import { rhythm } from '../utils/typography'
 
 class Bio extends React.Component {
   render() {
@@ -9,14 +8,14 @@ class Bio extends React.Component {
       <div
         style={{
           display: 'flex',
-          marginBottom: rhythm(2.5),
+          marginBottom: '2.5rem',
         }}
       >
         <img
           src={profilePic}
           alt={`Meha Masum`}
           style={{
-            marginRight: rhythm(1 / 2),
+            marginRight: '0.5rem',
             marginBottom: 0,
             width: '72px',
             height: '72px',

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import { rhythm, scale } from '../utils/typography'
 import SEO from '../components/seo/SEO'
 
 class Layout extends React.Component {
@@ -16,9 +15,8 @@ class Layout extends React.Component {
       header = (
         <h2
           style={{
-            ...scale(1.5),
             marginTop: 0,
-            marginBottom: rhythm(1 / 2),
+            marginBottom: '1.5rem',
           }}
         >
           <Link
@@ -37,7 +35,7 @@ class Layout extends React.Component {
       header = (
         <h3
           style={{
-            marginBottom: rhythm(1 / 2),
+            marginBottom: '0.5rem',
             marginTop: 0,
           }}
         >
@@ -60,9 +58,9 @@ class Layout extends React.Component {
           style={{
             marginLeft: 'auto',
             marginRight: 'auto',
-            maxWidth: rhythm(24),
-            paddingTop: rhythm(1.5),
-            paddingBottom: rhythm(1.5),
+            maxWidth: '75rem',
+            paddingTop: '1.5rem',
+            paddingBottom: '1.5rem',
           }}
         >
           <SEO />
@@ -77,7 +75,7 @@ class Layout extends React.Component {
           </h4>
           <div
             style={{
-              marginTop: rhythm(2),
+              marginTop: '1.5rem',
             }}
           >
             {children}
@@ -86,7 +84,7 @@ class Layout extends React.Component {
         <div
           style={{
             position: 'relative',
-            bottom: rhythm(1),
+            bottom: '1rem',
             textAlign: 'center',
           }}
         >

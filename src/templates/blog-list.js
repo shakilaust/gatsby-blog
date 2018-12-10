@@ -6,7 +6,6 @@ import Bio from '../components/Bio'
 import Tag from '../components/Tag'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
-import { rhythm } from '../utils/typography'
 
 class BlogIndex extends React.Component {
   render() {
@@ -37,12 +36,12 @@ class BlogIndex extends React.Component {
               <div
                 key={node.fields.slug}
                 style={{
-                  marginBottom: rhythm(1.5),
+                  marginBottom: '1.5rem',
                 }}
               >
                 <h3
                   style={{
-                    marginBottom: rhythm(1 / 8),
+                    marginBottom: '0.15rem',
                   }}
                 >
                   <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
@@ -55,8 +54,8 @@ class BlogIndex extends React.Component {
                 </small>
                 <p
                   style={{
-                    marginTop: rhythm(1 / 4),
-                    marginBottom: rhythm(1 / 4),
+                    marginTop: '0.25rem',
+                    marginBottom: '0.25rem',
                   }}
                   dangerouslySetInnerHTML={{ __html: node.excerpt }}
                 />
