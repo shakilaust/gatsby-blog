@@ -130,13 +130,13 @@ class Index extends React.Component {
                             padding: '1em',
                           }}
                         >
-                          <h2
+                          <h3
                             style={{
                               marginTop: 0,
                             }}
                           >
                             {project.name}
-                          </h2>
+                          </h3>
                           <p>
                             Lorem Ipsum is simply dummy text of the printing and
                             typesetting industry.
@@ -154,8 +154,8 @@ class Index extends React.Component {
         <footer
           style={{
             backgroundColor: '#e6e6e6',
-            paddingTop: '3em',
-            paddingBottom: '3em',
+            paddingTop: '4em',
+            paddingBottom: '4em',
           }}
         >
           <Row style={Styles.row}>
@@ -164,23 +164,23 @@ class Index extends React.Component {
               md={4}
               style={{
                 float: 'left',
-                textAlign: 'center',
+                textAlign: 'left',
               }}
             >
-              <h2
+              <span
                 style={{
                   margin: 0,
                 }}
               >
                 &copy; Meha Masum, 2018
-              </h2>
+              </span>
             </Col>
             <Col
               xs={12}
               md={4}
               style={{
                 float: 'right',
-                textAlign: 'center',
+                textAlign: 'right',
               }}
             >
               <ul
