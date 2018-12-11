@@ -4,20 +4,8 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import '../assets/bootstrap.min.css'
 import '../assets/site.css'
 const avatar = require('../assets/avatar.jpg')
-
-const Styles = {
-  row: {
-    width: '100%',
-    maxWidth: '75em',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  inlineListItem: {
-    display: 'inline-block',
-    marginRight: '0.5em',
-    marginLeft: '0.5em',
-  },
-}
+import Styles from '../utils/styles'
+import Header from '../components/Header'
 
 class Index extends React.Component {
   render() {
@@ -27,45 +15,7 @@ class Index extends React.Component {
     const projects = data.allProjectsJson.edges
     return (
       <div>
-        <header>
-          <div
-            id="portfolio-cover"
-            className="user-background-color user-background-image"
-          />
-          <Row style={Styles.row}>
-            <Col xs={12}>
-              <div id="portfolio-user">
-                <div id="portfolio-user-photo">
-                  <img
-                    alt="Mehedi Hasan Masum's avatar"
-                    className="user-photo photo_image image-replacement"
-                    src={avatar}
-                  />
-                </div>
-
-                <div id="portfolio-user-info">
-                  <h1 id="portfolio-user-name">
-                    Mehedi Hasan Masum <small>(mehamasum)</small>
-                  </h1>
-
-                  <p className="large" id="portfolio-user-bio">
-                    <i />
-                  </p>
-                  <div className="expandable expandable-closed expandable-small-only">
-                    <div className="expandable-content">
-                      <ul className="inline-list" id="portfolio-user-links">
-                        <li>
-                          <span className="ss-icon ss-location" />
-                          Bangladesh
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </header>
+        <Header />
         <section
           style={{
             paddingTop: '1em',
@@ -159,44 +109,69 @@ class Index extends React.Component {
           }}
         >
           <Row style={Styles.row}>
-            <Col
-              xs={12}
-              md={4}
-              style={{
-                float: 'left',
-                textAlign: 'left',
-              }}
-            >
+            <Col xs={12} md={6} className="footer-left-panel">
               <span
                 style={{
                   margin: 0,
                 }}
               >
-                &copy; Meha Masum, 2018
+                Made by <Link to="#"> meha</Link>{' '}
+                <i
+                  className="fa fa-heart"
+                  style={{
+                    color: 'red',
+                  }}
+                />
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a
+                  href="https://github.com/mehamasum/mehamasum.github.io"
+                  target="_blank"
+                >
+                  Open Source
+                  <i
+                    className="fa fa-code-fork"
+                    style={{
+                      marginLeft: '0.5rem',
+                    }}
+                  />
+                </a>
               </span>
             </Col>
-            <Col
-              xs={12}
-              md={4}
-              style={{
-                float: 'right',
-                textAlign: 'right',
-              }}
-            >
-              <ul
-                style={{
-                  listStyle: 'none',
-                  margin: 0,
-                }}
-              >
+            <Col xs={12} md={6} className="footer-right-panel">
+              <ul style={Styles.unlistedItem}>
+                <li style={Styles.inlineListItem}>Contacts</li>
                 <li style={Styles.inlineListItem}>
-                  <a href="#">Github</a>
+                  <a href="#">
+                    <i
+                      className="fa fa-github"
+                      style={{
+                        marginRight: '0.5rem',
+                      }}
+                    />
+                    Github
+                  </a>
                 </li>
                 <li style={Styles.inlineListItem}>
-                  <a href="#">Twitter</a>
+                  <a href="#">
+                    <i
+                      className="fa fa-twitter"
+                      style={{
+                        marginRight: '0.5rem',
+                      }}
+                    />
+                    Twitter
+                  </a>
                 </li>
                 <li style={Styles.inlineListItem}>
-                  <a href="#">LinkedIn</a>
+                  <a href="#">
+                    <i
+                      className="fa fa-linkedin"
+                      style={{
+                        marginRight: '0.5rem',
+                      }}
+                    />
+                    LinkedIn
+                  </a>
                 </li>
               </ul>
             </Col>
