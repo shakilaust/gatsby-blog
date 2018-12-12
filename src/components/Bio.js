@@ -15,14 +15,14 @@ class Bio extends React.Component {
           src={profilePic}
           alt={`Meha Masum`}
           style={{
-            marginRight: '0.5rem',
+            marginRight: '1rem',
             marginBottom: 0,
-            width: '72px',
-            height: '72px',
+            width: '60px',
+            height: '60px',
             borderRadius: '5%',
           }}
         />
-        <p>
+        <div>
           Personal blog by{' '}
           <strong>
             <a href="/">Mehedi Hasan Masum</a>
@@ -36,20 +36,11 @@ class Bio extends React.Component {
               fontSize: '80%',
             }}
           >
-            <a href="https://github.com/mehamasum" target="_blank">
-              Github
-            </a>
-            {' • '}
-            <a href="https://linkedin.com/id/mehamasum" target="_blank">
-              LinkedIn
-            </a>
-            {' • '}
-            <a href="https://twitter.com/mehamasum" target="_blank">
-              Twitter
+            <a href="/" target="_blank">
+              Contact
             </a>
           </span>
-          <br />
-        </p>
+        </div>
       </div>
     )
   }

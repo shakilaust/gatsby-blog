@@ -4,7 +4,8 @@ import Helmet from 'react-helmet'
 
 import Bio from '../components/Bio'
 import Tag from '../components/Tag'
-import Layout from '../components/Layout'
+import Layout from '../components/TwoColumnLayout'
+import { Col, Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
 
 class BlogIndex extends React.Component {
@@ -14,58 +15,74 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const siteDescription = data.site.siteMetadata.description
     const posts = data.allMarkdownRemark.edges
-    const { previous, next } = this.props.pageContext
+    const { previous, next, current, total } = this.props.pageContext
 
     return (
-      <Layout
-        location={this.props.location}
-        title={blogSlogan}
-        subTitle={blogTitle}
-      >
+      <Layout location={this.props.location} full>
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Bio />
-        <div>
-          {posts.map(post => {
-            const { node } = post
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              <div
-                key={node.fields.slug}
-                style={{
-                  marginBottom: '1.5rem',
-                }}
-              >
-                <h3
+        {posts.map(post => {
+          const { node } = post
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <Row>
+              <Col xs={9} md={10}>
+                <div
+                  key={node.fields.slug}
                   style={{
-                    marginBottom: '0.15rem',
+                    marginBottom: '1.5em',
+                    background: 'white',
                   }}
                 >
-                  <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>
-                  {node.frontmatter.date}
-                  {` • ${node.timeToRead} min read`}
-                </small>
-                <p
+                  <h3 style={{ marginTop: 0 }}>
+                    <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+                      {title}
+                    </Link>
+                  </h3>
+                  <small>
+                    {node.frontmatter.date}
+                    {` • ${node.timeToRead} min read`}
+                  </small>
+                  <p
+                    style={{
+                      marginTop: '0.25rem',
+                      marginBottom: '0.25rem',
+                    }}
+                    dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                  />
+                  <div
+                    style={{
+                      marginTop: '1.5rem',
+                    }}
+                  >
+                    <i
+                      className="fa fa-tag fa-flip-horizontal"
+                      style={{
+                        marginRight: '0.5em',
+                        color: 'grey',
+                      }}
+                    />
+                    {node.frontmatter.tags.map(tag => (
+                      <Tag tag={tag} key={tag} />
+                    ))}
+                  </div>
+                </div>
+              </Col>
+              <Col xs={3} md={2}>
+                <img
+                  src="https://picsum.photos/400/400"
+                  alt="Featured Image"
                   style={{
-                    marginTop: '0.25rem',
-                    marginBottom: '0.25rem',
+                    width: '100%',
                   }}
-                  dangerouslySetInnerHTML={{ __html: node.excerpt }}
                 />
-                {node.frontmatter.tags.map(tag => (
-                  <Tag tag={tag} key={tag} />
-                ))}
-              </div>
-            )
-          })}
-        </div>
+              </Col>
+            </Row>
+          )
+        })}
         <Pagination
           previous={{
             url: previous,
@@ -75,6 +92,8 @@ class BlogIndex extends React.Component {
             url: next,
             label: 'Next',
           }}
+          current={current}
+          total={total}
         />
       </Layout>
     )

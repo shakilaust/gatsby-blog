@@ -153,6 +153,15 @@ body {
   border: 1px solid transparent;
 }
 
+.blog-label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 0 15px 0;
+  font-weight: 600;
+  text-align: center;
+  color: #abc;
+}
+
 .label:hover {
   color: #789;
   cursor: pointer;
@@ -182,6 +191,10 @@ body {
     margin: 0;
     font-size: 18px;
   }
+  .blog-label {
+    padding-top: 0;
+    padding-bottom: 25px;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -191,17 +204,35 @@ body {
 }
 
 .label-project:before {
-  content: '\f0c3';
+  content: '\f121';
 }
 .label-about:before {
-  content: '\f2c0';
+  content: '\f129';
 }
 .label-blog:before {
-  content: '\f09e';
+  content: '\f1dd';
 }
 
 @media screen and (max-width: 768px) {
   nav {
     padding-bottom: 2rem;
   }
+}
+
+.btn {
+  padding: 0;
+  margin: 0;
+  color: #e5ae2d;
+  background: #fff;
+  border: 0 solid #333;
+}
+
+.btn:hover {
+  border: 0 solid #e5ae2d;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  border: 0 solid #999999;
+  color: #cccccc;
 }

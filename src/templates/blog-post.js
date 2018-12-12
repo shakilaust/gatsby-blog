@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
 import Bio from '../components/Bio'
-import Layout from '../components/Layout'
+import Layout from '../components/TwoColumnLayout'
 import Tag from '../components/Tag'
 import Pagination from '../components/Pagination'
 
@@ -15,6 +15,7 @@ import {
   Comments,
   CommentsCount,
 } from 'react-facebook'
+import Breadcrumb from '../components/Breadcrumb'
 
 const _ = require('lodash')
 
@@ -48,6 +49,24 @@ class BlogPostTemplate extends React.Component {
         subTitle={blogTitle}
       >
         <Helmet title={`${post.frontmatter.title} | ${blogTitle}`} />
+
+        <Breadcrumb
+          links={[
+            {
+              url: '/',
+              label: 'root',
+            },
+            {
+              url: '/blog',
+              label: 'blog',
+            },
+            {
+              url: '#',
+              label: 'post',
+            },
+          ]}
+        />
+
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -90,18 +109,14 @@ class BlogPostTemplate extends React.Component {
         <Bio />
 
         <Pagination
-          next={
-            next && {
-              url: next.fields.slug,
-              label: next.frontmatter.title,
-            }
-          }
-          previous={
-            previous && {
-              url: previous.fields.slug,
-              label: previous.frontmatter.title,
-            }
-          }
+          next={{
+            url: next && next.fields.slug,
+            label: next && next.frontmatter.title,
+          }}
+          previous={{
+            url: previous && previous.fields.slug,
+            label: previous && previous.frontmatter.title,
+          }}
         />
 
         <hr />

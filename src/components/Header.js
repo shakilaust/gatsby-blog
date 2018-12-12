@@ -5,8 +5,27 @@ import '../assets/bootstrap.min.css'
 import '../assets/site.css'
 const avatar = require('../assets/avatar.jpg')
 import Styles from '../utils/styles'
+import classnames from 'classnames'
 
 class Header extends React.Component {
+  getClassNames(tab) {
+    const path = this.props.pathname
+    let classes = ['label']
+    if (tab === 'project') {
+      classes.push('label-project')
+      if (path === '/') classes.push('label-active')
+    } else if (tab === 'about') {
+      classes.push('label-about')
+      const pattern = new RegExp(`^\/about(\/)?$`)
+      if (pattern.test(path)) classes.push('label-active')
+    } else if (tab === 'blog') {
+      classes.push('label-blog')
+      const pattern = new RegExp(`^\/blog(\/)?.*$`)
+      if (pattern.test(path)) classes.push('label-active')
+    }
+    return classnames(classes)
+  }
+
   render() {
     return (
       <header>
@@ -28,17 +47,17 @@ class Header extends React.Component {
                 </h1>
                 <nav>
                   <Link to="/">
-                    <div className="label label-active label-project">
+                    <div className={this.getClassNames('project')}>
                       Projects
                     </div>
                   </Link>
 
                   <Link to="/about">
-                    <div className="label label-about">About</div>
+                    <div className={this.getClassNames('about')}>About</div>
                   </Link>
 
                   <Link to="/blog">
-                    <div className="label label-blog">Blog</div>
+                    <div className={this.getClassNames('blog')}>Blog</div>
                   </Link>
                 </nav>
               </div>

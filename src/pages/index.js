@@ -6,6 +6,7 @@ import '../assets/site.css'
 const avatar = require('../assets/avatar.jpg')
 import Styles from '../utils/styles'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 class Index extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class Index extends React.Component {
     const projects = data.allProjectsJson.edges
     return (
       <div>
-        <Header />
+        <Header {...this.props.location} />
         <section
           style={{
             paddingTop: '1em',
@@ -101,82 +102,7 @@ class Index extends React.Component {
             </Col>
           </Row>
         </section>
-        <footer
-          style={{
-            backgroundColor: '#e6e6e6',
-            paddingTop: '4em',
-            paddingBottom: '4em',
-          }}
-        >
-          <Row style={Styles.row}>
-            <Col xs={12} md={6} className="footer-left-panel">
-              <span
-                style={{
-                  margin: 0,
-                }}
-              >
-                Made by <Link to="#"> meha</Link>{' '}
-                <i
-                  className="fa fa-heart"
-                  style={{
-                    color: 'red',
-                  }}
-                />
-                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <a
-                  href="https://github.com/mehamasum/mehamasum.github.io"
-                  target="_blank"
-                >
-                  Open Source
-                  <i
-                    className="fa fa-code-fork"
-                    style={{
-                      marginLeft: '0.5rem',
-                    }}
-                  />
-                </a>
-              </span>
-            </Col>
-            <Col xs={12} md={6} className="footer-right-panel">
-              <ul style={Styles.unlistedItem}>
-                <li style={Styles.inlineListItem}>Contacts</li>
-                <li style={Styles.inlineListItem}>
-                  <a href="#">
-                    <i
-                      className="fa fa-github"
-                      style={{
-                        marginRight: '0.5rem',
-                      }}
-                    />
-                    Github
-                  </a>
-                </li>
-                <li style={Styles.inlineListItem}>
-                  <a href="#">
-                    <i
-                      className="fa fa-twitter"
-                      style={{
-                        marginRight: '0.5rem',
-                      }}
-                    />
-                    Twitter
-                  </a>
-                </li>
-                <li style={Styles.inlineListItem}>
-                  <a href="#">
-                    <i
-                      className="fa fa-linkedin"
-                      style={{
-                        marginRight: '0.5rem',
-                      }}
-                    />
-                    LinkedIn
-                  </a>
-                </li>
-              </ul>
-            </Col>
-          </Row>
-        </footer>
+        <Footer />
       </div>
     )
   }

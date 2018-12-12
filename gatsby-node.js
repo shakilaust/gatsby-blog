@@ -53,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
           })
         })
 
-        const postsPerPage = 2
+        const postsPerPage = 10
         const numPages = Math.ceil(posts.length / postsPerPage)
 
         const hasNext = index =>
@@ -68,6 +68,8 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             limit: postsPerPage,
             skip: 0,
+            current: 1,
+            total: numPages,
             previous: hasPrev(0),
             next: hasNext(0),
           },
@@ -82,6 +84,8 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               limit: postsPerPage,
               skip: i * postsPerPage,
+              current: i + 1,
+              total: numPages,
               previous: hasPrev(i),
               next: hasNext(i),
             },
@@ -118,6 +122,8 @@ exports.createPages = ({ graphql, actions }) => {
               skip: 0,
               previous: hasPrev(0),
               next: hasNext(0),
+              current: 1,
+              total: numPages,
             },
           })
 
@@ -131,6 +137,8 @@ exports.createPages = ({ graphql, actions }) => {
                 skip: i * postsPerPage,
                 previous: hasPrev(i),
                 next: hasNext(i),
+                current: i + 1,
+                total: numPages,
               },
             })
           }

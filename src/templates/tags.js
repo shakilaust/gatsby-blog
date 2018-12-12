@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
-import { rhythm, scale } from '../utils/typography'
+import Breadcrumb from '../components/Breadcrumb'
 
 const Tags = props => {
   const { pageContext, data } = props
@@ -13,16 +13,32 @@ const Tags = props => {
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`
 
-  const { previous, next } = pageContext
+  const { previous, next, current, total } = pageContext
 
   const { blogTitle, blogSlogan } = data.site.siteMetadata
 
   return (
-    <Layout location={props.location} title={blogTitle}>
+    <Layout location={props.location}>
+      <Breadcrumb
+        links={[
+          {
+            url: '/',
+            label: 'root',
+          },
+          {
+            url: '/blog',
+            label: 'blog',
+          },
+          {
+            url: '#',
+            label: `tagged with "${tag}"`,
+          },
+        ]}
+      />
       <h1>{tagHeader}</h1>
       <ul
         style={{
-          margin: rhythm(1),
+          margin: '1rem',
         }}
       >
         {edges.map(({ node }) => {
@@ -45,6 +61,8 @@ const Tags = props => {
           url: next,
           label: 'Next',
         }}
+        current={current}
+        total={total}
       />
     </Layout>
   )
