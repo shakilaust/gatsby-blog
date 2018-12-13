@@ -1,11 +1,6 @@
 import React from 'react'
 
-// Import typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
-
-import profilePic from './profile-pic.jpg'
-import { rhythm } from '../utils/typography'
+import profilePic from '../assets/avatar.jpg'
 
 class Bio extends React.Component {
   render() {
@@ -13,26 +8,39 @@ class Bio extends React.Component {
       <div
         style={{
           display: 'flex',
-          marginBottom: rhythm(2.5),
+          marginBottom: '2.5rem',
         }}
       >
         <img
           src={profilePic}
-          alt={`Kyle Mathews`}
+          alt={`Meha Masum`}
           style={{
-            marginRight: rhythm(1 / 2),
+            marginRight: '1rem',
             marginBottom: 0,
-            width: rhythm(2),
-            height: rhythm(2),
+            width: '60px',
+            height: '60px',
+            borderRadius: '5%',
           }}
         />
-        <p>
-          Written by <strong>Kyle Mathews</strong> who lives and works in San
-          Francisco building useful things.{' '}
-          <a href="https://twitter.com/kylemathews">
-            You should follow him on Twitter
-          </a>
-        </p>
+        <div>
+          Personal blog by{' '}
+          <strong>
+            <a href="/">Mehedi Hasan Masum</a>
+            {'. '}
+          </strong>
+          <br />
+          I explain things with words and code.
+          <br />
+          <span
+            style={{
+              fontSize: '80%',
+            }}
+          >
+            <a href="/" target="_blank">
+              Contact
+            </a>
+          </span>
+        </div>
       </div>
     )
   }

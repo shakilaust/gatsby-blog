@@ -3,30 +3,74 @@ import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
 import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import { rhythm, scale } from '../utils/typography'
-import  Tag  from '../components/Tag';
-const _ = require("lodash")
+import Layout from '../components/TwoColumnLayout'
+import Tag from '../components/Tag'
+import Pagination from '../components/Pagination'
+import { Row, Col } from 'react-bootstrap'
+import PostSummary from '../components/PostSummary'
+import Disqus from 'disqus-react'
+import {
+  FacebookProvider,
+  Like,
+  Share,
+  Comments,
+  CommentsCount,
+} from 'react-facebook'
+import Breadcrumb from '../components/Breadcrumb'
+
+const _ = require('lodash')
+
+const postStyle = {
+  padding: '1rem',
+}
 
 class BlogPostTemplate extends React.Component {
   render() {
-    console.log(this.props.data);
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+
+    const { blogTitle, blogSlogan } = this.props.data.site.siteMetadata
+
+    const fbAppId = this.props.data.site.siteMetadata.fbAppId
     const siteDescription = post.excerpt
-    const { previous, next } = this.props.pageContext
+    const { previous, next, slug } = this.props.pageContext
+
+    const disqusShortname = 'mehamasum'
+    const disqusConfig = {
+      url: `http://localhost:8000${slug}`,
+      identifier: slug,
+      title: post.frontmatter.title,
+    }
+
+    const GITHUB_USERNAME = 'mehamasum'
+    const GITHUB_REPO_NAME = 'mehamasum.github.io'
+
+    const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/blog/src/pages${slug}index.md`
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={`${post.frontmatter.title} | ${siteTitle}`}
+      <Layout location={this.props.location}>
+        <Helmet title={`${post.frontmatter.title} | ${blogTitle}`} />
+
+        <Breadcrumb
+          links={[
+            {
+              url: '/',
+              label: 'root',
+            },
+            {
+              url: '/blog',
+              label: 'blog',
+            },
+            {
+              url: '#',
+              label: 'post',
+            },
+          ]}
         />
+
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
-            ...scale(-1 / 5),
             display: 'block',
           }}
         >
@@ -34,49 +78,73 @@ class BlogPostTemplate extends React.Component {
           {` • ${post.timeToRead} min read`}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            margin: rhythm(1),
-          }}
-        />
-        {post.frontmatter.tags.map(tag=>(
-          <Tag tag={tag} key={tag}/>
-        ))}
 
-        <hr
+        <p
           style={{
-            margin: rhythm(1),
+            margin: '2em 0',
           }}
-        />
+        >
+          <i
+            className="fa fa-tag fa-flip-horizontal"
+            style={{
+              marginRight: '0.5em',
+              color: 'grey',
+            }}
+          />
+          {post.frontmatter.tags.map(tag => (
+            <Tag tag={tag} key={tag} />
+          ))}
+        </p>
+
+        <p
+          style={{
+            fontSize: '80%',
+            float: 'right',
+          }}
+        >
+          <a href={editUrl} target="_blank">
+            Edit on GitHub
+          </a>
+        </p>
+
+        <div
+          style={{
+            marginTop: '1rem',
+            marginBottom: '1rem',
+          }}
+        >
+          <FacebookProvider appId={fbAppId}>
+            <Like href={disqusConfig.url} colorScheme="dark" share />
+          </FacebookProvider>
+        </div>
+
+        <hr />
 
         <Bio />
 
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          <li>
-            {
-              previous &&
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            }
-          </li>
-          <li>
-            {
-              next &&
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            }
-          </li>
-        </ul>
+        <hr />
+        <h4>Read more stories...</h4>
+
+        <Row>
+          {next && (
+            <Col xs={6} style={postStyle}>
+              <PostSummary post={next} />
+            </Col>
+          )}
+          {previous && (
+            <Col xs={6} style={postStyle}>
+              <PostSummary post={previous} />
+            </Col>
+          )}
+        </Row>
+
+        <hr />
+
+        <div>
+          <FacebookProvider appId={fbAppId}>
+            <Comments href={disqusConfig.url} />
+          </FacebookProvider>
+        </div>
       </Layout>
     )
   }
@@ -90,6 +158,9 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        fbAppId
+        blogTitle
+        blogSlogan
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

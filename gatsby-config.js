@@ -1,9 +1,23 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
+    title: 'Meha Masum Resume Website',
+    titleTemplate: '%s · The Real Hero',
+    titleAlt: 'Meha Masum Resume Website',
+    shortName: 'Meha Masum Resume',
+
+    blogTitle: "Meha Masum's Tech Blog",
+    blogSlogan: 'Learning in public',
+
     author: 'Meha Masum',
     description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
+    url: 'http://localhost:8000',
+    siteUrl: 'http://localhost:8000',
+    siteLanguage: 'en',
+    logo: `${__dirname}/src/assets/gatsby-icon.png`,
+    pathPrefix: '/',
+    banner: `${__dirname}/src/assets/gatsby-icon.png`,
+    twitter: '@mehamasum',
+    fbAppId: '491095678046627',
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -59,10 +73,11 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-json`,
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        pathToConfigModule: 'src/utils/typography',
+        path: `./src/data/`,
       },
     },
   ],
