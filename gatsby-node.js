@@ -16,10 +16,14 @@ exports.createPages = ({ graphql, actions }) => {
             ) {
               edges {
                 node {
+                  id
+                  excerpt
                   fields {
                     slug
                   }
+                  timeToRead
                   frontmatter {
+                    date(formatString: "MMMM DD, YYYY")
                     title
                     tags
                   }

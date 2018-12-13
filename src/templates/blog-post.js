@@ -6,7 +6,8 @@ import Bio from '../components/Bio'
 import Layout from '../components/TwoColumnLayout'
 import Tag from '../components/Tag'
 import Pagination from '../components/Pagination'
-
+import { Row, Col } from 'react-bootstrap'
+import PostSummary from '../components/PostSummary'
 import Disqus from 'disqus-react'
 import {
   FacebookProvider,
@@ -18,6 +19,10 @@ import {
 import Breadcrumb from '../components/Breadcrumb'
 
 const _ = require('lodash')
+
+const postStyle = {
+  padding: '1rem',
+}
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -43,11 +48,7 @@ class BlogPostTemplate extends React.Component {
     const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/blog/src/pages${slug}index.md`
 
     return (
-      <Layout
-        location={this.props.location}
-        title={blogSlogan}
-        subTitle={blogTitle}
-      >
+      <Layout location={this.props.location}>
         <Helmet title={`${post.frontmatter.title} | ${blogTitle}`} />
 
         <Breadcrumb
@@ -78,9 +79,22 @@ class BlogPostTemplate extends React.Component {
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-        {post.frontmatter.tags.map(tag => (
-          <Tag tag={tag} key={tag} />
-        ))}
+        <p
+          style={{
+            margin: '2em 0',
+          }}
+        >
+          <i
+            className="fa fa-tag fa-flip-horizontal"
+            style={{
+              marginRight: '0.5em',
+              color: 'grey',
+            }}
+          />
+          {post.frontmatter.tags.map(tag => (
+            <Tag tag={tag} key={tag} />
+          ))}
+        </p>
 
         <p
           style={{
@@ -108,16 +122,21 @@ class BlogPostTemplate extends React.Component {
 
         <Bio />
 
-        <Pagination
-          next={{
-            url: next && next.fields.slug,
-            label: next && next.frontmatter.title,
-          }}
-          previous={{
-            url: previous && previous.fields.slug,
-            label: previous && previous.frontmatter.title,
-          }}
-        />
+        <hr />
+        <h4>Read more stories...</h4>
+
+        <Row>
+          {next && (
+            <Col xs={6} style={postStyle}>
+              <PostSummary post={next} />
+            </Col>
+          )}
+          {previous && (
+            <Col xs={6} style={postStyle}>
+              <PostSummary post={previous} />
+            </Col>
+          )}
+        </Row>
 
         <hr />
 

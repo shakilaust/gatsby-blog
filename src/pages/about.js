@@ -7,6 +7,7 @@ const avatar = require('../assets/avatar.jpg')
 import Styles from '../utils/styles'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 
 class Index extends React.Component {
   render() {
@@ -15,20 +16,7 @@ class Index extends React.Component {
     console.log(data)
     const projects = data.allProjectsJson.edges
     return (
-      <div>
-        <Header {...this.props.location} />
-        <section
-          style={{
-            paddingTop: '1em',
-            paddingBottom: '1em',
-          }}
-        >
-          <Row style={Styles.row}>
-            <Col sm={12}>I will say a lot hha..</Col>
-          </Row>
-        </section>
-        <Footer />
-      </div>
+      <Layout location={this.props.location}>I will say a lot hha..</Layout>
     )
   }
 }

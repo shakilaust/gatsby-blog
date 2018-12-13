@@ -7,6 +7,7 @@ import Tag from '../components/Tag'
 import Layout from '../components/TwoColumnLayout'
 import { Col, Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
+import PostSummary from '../components/PostSummary'
 
 class BlogIndex extends React.Component {
   render() {
@@ -25,62 +26,15 @@ class BlogIndex extends React.Component {
           title={siteTitle}
         />
         {posts.map(post => {
-          const { node } = post
-          const title = node.frontmatter.title || node.fields.slug
           return (
-            <Row>
-              <Col xs={9} md={10}>
-                <div
-                  key={node.fields.slug}
-                  style={{
-                    marginBottom: '1.5em',
-                    background: 'white',
-                  }}
-                >
-                  <h3 style={{ marginTop: 0 }}>
-                    <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                      {title}
-                    </Link>
-                  </h3>
-                  <small>
-                    {node.frontmatter.date}
-                    {` • ${node.timeToRead} min read`}
-                  </small>
-                  <p
-                    style={{
-                      marginTop: '0.25rem',
-                      marginBottom: '0.25rem',
-                    }}
-                    dangerouslySetInnerHTML={{ __html: node.excerpt }}
-                  />
-                  <div
-                    style={{
-                      marginTop: '1.5rem',
-                    }}
-                  >
-                    <i
-                      className="fa fa-tag fa-flip-horizontal"
-                      style={{
-                        marginRight: '0.5em',
-                        color: 'grey',
-                      }}
-                    />
-                    {node.frontmatter.tags.map(tag => (
-                      <Tag tag={tag} key={tag} />
-                    ))}
-                  </div>
-                </div>
-              </Col>
-              <Col xs={3} md={2}>
-                <img
-                  src="https://picsum.photos/400/400"
-                  alt="Featured Image"
-                  style={{
-                    width: '100%',
-                  }}
-                />
-              </Col>
-            </Row>
+            <div
+              key={post.node.id}
+              style={{
+                marginBottom: '2.5em',
+              }}
+            >
+              <PostSummary post={post.node} />
+            </div>
           )
         })}
         <Pagination

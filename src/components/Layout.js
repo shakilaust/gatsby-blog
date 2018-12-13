@@ -5,6 +5,7 @@ import Styles from '../utils/styles'
 import SEO from '../components/seo/SEO'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Section from '../components/Section'
 
 class Layout extends React.Component {
   render() {
@@ -15,16 +16,7 @@ class Layout extends React.Component {
       <div>
         <SEO />
         <Header {...location} />
-        <section
-          style={{
-            paddingTop: '1em',
-            paddingBottom: '1em',
-          }}
-        >
-          <Row style={Styles.row}>
-            <Col sm={12}>{children}</Col>
-          </Row>
-        </section>
+        <Section>{children}</Section>
         <Footer />
       </div>
     )

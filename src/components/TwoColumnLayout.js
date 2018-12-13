@@ -45,7 +45,7 @@ class Layout extends React.Component {
                           fontFamily: 'monospace',
                         }}
                       >
-                        Learning in public
+                        {'<Learning in public/>'}
                       </h1>
                       <div className="blog-label">
                         <Link to="/">Meha Masum</Link>'s Personal Blog
@@ -69,14 +69,17 @@ class Layout extends React.Component {
                   <Col xs={12} md={8} mdOffset={1}>
                     <div>
                       <div>
-                        <h1
-                          style={{
-                            marginBottom: '0.2em',
-                            fontFamily: 'monospace',
-                          }}
-                        >
-                          Learning in public
-                        </h1>
+                        <Link to="/blog">
+                          <h1
+                            style={{
+                              marginBottom: '0.2em',
+                              fontFamily: 'monospace',
+                              color: 'white',
+                            }}
+                          >
+                            {'<Learning in public/>'}
+                          </h1>
+                        </Link>
                         <div
                           style={{
                             padding: '0 0 1.3em 0',
@@ -100,13 +103,13 @@ class Layout extends React.Component {
           }}
         >
           <Row>
-            <Col xs={12} md={8} mdOffset={1}>
+            <Col xs={12} md={7} mdOffset={1}>
               {this.props.children}
             </Col>
-            <Col md={2}>
+            <Col xs={12} md={3}>
               <div>
                 <label
-                  for="search"
+                  htmlFor="search"
                   style={{ display: 'inline-block', marginBottom: '0.5rem' }}
                 >
                   Search
@@ -125,13 +128,16 @@ class Layout extends React.Component {
                     border: '1px solid #ced4da',
                     borderRadius: '.25rem',
                   }}
+                  onKeyDown={() => {
+                    if (event.keyCode == 13) window.location.href = '/search'
+                  }}
                 />
               </div>
               <div>
                 <h4>All tags</h4>
                 <ul>
                   {Object.keys(tagCount).map(key => (
-                    <li>
+                    <li key={key}>
                       <Link to={`/blog/tags/${key}`}>{`${key} (${
                         tagCount[key]
                       })`}</Link>
