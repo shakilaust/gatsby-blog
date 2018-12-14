@@ -35,3 +35,22 @@
 .layoutRow:after {
   clear: both;
 }
+
+.badge {
+  padding: 0.5em;
+  color: $greyText;
+  background: $greyBackground;
+  margin: 0 0 0 0.5rem;
+  border-radius: 5px;
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+}
+
+.tag {
+  font-size: 85%;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-decoration: none;
+}

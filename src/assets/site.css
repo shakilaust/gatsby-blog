@@ -248,68 +248,6 @@ a:focus {
   color: #cccccc;
 }
 
-.extremePostPreview {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  width: 100%;
-}
-
-.extremePostPreview-image {
-  width: 152px;
-}
-
-@media screen and (max-width: 855px) {
-  .extremePostPreview {
-    max-width: 100%;
-  }
-
-  .extremePostPreview-image {
-    width: 140px;
-  }
-}
-
-@media screen and (max-width: 503px) {
-  .extremePostPreview-image {
-    width: 80px;
-    height: 72px;
-  }
-}
-
-.u-flex0 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.u-flex1 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-}
-
-.u-backgroundCover {
-  background-position: 43% 56% !important;
-  background-position: center !important;
-  background-origin: border-box !important;
-  background-size: cover !important;
-}
-.u-sizeFull {
-  width: 100% !important;
-  height: 100% !important;
-}
-
 #___gatsby {
   width: 100%;
 }

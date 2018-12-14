@@ -6,20 +6,7 @@ export default props => {
   const { links } = props
 
   return (
-    <ul
-      className="unorderedList"
-      style={{
-        fontFamily: 'monospace',
-        padding: '0.5rem',
-        color: 'rgba(0,0,0,.68)',
-        background: 'rgba(0,0,0,.05)',
-        marginRight: '0.5rem',
-        marginBottom: '0.5rem',
-        borderRadius: '.25em',
-        display: 'inline',
-        padding: '.2em .6em .3em',
-      }}
-    >
+    <ul className="unorderedList badge">
       {links.slice(0, links.length - 1).map(link => (
         <li className="inlineListItem">
           <Link to={link.url}>{link.label}</Link>&nbsp;

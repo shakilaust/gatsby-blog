@@ -1,0 +1,71 @@
+@import './_variables';
+
+.postPreview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.postPreviewHeading {
+  margin: 0.2rem 0;
+}
+
+.postPreviewExcerpt {
+  margin: 1rem 0;
+}
+
+.postPreviewThumbnail {
+  width: 152px;
+}
+
+@media screen and (max-width: 855px) {
+  .postPreview {
+    max-width: 100%;
+  }
+
+  .postPreviewThumbnail {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 503px) {
+  .postPreviewThumbnail {
+    width: 80px;
+    height: 72px;
+  }
+}
+
+.flex0 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.flex1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.backgroundCover {
+  background-position: 43% 56% !important;
+  background-position: center !important;
+  background-origin: border-box !important;
+  background-size: cover !important;
+}
+.sizeFull {
+  width: 100% !important;
+  height: 100% !important;
+}

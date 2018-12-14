@@ -61,18 +61,21 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {posts.map(post => {
-          return (
-            <div
-              key={post.node.id}
-              style={{
-                marginBottom: '2.5em',
-              }}
-            >
-              <PostSummary post={post.node} />
-            </div>
-          )
-        })}
+        <div>
+          {posts.map(post => {
+            return (
+              <div
+                key={post.node.id}
+                style={{
+                  marginBottom: '2.5em',
+                }}
+              >
+                <PostSummary post={post.node} />
+              </div>
+            )
+          })}
+        </div>
+
         <Pagination
           previous={{
             url: previous,
