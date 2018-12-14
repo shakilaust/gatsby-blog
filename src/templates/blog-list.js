@@ -4,10 +4,12 @@ import Helmet from 'react-helmet'
 
 import Bio from '../components/Bio'
 import Tag from '../components/Tag'
-import Layout from '../components/TwoColumnLayout'
+import TwoColumnLayout from '../components/TwoColumnLayout'
 import { Col, Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
 import PostSummary from '../components/PostSummary'
+import '../styles/index.scss'
+const avatar = require('../assets/avatar.jpg')
 
 class BlogIndex extends React.Component {
   render() {
@@ -19,7 +21,41 @@ class BlogIndex extends React.Component {
     const { previous, next, current, total } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} full>
+      <TwoColumnLayout
+        location={this.props.location}
+        header={
+          <div>
+            <div className="portfolio-cover" />
+            <div className="layoutRow">
+              <Col xs={12}>
+                <div className="portfolio-user">
+                  <div className="portfolio-user-photo">
+                    <img
+                      alt="Mehedi Hasan Masum's avatar"
+                      className="user-photo"
+                      src={avatar}
+                    />
+                  </div>
+
+                  <div className="portfolio-user-info">
+                    <h1
+                      className="portfolio-user-name"
+                      style={{
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      {'<Learning in public/>'}
+                    </h1>
+                    <div className="blog-label">
+                      <Link to="/">Meha Masum</Link>'s Personal Blog
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </div>
+          </div>
+        }
+      >
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
@@ -49,7 +85,7 @@ class BlogIndex extends React.Component {
           current={current}
           total={total}
         />
-      </Layout>
+      </TwoColumnLayout>
     )
   }
 }

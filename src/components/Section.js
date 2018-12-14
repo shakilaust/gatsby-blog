@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
-import Styles from '../utils/styles'
+import '../styles/index.scss'
 
 class Section extends React.Component {
   render() {
@@ -9,11 +9,12 @@ class Section extends React.Component {
         style={{
           paddingTop: '1em',
           paddingBottom: '1em',
+          minHeight: '300px',
         }}
       >
-        <Row style={Styles.row}>
+        <div className="layoutRow">
           <Col sm={12}>{this.props.children}</Col>
-        </Row>
+        </div>
       </section>
     )
   }

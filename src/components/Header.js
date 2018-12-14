@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import '../assets/bootstrap.min.css'
 import '../assets/site.css'
 const avatar = require('../assets/avatar.jpg')
-import Styles from '../utils/styles'
+import '../styles/index.scss'
 import classnames from 'classnames'
 
 class Header extends React.Component {
@@ -30,7 +30,7 @@ class Header extends React.Component {
     return (
       <header>
         <div className="portfolio-cover" />
-        <Row style={Styles.row}>
+        <div className="layoutRow">
           <Col xs={12}>
             <div className="portfolio-user">
               <div className="portfolio-user-photo">
@@ -63,7 +63,7 @@ class Header extends React.Component {
               </div>
             </div>
           </Col>
-        </Row>
+        </div>
       </header>
     )
   }

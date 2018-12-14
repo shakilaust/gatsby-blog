@@ -1,0 +1,8 @@
+@import './_variables';
+
+.AboutBlogWidget {
+  background-color: $primaryColor;
+  color: white;
+  padding: 1em;
+  border-top: 5px solid $primaryColorDarker;
+}

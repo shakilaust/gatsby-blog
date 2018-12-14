@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Styles from '../utils/styles'
+import '../styles/index.scss'
 
 const renderButton = (context, dir) => {
   if (!context || !context.url)
@@ -33,17 +33,12 @@ export default props => {
   if (current === 1 && total === 1) return null
 
   return (
-    <ul
-      style={{
-        ...Styles.unlistedItem,
-        textAlign: 'center',
-      }}
-    >
-      <li style={Styles.inlineListItem}>{renderButton(previous, 'left')}</li>
+    <ul className="unorderedList">
+      <li className="inlineListItem">{renderButton(previous, 'left')}</li>
       {current && total && (
-        <li style={Styles.inlineListItem}>{`${current}/${total}`}</li>
+        <li className="inlineListItem">{`${current}/${total}`}</li>
       )}
-      <li style={Styles.inlineListItem}>{renderButton(next, 'right')}</li>
+      <li className="inlineListItem">{renderButton(next, 'right')}</li>
     </ul>
   )
 }
