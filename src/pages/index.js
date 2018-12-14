@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import '../assets/bootstrap.min.css'
 import '../assets/site.css'
 const avatar = require('../assets/avatar.jpg')
-import Styles from '../utils/styles'
+import '../styles/index.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Section from '../components/Section'

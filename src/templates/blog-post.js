@@ -48,7 +48,52 @@ class BlogPostTemplate extends React.Component {
     const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/blog/src/pages${slug}index.md`
 
     return (
-      <Layout location={this.props.location}>
+      <Layout
+        location={this.props.location}
+        header={
+          <div
+            style={{
+              color: 'white',
+              backgroundColor: '#364657',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              padding: '2em 0',
+            }}
+          >
+            <Row>
+              <Col xs={12} md={8} mdOffset={1}>
+                <div>
+                  <div>
+                    <h1
+                      style={{
+                        marginBottom: '0.2em',
+                        fontFamily: 'monospace',
+                      }}
+                    >
+                      <Link
+                        to="/blog"
+                        style={{
+                          color: 'white',
+                        }}
+                      >
+                        {'<Learning in public/>'}
+                      </Link>
+                    </h1>
+
+                    <div
+                      style={{
+                        padding: '0 0 1.3em 0',
+                      }}
+                    >
+                      Meha Masum's Personal blog
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        }
+      >
         <Helmet title={`${post.frontmatter.title} | ${blogTitle}`} />
 
         <Breadcrumb

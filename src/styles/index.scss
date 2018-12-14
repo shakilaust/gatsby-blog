@@ -1,0 +1,37 @@
+@import './variables';
+
+.inlineListItem {
+  display: inline-block;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+.unorderedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.layoutColumn {
+  padding: 1em 1em;
+}
+
+.midSection {
+  padding: 1em 0;
+}
+
+.layoutRow {
+  width: 100%;
+  max-width: 65em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.layoutRow:before,
+.layoutRow:after {
+  content: ' ';
+  display: table;
+}
+.layoutRow:after {
+  clear: both;
+}

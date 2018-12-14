@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import '../assets/bootstrap.min.css'
 import '../assets/site.css'
 const avatar = require('../assets/avatar.jpg')
-import Styles from '../utils/styles'
+import '../styles/index.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -19,7 +19,7 @@ class Search extends React.Component {
             paddingBottom: '13em',
           }}
         >
-          <Row style={Styles.row}>
+          <div className="layoutRow">
             <Col sm={12}>
               <div>
                 <h1>
@@ -28,7 +28,7 @@ class Search extends React.Component {
                 </h1>
               </div>
             </Col>
-          </Row>
+          </div>
         </section>
         <Footer />
       </div>

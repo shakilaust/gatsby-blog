@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { Row, Col } from 'react-bootstrap'
-import Styles from '../utils/styles'
+import '../styles/index.scss'
 import SEO from '../components/seo/SEO'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -9,14 +7,11 @@ import Section from '../components/Section'
 
 class Layout extends React.Component {
   render() {
-    const { location, title, subTitle, children } = this.props
-    const blogRootPath = `${__PATH_PREFIX__}/blog`
-
     return (
       <div>
         <SEO />
-        <Header {...location} />
-        <Section>{children}</Section>
+        <Header {...this.props.location} />
+        <Section>{this.props.children}</Section>
         <Footer />
       </div>
     )
