@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import { TagCloud } from 'react-tagcloud'
 
 class Topics extends React.Component {
   render() {
@@ -16,16 +17,35 @@ class Topics extends React.Component {
 
     return (
       <div>
-        <h4>Topics</h4>
-        <ul>
-          {Object.keys(tagCount).map(key => (
-            <li key={key}>
-              <Link to={`/blog/tags/${key}`}>{`${key} (${
-                tagCount[key]
-              })`}</Link>
-            </li>
-          ))}
-        </ul>
+        <h4>Tag Cloud</h4>
+
+        <TagCloud
+          minSize={12}
+          maxSize={35}
+          tags={Object.keys(tagCount).map((key, index) => ({
+            value: key,
+            count: tagCount[key],
+            url: `/blog/tags/${key}`,
+            key: index,
+          }))}
+          renderer={(tag, size, color) => {
+            const fontSize = size + 'px'
+            const key = tag.key || tag.value
+            const style = {
+              ...{
+                margin: '0px 3px',
+                verticalAlign: 'middle',
+                display: 'inline-block',
+              },
+              ...{ color, fontSize },
+            }
+            return (
+              <span key={key} className="tag-cloud-tag" style={style}>
+                <Link to={tag.url}>{tag.value}</Link>
+              </span>
+            )
+          }}
+        />
       </div>
     )
   }

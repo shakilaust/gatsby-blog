@@ -124,6 +124,7 @@ export const blogListQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
+            category
           }
         }
       }

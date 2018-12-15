@@ -26,6 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
                     date(formatString: "MMMM DD, YYYY")
                     title
                     tags
+                    category
                   }
                 }
               }
@@ -137,6 +138,57 @@ exports.createPages = ({ graphql, actions }) => {
               component: tagTemplate,
               context: {
                 tag,
+                limit: postsPerPage,
+                skip: i * postsPerPage,
+                previous: hasPrev(i),
+                next: hasNext(i),
+                current: i + 1,
+                total: numPages,
+              },
+            })
+          }
+        })
+
+        // Category pages
+        const catTemplate = path.resolve('./src/templates/category.js')
+        let catCount = {}
+        posts.forEach(post => {
+          const cat = post.node.frontmatter.category
+          if (catCount[cat]) catCount[cat]++
+          else catCount[cat] = 1
+        })
+        Object.keys(catCount).forEach(cat => {
+          const postsPerPage = 1
+          const numPages = Math.ceil(catCount[cat] / postsPerPage)
+          const hasNext = index =>
+            index < numPages - 1 ? `/blog/categories/${cat}/${index + 2}` : null
+          const hasPrev = index =>
+            index > 0
+              ? index === 1
+                ? `/blog/categories/${cat}`
+                : `/blog/categories/${cat}/${index}`
+              : null
+
+          createPage({
+            path: `/blog/categories/${cat}`,
+            component: catTemplate,
+            context: {
+              category: cat,
+              limit: postsPerPage,
+              skip: 0,
+              previous: hasPrev(0),
+              next: hasNext(0),
+              current: 1,
+              total: numPages,
+            },
+          })
+
+          for (let i = 0; i < numPages; i++) {
+            createPage({
+              path: `/blog/categories/${cat}/${i + 1}`,
+              component: catTemplate,
+              context: {
+                category: cat,
                 limit: postsPerPage,
                 skip: i * postsPerPage,
                 previous: hasPrev(i),

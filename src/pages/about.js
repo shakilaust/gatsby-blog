@@ -13,9 +13,7 @@ import ContactForm from '../components/widgets/ContactForm'
 class Index extends React.Component {
   render() {
     const { data } = this.props
-    const { blogTitle, blogSlogan } = data.site.siteMetadata
-    console.log(data)
-    const projects = data.allProjectsJson.edges
+
     return (
       <Layout location={this.props.location}>
         <p>
@@ -79,25 +77,6 @@ export const indexQuery = graphql`
         description
         blogTitle
         blogSlogan
-      }
-    }
-
-    allProjectsJson {
-      edges {
-        node {
-          id
-          name
-          date
-          url
-          urlTooltip
-          bio
-          description
-          thumbnail
-          tags {
-            type
-            tag
-          }
-        }
       }
     }
   }

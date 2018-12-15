@@ -16,6 +16,7 @@ import {
   Comments,
   CommentsCount,
 } from 'react-facebook'
+import ShareWidget from '../components/Share'
 import Breadcrumb from '../components/Breadcrumb'
 
 const _ = require('lodash')
@@ -37,7 +38,7 @@ class BlogPostTemplate extends React.Component {
 
     const disqusShortname = 'mehamasum'
     const disqusConfig = {
-      url: `http://localhost:8000${slug}`,
+      url: window.location.href,
       identifier: slug,
       title: post.frontmatter.title,
     }
@@ -74,6 +75,7 @@ class BlogPostTemplate extends React.Component {
                         to="/blog"
                         style={{
                           color: 'white',
+                          textDecoration: 'none',
                         }}
                       >
                         {'<Learning in public/>'}
@@ -119,7 +121,10 @@ class BlogPostTemplate extends React.Component {
             display: 'block',
           }}
         >
-          {post.frontmatter.date}
+          {post.frontmatter.date} in{' '}
+          <Link to={`/blog/categories/${post.frontmatter.category}`}>
+            {post.frontmatter.category}
+          </Link>
           {` • ${post.timeToRead} min read`}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -141,17 +146,6 @@ class BlogPostTemplate extends React.Component {
           ))}
         </p>
 
-        <p
-          style={{
-            fontSize: '80%',
-            float: 'right',
-          }}
-        >
-          <a href={editUrl} target="_blank">
-            Edit on GitHub
-          </a>
-        </p>
-
         <div
           style={{
             marginTop: '1rem',
@@ -159,8 +153,12 @@ class BlogPostTemplate extends React.Component {
           }}
         >
           <FacebookProvider appId={fbAppId}>
-            <Like href={disqusConfig.url} colorScheme="dark" share />
+            <Like href={disqusConfig.url} colorScheme="dark" />
           </FacebookProvider>
+
+          <p>
+            <ShareWidget url={disqusConfig.url} text={disqusConfig.title} />
+          </p>
         </div>
 
         <hr />
@@ -172,12 +170,12 @@ class BlogPostTemplate extends React.Component {
 
         <Row>
           {next && (
-            <Col xs={6} style={postStyle}>
+            <Col xs={12} lg={6} style={postStyle}>
               <PostSummary post={next} />
             </Col>
           )}
           {previous && (
-            <Col xs={6} style={postStyle}>
+            <Col xs={12} lg={6} style={postStyle}>
               <PostSummary post={previous} />
             </Col>
           )}
@@ -217,6 +215,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         tags
+        category
       }
     }
   }

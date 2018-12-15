@@ -385,3 +385,11 @@ blockquote {
   margin: 0;
   margin-bottom: 1em;
 }
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
