@@ -42,9 +42,11 @@ class Header extends React.Component {
               </div>
 
               <div className="portfolio-user-info">
-                <h1 className="portfolio-user-name">
-                  Mehedi Hasan Masum <small>(@mehamasum)</small>
-                </h1>
+                {this.props.title || (
+                  <h1 className="portfolio-user-name">
+                    Mehedi Hasan Masum <small>(@mehamasum)</small>
+                  </h1>
+                )}
                 <nav>
                   <Link to="/">
                     <div className={this.getClassNames('project')}>

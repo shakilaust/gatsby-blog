@@ -7,9 +7,10 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ContactForm from '../components/widgets/ContactForm'
 import AboutBlog from '../components/widgets/AboutBlog'
-import TopicCloud from './widgets/TopicCloud'
+import TagCloud from './widgets/TagCloud'
 import SocialLinks from './widgets/SocialLinks'
 import '../styles/index.scss'
+import AllCategories from './widgets/AllCategories'
 
 class Layout extends React.Component {
   render() {
@@ -19,7 +20,10 @@ class Layout extends React.Component {
         {this.props.header ? (
           <header>{this.props.header}</header>
         ) : (
-          <Header pathname={this.props.location.pathname} />
+          <Header
+            title={this.props.title}
+            pathname={this.props.location.pathname}
+          />
         )}
         <section className="midSection">
           <Row>
@@ -30,7 +34,10 @@ class Layout extends React.Component {
               <AboutBlog />
               <hr />
 
-              <TopicCloud />
+              <AllCategories />
+              <hr />
+
+              <TagCloud />
               <hr />
 
               <SocialLinks />

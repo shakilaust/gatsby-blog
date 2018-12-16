@@ -3,24 +3,22 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 
 class Topics extends React.Component {
   render() {
-    console.log(this.props)
     const posts = this.props.data.allMarkdownRemark.edges
 
     let tagCount = {}
     posts.forEach(post => {
-      post.node.frontmatter.tags.forEach(tag => {
-        if (tagCount[tag]) tagCount[tag]++
-        else tagCount[tag] = 1
-      })
+      const tag = post.node.frontmatter.category
+      if (tagCount[tag]) tagCount[tag]++
+      else tagCount[tag] = 1
     })
 
     return (
       <div>
-        <h4>Topics</h4>
+        <h4>Blog Posts by category</h4>
         <ul>
           {Object.keys(tagCount).map(key => (
             <li key={key}>
-              <Link to={`/blog/tags/${key}`}>{`${key} (${
+              <Link to={`/blog/categories/${key}`}>{`${key} (${
                 tagCount[key]
               })`}</Link>
             </li>
@@ -47,6 +45,7 @@ export default props => (
               frontmatter {
                 title
                 tags
+                category
               }
             }
           }

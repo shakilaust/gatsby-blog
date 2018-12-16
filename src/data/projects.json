@@ -1,98 +1,264 @@
 [
   {
-    "name": "Dragoman",
-    "date": "2018",
-    "url": "",
-    "urlTooltip": "",
-    "bio": "",
-    "description": "",
-    "thumbnail": "",
-    "tags": [
-      {
-        "type": "contribution",
-        "tag": ["Solo"]
-      },
-      {
-        "type": "stack",
-        "tag": [
-          "Python",
-          "Ffmpeg",
-          "AWS Transcribe",
-          "AWS Translate",
-          "AWS Polly",
-          "AWS Lambda",
-          "AWS SAM"
-        ]
-      }
-    ]
-  },
-  {
     "name": "Slack with Voice",
-    "date": "2018",
-    "url": "https://devpost.com/software/swv",
-    "urlTooltip": "Hackthon entry",
-    "bio": "",
-    "description": "",
-    "thumbnail": "",
-    "tags": [
+    "hash": "swv",
+    "kid": false,
+    "year": "2018",
+    "url": [
       {
-        "type": "contribution",
-        "tag": ["Solo"]
-      },
-      {
-        "type": "stack",
-        "tag": ["NodeJS", "AWS Lambda", "Alexa Skill Kit", "Slack API"]
-      },
-      {
-        "type": "success",
-        "tag": ["Hackthon Winner"]
+        "title": "Website",
+        "url": "https://devpost.com/software/swv"
       }
-    ]
+    ],
+    "description": "An unofficial skill that connects your Slack workspace with Amazon Echo",
+    "thumbnail": "/projects/thumbs/swv.jpg",
+    "winner": {
+      "title": "Best Student Software",
+      "platform": "Alexa Skills Challenge: Life Hacks"
+    },
+    "tags": ["NodeJS", "AWS Lambda", "Alexa Skill Kit", "Slack API"]
   },
   {
     "name": "Bear",
-    "date": "2017",
-    "url": "",
-    "urlTooltip": "",
-    "bio": "",
-    "description": "",
-    "thumbnail": "",
-    "tags": [
+    "hash": "bear",
+    "kid": false,
+    "year": "2017",
+    "url": [
       {
-        "type": "contribution",
-        "tag": ["Solo"]
-      },
-      {
-        "type": "stack",
-        "tag": ["NodeJS", "Botkit", "NoSQL"]
-      },
-      {
-        "type": "success",
-        "tag": ["Hackthon Winner"]
+        "title": "Website",
+        "url": "https://devpost.com/software/bearbot"
       }
-    ]
+    ],
+    "description": "A classroom chat-bot that automates repetitive and time-consuming replies from the Professors",
+    "thumbnail": "/projects/thumbs/bear.png",
+    "winner": {
+      "title": "Best Education Software",
+      "platform": "Cisco Spark The Industry Challenge"
+    },
+    "tags": ["NodeJS", "Botkit", "NoSQL"]
   },
   {
     "name": "Apprise",
-    "date": "2017",
-    "url": "",
-    "urlTooltip": "",
-    "bio": "",
-    "description": "",
-    "thumbnail": "",
-    "tags": [
+    "hash": "apprise",
+    "kid": false,
+    "year": "2017",
+    "url": [
       {
-        "type": "contribution",
-        "tag": ["Full Stack", "Team Leader"]
-      },
-      {
-        "type": "stack",
-        "tag": ["Java", "Android SDK", "PHP", "MySQL", "Microsoft Azure"]
-      },
-      {
-        "type": "success",
-        "tag": ["Hackthon Winner"]
+        "title": "Website",
+        "url": "https://devpost.com/software/apprise-23ju6k"
       }
-    ]
+    ],
+    "description": "A Reddit like mobile utility for sharing road safety issues to draw local authority’s attention",
+    "thumbnail": "/projects/thumbs/apprise.png",
+    "winner": {
+      "title": "Second Prize",
+      "platform": "Ford Hack and Role Indore"
+    },
+    "tags": ["Java", "Android SDK", "PHP", "MySQL", "Microsoft Azure"]
+  },
+  {
+    "name": "Rupai",
+    "hash": "rupai",
+    "kid": false,
+    "year": "2017",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/RoboPi-CSEDU/rupai"
+      },
+      {
+        "title": "Publication",
+        "url": "#"
+      }
+    ],
+    "description": "A web based visual programming editor for interfacing DIY Robotics kits",
+    "thumbnail": "/projects/thumbs/rupai.png",
+    "winner": null,
+    "tags": ["Google Blockly", "Arduino", "Raspberry Pi", "Python"]
+  },
+  {
+    "name": "Draw in Trello",
+    "hash": "draw-in-trello",
+    "kid": false,
+    "year": "2017",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/draw-power-up"
+      }
+    ],
+    "description": "A lightweight 'in-app' diagram maker plugin for Trello",
+    "thumbnail": "/projects/thumbs/draw-in-trello.png",
+    "winner": null,
+    "tags": ["Vanilla JS", "mxGraph"]
+  },
+  {
+    "name": "Deal or No Deal",
+    "hash": "dond",
+    "kid": false,
+    "year": "2017",
+    "url": [
+      {
+        "title": "Website",
+        "url": "https://assistant.google.com/services/a/id/55055f085d9e0b30/"
+      }
+    ],
+    "description": "An interactive game for Google Assistant",
+    "thumbnail": "/projects/thumbs/dond.png",
+    "winner": null,
+    "tags": ["NodeJS", "API.AI", "Google cloud"]
+  },
+  {
+    "name": "LiveHealthy",
+    "hash": "live-healthy",
+    "kid": false,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Website",
+        "url": "https://devpost.com/software/livehealthy"
+      }
+    ],
+    "description": "A Web app for Physicians to visualize raw health data synced across multiple devices of the patient",
+    "thumbnail": "/projects/thumbs/live-healthy.png",
+    "winner": {
+      "title": "Best Student Software",
+      "platform": "Redhat Code Healthy with OpenShift"
+    },
+    "tags": ["Redhat Openshift", "PHP", "MySQL"]
+  },
+  {
+    "name": "HealthPal",
+    "hash": "healthpal",
+    "kid": false,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Website",
+        "url": "http://eatlapps.com/apps/app_details/201768"
+      }
+    ],
+    "description": "Swiss army knife health app, pairs with LiveHealthy as health data collector",
+    "thumbnail": "/projects/thumbs/healthpal.png",
+    "winner": {
+      "platform": "EATL Prothom Alo Local Contest",
+      "title": "1st Runner Up (Health)"
+    },
+    "tags": ["Java", "Android SDK"]
+  },
+  {
+    "name": "WiChat",
+    "hash": "wichat",
+    "kid": false,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Website",
+        "url": "https://devpost.com/software/wichat"
+      }
+    ],
+    "description": "A Snapchat like Android application for sharing texts and images that connects nearby users by creating a WiFi Hotspot",
+    "thumbnail": "/projects/thumbs/wichat.png",
+    "winner": {
+      "title": "Best Mobile App in Java Tools Challenge",
+      "platform": "Microsoft Visual Studio Marketplace Hackfest"
+    },
+    "tags": ["Java", "Java Socket", "Android SDK"]
+  },
+  {
+    "name": "OverDrive",
+    "hash": "overdrive",
+    "kid": false,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/sayon794/OverDrive"
+      }
+    ],
+    "description": "A DropBox like file hosting and sharing web app intended for local networks (i.e. lab/classroom)",
+    "thumbnail": "/projects/thumbs/overdrive.png",
+    "winner": null,
+    "tags": ["C++", "POCO", "Vanilla JS"]
+  },
+  {
+    "name": "Lalbus",
+    "hash": "lalbus",
+    "kid": false,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/lalbus"
+      }
+    ],
+    "description": "Bus tracking and schedule management web app for University of Dhaka",
+    "thumbnail": "/projects/thumbs/lalbus.png",
+    "winner": null,
+    "tags": ["PHP", "MySQL", "jQuery"]
+  },
+  {
+    "name": "VisuQSort",
+    "hash": "visuqsort",
+    "kid": true,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/VisuQSort"
+      }
+    ],
+    "description": "Visualization on sorting algorithms in an Interactive Android App",
+    "thumbnail": "/projects/thumbs/visuQSort.png",
+    "winner": null,
+    "tags": ["Java", "Android SDK"]
+  },
+  {
+    "name": "Elegant Resume",
+    "hash": "elegant-resume",
+    "kid": true,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/ElegantResume"
+      }
+    ],
+    "description": "Dashboard based web app maker, for non-tech people ",
+    "thumbnail": "/projects/thumbs/elegant-resume.png",
+    "winner": null,
+    "tags": ["PHP", "MySQL", "jQuery"]
+  },
+  {
+    "name": "Classic Snake",
+    "hash": "snake",
+    "kid": true,
+    "year": "2015",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/snake-assembly"
+      }
+    ],
+    "description": "ASCII charecter based Snake game in assembly language",
+    "thumbnail": "/projects/thumbs/snake.png",
+    "winner": null,
+    "tags": ["Assembly x86", "TASM"]
+  },
+  {
+    "name": "DY Ball",
+    "hash": "dy-ball",
+    "kid": true,
+    "year": "2014",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/dy-ball"
+      }
+    ],
+    "description": "Clone of famous DX Ball game",
+    "thumbnail": "/projects/thumbs/dy-ball.png",
+    "winner": null,
+    "tags": ["C", "C++", "BGI"]
   }
 ]

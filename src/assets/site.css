@@ -3,6 +3,7 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  background: #f4f7f9;
 }
 
 a {
@@ -234,7 +235,7 @@ a:focus {
   padding: 0;
   margin: 0;
   color: #364657;
-  background: #fff;
+  background: none;
   border: 0 solid #333;
 }
 
@@ -246,68 +247,6 @@ a:focus {
 .btn[disabled] {
   border: 0 solid #999999;
   color: #cccccc;
-}
-
-.extremePostPreview {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  width: 100%;
-}
-
-.extremePostPreview-image {
-  width: 152px;
-}
-
-@media screen and (max-width: 855px) {
-  .extremePostPreview {
-    max-width: 100%;
-  }
-
-  .extremePostPreview-image {
-    width: 140px;
-  }
-}
-
-@media screen and (max-width: 503px) {
-  .extremePostPreview-image {
-    width: 80px;
-    height: 72px;
-  }
-}
-
-.u-flex0 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.u-flex1 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-}
-
-.u-backgroundCover {
-  background-position: 43% 56% !important;
-  background-position: center !important;
-  background-origin: border-box !important;
-  background-size: cover !important;
-}
-.u-sizeFull {
-  width: 100% !important;
-  height: 100% !important;
 }
 
 #___gatsby {
@@ -446,4 +385,63 @@ blockquote {
   color: #6a737d;
   margin: 0;
   margin-bottom: 1em;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rc-collapse {
+  border: none !important;
+  background-color: inherit !important;
+}
+
+.rc-collapse > .rc-collapse-item {
+  border-top: 0 !important;
+}
+
+.rc-collapse-content {
+  background-color: none;
+}
+
+.about-section {
+  margin: 0 5%;
+  margin-bottom: 3rem;
+}
+
+.card-content {
+  padding: 10px 16px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* .card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+} */
+
+.padder {
+  padding: 16px 16px 16px;
+}
+
+.date {
+  font-size: 80%;
+}
+
+.highlighted {
+  border: #ffb300;
+  border-width: 1px;
+  border-style: solid;
 }
