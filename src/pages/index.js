@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
+
+import Layout from '../components/TwoColumnLayout'
+import Projects from '../components/Projects'
+
 import '../assets/bootstrap.min.css'
 import '../assets/site.css'
 import '../styles/index.scss'
-import Layout from '../components/Layout'
-import Projects from '../components/Projects'
 
 class Index extends React.Component {
   render() {
@@ -14,7 +16,7 @@ class Index extends React.Component {
     console.log(data)
     return (
       <Layout location={this.props.location}>
-        <Projects data={data} />
+        <Projects data={data} hash={this.props.location.hash} />
       </Layout>
     )
   }
@@ -37,6 +39,7 @@ export const indexQuery = graphql`
       edges {
         node {
           id
+          hash
           name
           kid
           year
@@ -46,7 +49,10 @@ export const indexQuery = graphql`
           }
           description
           thumbnail
-          winner
+          winner {
+            platform
+            title
+          }
           tags
         }
       }

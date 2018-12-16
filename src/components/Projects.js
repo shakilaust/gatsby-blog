@@ -8,6 +8,7 @@ import Collapse, { Panel } from 'rc-collapse'
 import { Grid, Row, Col } from 'react-bootstrap'
 import Tag from '../components/Tag'
 import ribbon from '../assets/winner-ribbon.png'
+import classnames from 'classnames'
 
 const getIcon = urlType => {
   switch (urlType) {
@@ -15,6 +16,8 @@ const getIcon = urlType => {
       return <i className="fa fa-github" />
     case 'Website':
       return <i className="fa fa-external-link" />
+    case 'Publication':
+      return <i className="fa fa-book" />
     default:
       return <i className="fa fa-link" />
   }
@@ -32,15 +35,22 @@ class Projects extends Component {
       activeKey,
     })
   }
+
+  shouldHighlight = (highlightedHash, projectHash) =>
+    highlightedHash.split('#')[1] === projectHash
+
   render() {
     const { data } = this.props
-    const projects = data.allProjectsJson.edges.map(p => p.node)
+    const projects = data.allProjectsJson.edges
+      .map(p => p.node)
+      .filter(p => !p.kid)
     let catCount = {}
     projects.forEach(post => {
       const cat = post.year
       if (!catCount[cat]) catCount[cat] = []
       catCount[cat].push(post)
     })
+
     return (
       <div>
         <Collapse onChange={this.onChange} activeKey={this.state.activeKey}>
@@ -50,7 +60,7 @@ class Projects extends Component {
               const projects = catCount[key]
               return (
                 <Panel header={`${key} (${projects.length})`} key={key}>
-                  <Row>
+                  <Row className="row-eq-height">
                     {projects.map(project => {
                       return (
                         <Col
@@ -65,14 +75,23 @@ class Projects extends Component {
                           }}
                         >
                           <div
+                            id={project.hash}
+                            className={
+                              this.shouldHighlight(
+                                this.props.hash,
+                                project.hash
+                              )
+                                ? 'highlighted'
+                                : ''
+                            }
                             style={{
+                              backgroundColor: 'white',
                               marginBottom: '1.5em',
-                              boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
+                              height: 'calc(100% - 1.5em)',
+                              boxShadow:
+                                '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
                               transition: '0.3s',
                               borderRadius: '5px',
-                              '&hover': {
-                                boxShadow: '0 8px 16px 0 rgba(0, 0, 0, 0.2)',
-                              },
                             }}
                           >
                             {project.winner ? (
@@ -96,8 +115,11 @@ class Projects extends Component {
                             ) : null}
                             <a href={project.url[0].url} target="_blank">
                               <img
-                                src="https://picsum.photos/400/300/?random"
-                                alt="Avatar"
+                                src={
+                                  project.thumbnail ||
+                                  'https://picsum.photos/400/300/?random'
+                                }
+                                alt={project.name}
                                 style={{
                                   width: '100%',
                                   borderRadius: '5px 5px 0 0',
@@ -109,12 +131,20 @@ class Projects extends Component {
                                 padding: '1em',
                               }}
                             >
-                              <h4
+                              <h3
                                 style={{
                                   marginTop: 0,
+                                  textDecoration: 'none',
                                 }}
                               >
-                                {project.name}
+                                <a
+                                  href={project.url[0].url}
+                                  target="_blank"
+                                  style={{ textDecoration: 'none' }}
+                                >
+                                  {project.name}
+                                </a>
+
                                 <ul
                                   className="unorderedList"
                                   style={{
@@ -130,8 +160,7 @@ class Projects extends Component {
                                     </li>
                                   ))}
                                 </ul>
-                              </h4>
-
+                              </h3>
                               <p>{project.description}</p>
                               <div>
                                 <i className="fa fa-tag fa-flip-horizontal" />

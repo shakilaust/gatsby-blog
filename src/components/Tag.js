@@ -6,15 +6,28 @@ class Tag extends React.Component {
   render() {
     return (
       <span className="badge tag">
-        <Link
-          to={this.props.url || `/blog/tags/${this.props.tag}`}
-          style={{
-            textDecoration: 'none',
-            color: 'inherit',
-          }}
-        >
-          {this.props.tag}
-        </Link>
+        {this.props.external ? (
+          <a
+            href={this.props.url}
+            target="_blank"
+            style={{
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
+          >
+            {this.props.tag}
+          </a>
+        ) : (
+          <Link
+            to={this.props.url || `/blog/tags/${this.props.tag}`}
+            style={{
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
+          >
+            {this.props.tag}
+          </Link>
+        )}
       </span>
     )
   }

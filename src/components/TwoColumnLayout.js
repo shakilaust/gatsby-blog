@@ -20,7 +20,10 @@ class Layout extends React.Component {
         {this.props.header ? (
           <header>{this.props.header}</header>
         ) : (
-          <Header pathname={this.props.location.pathname} />
+          <Header
+            title={this.props.title}
+            pathname={this.props.location.pathname}
+          />
         )}
         <section className="midSection">
           <Row>

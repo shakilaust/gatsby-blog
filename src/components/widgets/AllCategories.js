@@ -3,7 +3,6 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 
 class Topics extends React.Component {
   render() {
-    console.log(this.props)
     const posts = this.props.data.allMarkdownRemark.edges
 
     let tagCount = {}
@@ -15,7 +14,7 @@ class Topics extends React.Component {
 
     return (
       <div>
-        <h4>Categories</h4>
+        <h4>Blog Posts by category</h4>
         <ul>
           {Object.keys(tagCount).map(key => (
             <li key={key}>

@@ -8,13 +8,8 @@ class Summary extends React.Component {
     const { post } = this.props
     const title = post.frontmatter.title || post.fields.slug
     return (
-      <div className="postPreview">
-        <div
-          className="flex1"
-          style={{
-            marginRight: '16px',
-          }}
-        >
+      <div className="card postPreview">
+        <div className="card-content flex1">
           <h3 className="postPreviewHeading">
             <Link to={post.fields.slug}>{title}</Link>
           </h3>

@@ -7,77 +7,246 @@ const avatar = require('../assets/avatar.jpg')
 import '../styles/index.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Layout from '../components/Layout'
+import Layout from '../components/TwoColumnLayout'
 import ContactForm from '../components/widgets/ContactForm'
 
-class Index extends React.Component {
-  render() {
-    const { data } = this.props
+import { StaticQuery } from 'gatsby'
+import Tag from '../components/Tag'
 
+const Hackathons = () => (
+  <StaticQuery
+    query={graphql`
+      {
+        allProjectsJson {
+          edges {
+            node {
+              id
+              name
+              hash
+              year
+              url {
+                title
+                url
+              }
+              winner {
+                title
+                platform
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const projects = data.allProjectsJson.edges
+        .map(p => p.node)
+        .filter(p => p.winner)
+        .map(p => (
+          <li key={p.id} style={{ marginBottom: '1rem' }}>
+            <strong>{p.winner.platform}</strong>
+            <br />
+            <span>
+              {p.winner.title}
+              {' | '}
+              <Link to={`/#${p.hash}`} style={{ textDecoration: 'none' }}>
+                {p.name}
+              </Link>
+            </span>
+
+            <div className="date">{p.year}</div>
+          </li>
+        ))
+      return projects
+    }}
+  />
+)
+
+class About extends React.Component {
+  render() {
     return (
       <Layout location={this.props.location}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec metus
-          ex, tempus in vulputate sit amet, placerat eu lorem. Pellentesque
-          vehicula venenatis fringilla. Praesent mollis nisi justo, in semper
-          ipsum feugiat id. In volutpat massa ut rhoncus maximus. Proin id elit
-          sit amet lacus fermentum pellentesque ut viverra arcu. Nulla blandit
-          rutrum nisi vel dictum. Ut rutrum nunc eget mattis fringilla. Mauris
-          scelerisque condimentum urna, eget hendrerit felis vehicula non. Proin
-          aliquet et arcu ac scelerisque. Phasellus luctus interdum mauris eget
-          malesuada. Praesent tristique, diam sit amet accumsan cursus, purus
-          sem pulvinar lectus, in feugiat justo urna id neque. Aenean leo justo,
-          sagittis a est vitae, tempor condimentum sapien. In sit amet mi
-          vulputate, euismod tellus a, vestibulum justo. Cras feugiat, nisl ac
-          rutrum pretium, ex velit tincidunt erat, eu vulputate nibh metus
-          suscipit est. Phasellus tincidunt lectus quis eros gravida faucibus.
-          Praesent erat odio, molestie ut aliquam ut, hendrerit quis risus.
-          Vivamus convallis tincidunt sodales. Quisque scelerisque, mauris id
-          ultrices aliquam, felis eros vestibulum dui, in congue augue nisi vel
-          tellus. Sed nisi quam, efficitur a dictum in, eleifend id ex. Quisque
-          a lectus sed metus dignissim cursus. Proin euismod enim nibh, ac
-          varius dolor sagittis at. Aliquam vitae mollis urna. Aliquam mauris
-          metus, mollis id nisl at, dictum varius enim. Duis placerat, diam
-          sagittis lacinia tincidunt, neque odio pulvinar justo, sed semper sem
-          libero et sem. Quisque odio lorem, vehicula suscipit mi et, aliquet
-          bibendum felis. Etiam id maximus lectus. In felis mauris, dapibus
-          condimentum tempor non, aliquet sit amet mi. Etiam fermentum in velit
-          eget rhoncus. Morbi non auctor libero. Donec auctor tortor at odio
-          accumsan iaculis. Nam tellus nulla, posuere quis nulla at, malesuada
-          lacinia dolor. Nulla hendrerit volutpat lacus, sit amet pretium purus
-          efficitur laoreet. Maecenas libero nulla, interdum sit amet mattis id,
-          aliquam vel tellus. Nulla ultrices ullamcorper ante nec fermentum.
-          Quisque tincidunt nunc pharetra nunc egestas, a porttitor dui
-          vestibulum. Donec auctor egestas turpis at facilisis. Nullam ante
-          arcu, malesuada vel congue ac, feugiat at ligula. Interdum et
-          malesuada fames ac ante ipsum primis in faucibus. Sed libero enim,
-          euismod vulputate nunc quis, ultrices congue risus. Nam at commodo
-          purus. Mauris ac sodales odio. Integer metus purus, imperdiet ut mi
-          ut, posuere tincidunt lorem. Sed nibh orci, vestibulum aliquam odio
-          ac, fringilla maximus elit. Nam in turpis id lacus porttitor vehicula.
-          Integer posuere eget ligula a aliquet. Nulla feugiat volutpat urna,
-          nec lacinia ex gravida quis. Integer id convallis quam. Praesent vitae
-          lacus erat. Etiam feugiat viverra tellus quis aliquam. Aenean maximus
-          elementum purus, at venenatis eros facilisis at. Nunc auctor lacinia
-          congue. Generated 5 paragraphs, 430 words, 2861 bytes of Lorem Ipsum
-        </p>
-        <ContactForm />
+        <Row>
+          <Col xs={12}>
+            <p style={{ textAlign: 'center' }}>
+              Programmer and fresh undergrad. Led my team to 5 international
+              hackathon titles. Love AI and open source. <br />
+              Believer of ‘Roll up your sleeves and get it done’.
+            </p>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs={12}>
+            <div className="about-section">
+              <h3>
+                <i className="fa fa-briefcase" /> Experience
+              </h3>
+              <div>
+                <div>
+                  <div className="card">
+                    <div className="card-content">
+                      <span>
+                        <strong>Software Engineer, </strong>
+                        <a
+                          href="http://codemarshal.com"
+                          className="tip2"
+                          data-toggle="tooltip"
+                          title="Official Website"
+                        >
+                          <span>CodeMarshal </span>
+                        </a>
+                        (former Mukto Soft)
+                        <br />
+                        <div className="date">Feb 2018 - Present</div>
+                      </span>
+                      <p>
+                        Wroking as a Full Stack engineer in building robust SPAs
+                      </p>
+                      <div>
+                        <i className="fa fa-wrench" />
+                        <Tag tag="React" url="https://reactjs.org/" external />
+                        <Tag tag="Redux" url="https://redux.js.org/" external />
+                        <Tag
+                          tag="Django"
+                          url="https://www.djangoproject.com/"
+                          external
+                        />
+                        <Tag
+                          tag="DRF"
+                          url="https://www.django-rest-framework.org/"
+                          external
+                        />
+                        <Tag
+                          tag="PostgreSQL"
+                          url="https://www.postgresql.org/"
+                          external
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-content">
+                      <span>
+                        <strong>Research Assistant, </strong>
+                        <a
+                          href="http://cse.du.ac.bd/robolab"
+                          className="tip2"
+                          data-toggle="tooltip"
+                          title="Official Website"
+                        >
+                          <span>Robotics Lab, CSE, DU</span>
+                        </a>
+                        <br />
+                        <div className="date">July 2015 - July 2018</div>
+                      </span>
+                      <ul>
+                        <li>
+                          Developed Low Cost Robotic kit and Graphical
+                          Programming Language for School Students{' '}
+                          <Link to="/#rupai">(Project: Rupai)</Link>
+                        </li>
+                        <li>
+                          Funded by Ministry of Education, Govt. of Bangladesh
+                        </li>
+                        <li>
+                          Published the work in{' '}
+                          <a href="http://www.icetc.org" target="_blank">
+                            ICETC 2018
+                          </a>
+                        </li>
+                      </ul>
+                      <div>
+                        <i className="fa fa-wrench" />
+                        <Tag
+                          tag="Python 2.7"
+                          url="https://www.python.org/"
+                          external
+                        />
+                        <Tag
+                          tag="Google Blockly"
+                          url="https://developers.google.com/blockly/"
+                          external
+                        />
+                        <Tag tag="OpenCV" url="https://opencv.org/" external />
+                        <Tag
+                          tag="Vanilla JS"
+                          url="http://vanilla-js.com/"
+                          external
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="about-section">
+              <h3>
+                <i className="fa fa-graduation-cap" /> Education
+              </h3>
+              <div>
+                <div>
+                  <div className="card">
+                    <div className="card-content">
+                      <span>
+                        <strong>Dept. of CSE, University of Dhaka</strong>
+                        <div className="date">Batch of 2018</div>
+                      </span>
+                      <ul>
+                        <li>
+                          Bachelor of Science in Computer Science & Engineering
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="about-section">
+              <h3>
+                <i className="fa fa-trophy" /> Honors
+              </h3>
+              <div>
+                <div>
+                  <div className="card">
+                    <div className="card-content">
+                      <span>
+                        <strong>Competitive Programming</strong>
+                      </span>
+                      <ul>
+                        <li>
+                          <span>Represented University of Dhaka in </span>
+                          <a
+                            href="https://icpc.baylor.edu/regionals/finder/dhaka-2015"
+                            target="_blank"
+                          >
+                            ACM-ICPC Asia Dhaka On Site Regional Contest
+                            (DU_Introspection)
+                          </a>
+                          <div className="date">2015</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-content">
+                      <span>
+                        <strong>Software Competition</strong>
+                      </span>
+                      <ul>
+                        <Hackathons />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Col>
+        </Row>
       </Layout>
     )
   }
 }
 
-export default Index
-
-export const indexQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-        blogTitle
-        blogSlogan
-      }
-    }
-  }
-`
+export default About

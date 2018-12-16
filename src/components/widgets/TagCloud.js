@@ -4,7 +4,6 @@ import { TagCloud } from 'react-tagcloud'
 
 class Topics extends React.Component {
   render() {
-    console.log(this.props)
     const posts = this.props.data.allMarkdownRemark.edges
 
     let tagCount = {}
@@ -17,7 +16,7 @@ class Topics extends React.Component {
 
     return (
       <div>
-        <h4>Tag Cloud</h4>
+        <h4>Blog topics</h4>
 
         <TagCloud
           minSize={12}

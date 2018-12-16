@@ -23,37 +23,15 @@ class BlogIndex extends React.Component {
     return (
       <TwoColumnLayout
         location={this.props.location}
-        header={
-          <div>
-            <div className="portfolio-cover" />
-            <div className="layoutRow">
-              <Col xs={12}>
-                <div className="portfolio-user">
-                  <div className="portfolio-user-photo">
-                    <img
-                      alt="Mehedi Hasan Masum's avatar"
-                      className="user-photo"
-                      src={avatar}
-                    />
-                  </div>
-
-                  <div className="portfolio-user-info">
-                    <h1
-                      className="portfolio-user-name"
-                      style={{
-                        fontFamily: 'monospace',
-                      }}
-                    >
-                      {'<Learning in public/>'}
-                    </h1>
-                    <div className="blog-label">
-                      <Link to="/">Meha Masum</Link>'s Personal Blog
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </div>
-          </div>
+        title={
+          <h1
+            className="portfolio-user-name"
+            style={{
+              fontFamily: 'monospace',
+            }}
+          >
+            {'<Learning in public/>'}
+          </h1>
         }
       >
         <Helmet
@@ -67,7 +45,7 @@ class BlogIndex extends React.Component {
               <div
                 key={post.node.id}
                 style={{
-                  marginBottom: '2.5em',
+                  marginBottom: '1em',
                 }}
               >
                 <PostSummary post={post.node} />

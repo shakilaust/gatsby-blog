@@ -1,6 +1,7 @@
 [
   {
     "name": "Slack with Voice",
+    "hash": "swv",
     "kid": false,
     "year": "2018",
     "url": [
@@ -10,12 +11,16 @@
       }
     ],
     "description": "An unofficial skill that connects your Slack workspace with Amazon Echo",
-    "thumbnail": "",
-    "winner": "Best Student Software, Alexa Skills Challenge: Life Hacks",
+    "thumbnail": "/projects/thumbs/swv.jpg",
+    "winner": {
+      "title": "Best Student Software",
+      "platform": "Alexa Skills Challenge: Life Hacks"
+    },
     "tags": ["NodeJS", "AWS Lambda", "Alexa Skill Kit", "Slack API"]
   },
   {
     "name": "Bear",
+    "hash": "bear",
     "kid": false,
     "year": "2017",
     "url": [
@@ -25,12 +30,16 @@
       }
     ],
     "description": "A classroom chat-bot that automates repetitive and time-consuming replies from the Professors",
-    "thumbnail": "",
-    "winner": "Best Student Software, Alexa Skills Challenge: Life Hacks",
+    "thumbnail": "/projects/thumbs/bear.png",
+    "winner": {
+      "title": "Best Education Software",
+      "platform": "Cisco Spark The Industry Challenge"
+    },
     "tags": ["NodeJS", "Botkit", "NoSQL"]
   },
   {
     "name": "Apprise",
+    "hash": "apprise",
     "kid": false,
     "year": "2017",
     "url": [
@@ -40,12 +49,16 @@
       }
     ],
     "description": "A Reddit like mobile utility for sharing road safety issues to draw local authority’s attention",
-    "thumbnail": "",
-    "winner": "Second Prize, Ford Hack and Role Indore",
+    "thumbnail": "/projects/thumbs/apprise.png",
+    "winner": {
+      "title": "Second Prize",
+      "platform": "Ford Hack and Role Indore"
+    },
     "tags": ["Java", "Android SDK", "PHP", "MySQL", "Microsoft Azure"]
   },
   {
     "name": "Rupai",
+    "hash": "rupai",
     "kid": false,
     "year": "2017",
     "url": [
@@ -59,12 +72,13 @@
       }
     ],
     "description": "A web based visual programming editor for interfacing DIY Robotics kits",
-    "thumbnail": "",
+    "thumbnail": "/projects/thumbs/rupai.png",
     "winner": null,
     "tags": ["Google Blockly", "Arduino", "Raspberry Pi", "Python"]
   },
   {
     "name": "Draw in Trello",
+    "hash": "draw-in-trello",
     "kid": false,
     "year": "2017",
     "url": [
@@ -74,12 +88,13 @@
       }
     ],
     "description": "A lightweight 'in-app' diagram maker plugin for Trello",
-    "thumbnail": "",
+    "thumbnail": "/projects/thumbs/draw-in-trello.png",
     "winner": null,
-    "tags": ["Javascript", "mxGraph"]
+    "tags": ["Vanilla JS", "mxGraph"]
   },
   {
-    "name": "Deal or No Deal Unofficial",
+    "name": "Deal or No Deal",
+    "hash": "dond",
     "kid": false,
     "year": "2017",
     "url": [
@@ -89,12 +104,13 @@
       }
     ],
     "description": "An interactive game for Google Assistant",
-    "thumbnail": "",
+    "thumbnail": "/projects/thumbs/dond.png",
     "winner": null,
     "tags": ["NodeJS", "API.AI", "Google cloud"]
   },
   {
     "name": "LiveHealthy",
+    "hash": "live-healthy",
     "kid": false,
     "year": "2016",
     "url": [
@@ -104,12 +120,16 @@
       }
     ],
     "description": "A Web app for Physicians to visualize raw health data synced across multiple devices of the patient",
-    "thumbnail": "",
-    "winner": "Best Student Software, Redhat Code Healthy with OpenShift",
+    "thumbnail": "/projects/thumbs/live-healthy.png",
+    "winner": {
+      "title": "Best Student Software",
+      "platform": "Redhat Code Healthy with OpenShift"
+    },
     "tags": ["Redhat Openshift", "PHP", "MySQL"]
   },
   {
     "name": "HealthPal",
+    "hash": "healthpal",
     "kid": false,
     "year": "2016",
     "url": [
@@ -119,12 +139,16 @@
       }
     ],
     "description": "Swiss army knife health app, pairs with LiveHealthy as health data collector",
-    "thumbnail": "",
-    "winner": "1st Runner Up (Health) in EATL Prothom Alo Contest 2016",
+    "thumbnail": "/projects/thumbs/healthpal.png",
+    "winner": {
+      "platform": "EATL Prothom Alo Local Contest",
+      "title": "1st Runner Up (Health)"
+    },
     "tags": ["Java", "Android SDK"]
   },
   {
     "name": "WiChat",
+    "hash": "wichat",
     "kid": false,
     "year": "2016",
     "url": [
@@ -134,12 +158,16 @@
       }
     ],
     "description": "A Snapchat like Android application for sharing texts and images that connects nearby users by creating a WiFi Hotspot",
-    "thumbnail": "",
-    "winner": "Best Mobile App in Java Tools Challenge, Microsoft Visual Studio Marketplace Hackfest",
-    "tags": ["Java Socket", "Android SDK"]
+    "thumbnail": "/projects/thumbs/wichat.png",
+    "winner": {
+      "title": "Best Mobile App in Java Tools Challenge",
+      "platform": "Microsoft Visual Studio Marketplace Hackfest"
+    },
+    "tags": ["Java", "Java Socket", "Android SDK"]
   },
   {
     "name": "OverDrive",
+    "hash": "overdrive",
     "kid": false,
     "year": "2016",
     "url": [
@@ -149,12 +177,13 @@
       }
     ],
     "description": "A DropBox like file hosting and sharing web app intended for local networks (i.e. lab/classroom)",
-    "thumbnail": "",
+    "thumbnail": "/projects/thumbs/overdrive.png",
     "winner": null,
-    "tags": ["C++", "POCO"]
+    "tags": ["C++", "POCO", "Vanilla JS"]
   },
   {
     "name": "Lalbus",
+    "hash": "lalbus",
     "kid": false,
     "year": "2016",
     "url": [
@@ -164,12 +193,45 @@
       }
     ],
     "description": "Bus tracking and schedule management web app for University of Dhaka",
-    "thumbnail": "",
+    "thumbnail": "/projects/thumbs/lalbus.png",
     "winner": null,
-    "tags": ["PHP", "MySQL"]
+    "tags": ["PHP", "MySQL", "jQuery"]
+  },
+  {
+    "name": "VisuQSort",
+    "hash": "visuqsort",
+    "kid": true,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/VisuQSort"
+      }
+    ],
+    "description": "Visualization on sorting algorithms in an Interactive Android App",
+    "thumbnail": "/projects/thumbs/visuQSort.png",
+    "winner": null,
+    "tags": ["Java", "Android SDK"]
+  },
+  {
+    "name": "Elegant Resume",
+    "hash": "elegant-resume",
+    "kid": true,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Github",
+        "url": "https://github.com/mehamasum/ElegantResume"
+      }
+    ],
+    "description": "Dashboard based web app maker, for non-tech people ",
+    "thumbnail": "/projects/thumbs/elegant-resume.png",
+    "winner": null,
+    "tags": ["PHP", "MySQL", "jQuery"]
   },
   {
     "name": "Classic Snake",
+    "hash": "snake",
     "kid": true,
     "year": "2015",
     "url": [
@@ -179,12 +241,13 @@
       }
     ],
     "description": "ASCII charecter based Snake game in assembly language",
-    "thumbnail": "",
+    "thumbnail": "/projects/thumbs/snake.png",
     "winner": null,
     "tags": ["Assembly x86", "TASM"]
   },
   {
     "name": "DY Ball",
+    "hash": "dy-ball",
     "kid": true,
     "year": "2014",
     "url": [
@@ -194,7 +257,7 @@
       }
     ],
     "description": "Clone of famous DX Ball game",
-    "thumbnail": "",
+    "thumbnail": "/projects/thumbs/dy-ball.png",
     "winner": null,
     "tags": ["C", "C++", "BGI"]
   }
