@@ -115,21 +115,23 @@ class BlogPostTemplate extends React.Component {
           ]}
         />
 
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: 'block',
-          }}
-        >
-          {post.frontmatter.date} in{' '}
-          <Link to={`/blog/categories/${post.frontmatter.category}`}>
-            {post.frontmatter.category}
-          </Link>
-          {` • ${post.timeToRead} min read`}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="card card-content">
+          <h1>{post.frontmatter.title}</h1>
+          <div
+            style={{
+              display: 'block',
+            }}
+          >
+            {post.frontmatter.date} in{' '}
+            <Link to={`/blog/categories/${post.frontmatter.category}`}>
+              {post.frontmatter.category}
+            </Link>
+            {` • ${post.timeToRead} min read`}
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
 
-        <p
+        <div
           style={{
             margin: '2em 0',
           }}
@@ -144,7 +146,7 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.tags.map(tag => (
             <Tag tag={tag} key={tag} />
           ))}
-        </p>
+        </div>
 
         <div
           style={{

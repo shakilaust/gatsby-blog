@@ -8,7 +8,6 @@ body {
 
 a {
   color: #1d3c78;
-  text-decoration: underline;
 }
 a:hover,
 a:focus {
@@ -107,7 +106,7 @@ a:focus {
 
 @media only screen and (min-width: 768px) {
   .portfolio-user-photo {
-    margin-bottom: 2em;
+    margin-bottom: 1rem;
     max-width: 10rem;
     margin-right: 1.875em;
   }
@@ -323,7 +322,7 @@ a:focus {
   display: block;
   padding: 10px;
   margin: 10px auto;
-  background-color: #f1f1f1;
+  background-color: #fff;
   border: none;
   width: 100%;
   outline: none;
@@ -405,7 +404,7 @@ blockquote {
 }
 
 .rc-collapse-content {
-  background-color: none;
+  background-color: inherit !important;
 }
 
 .about-section {
@@ -421,6 +420,11 @@ blockquote {
   background-color: #fff;
   border-radius: 5px;
   margin: 1rem 0;
+}
+
+.card-light {
+  background: #f4f5f7;
+  box-shadow: none !important;
 }
 
 .card {
@@ -444,4 +448,8 @@ blockquote {
   border: #ffb300;
   border-width: 1px;
   border-style: solid;
+}
+
+hr {
+  border-top: 1px solid #d9d9d9;
 }
