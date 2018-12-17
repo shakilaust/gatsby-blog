@@ -378,8 +378,10 @@ a:focus {
 }
 
 blockquote {
-  background-color: rgba(255, 229, 100, 0.3);
-  border-left: 0.5em solid #ffe564;
+  /* background-color: rgba(255, 229, 100, 0.3);
+  border-left: 0.5em solid #ffe564; */
+  background-color: #ecf4f9;
+  border-left: 8px solid #cbddea;
   padding: 1em 2em 1em 1em;
   color: #6a737d;
   margin: 0;
