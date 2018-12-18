@@ -1,1 +1,1 @@
-import './src/assets/prism/prism-tomorrow.css'
+import './src/assets/code.css'

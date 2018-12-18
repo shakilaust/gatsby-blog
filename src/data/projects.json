@@ -184,7 +184,7 @@
   {
     "name": "Lalbus",
     "hash": "lalbus",
-    "kid": false,
+    "kid": true,
     "year": "2016",
     "url": [
       {

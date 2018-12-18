@@ -1,20 +1,13 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-
-import Bio from '../components/Bio'
-import Tag from '../components/Tag'
 import TwoColumnLayout from '../components/TwoColumnLayout'
-import { Col, Row } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
 import PostSummary from '../components/PostSummary'
 import '../styles/index.scss'
-const avatar = require('../assets/avatar.jpg')
 
-class BlogIndex extends React.Component {
+class BlogList extends React.Component {
   render() {
     const { data } = this.props
-    const { blogTitle, blogSlogan } = data.site.siteMetadata
     const siteTitle = data.site.siteMetadata.title
     const siteDescription = data.site.siteMetadata.description
     const posts = data.allMarkdownRemark.edges
@@ -39,6 +32,9 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
+
+        <div>{this.props.topContent ? this.props.topContent : null}</div>
+
         <div>
           {posts.map(post => {
             return (
@@ -71,41 +67,4 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
-
-export const blogListQuery = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
-    site {
-      siteMetadata {
-        title
-        description
-        blogTitle
-        blogSlogan
-      }
-    }
-
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          excerpt
-          fields {
-            slug
-          }
-          timeToRead
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            tags
-            category
-          }
-        }
-      }
-    }
-  }
-`
+export default BlogList

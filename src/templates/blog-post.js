@@ -34,7 +34,7 @@ class BlogPostTemplate extends React.Component {
 
     const fbAppId = this.props.data.site.siteMetadata.fbAppId
     const siteDescription = post.excerpt
-    const { previous, next, slug } = this.props.pageContext
+    const { previousPage, nextPage, slug } = this.props.pageContext
 
     const disqusShortname = 'mehamasum'
     const disqusConfig = {
@@ -171,14 +171,14 @@ class BlogPostTemplate extends React.Component {
         <h4>Read more stories...</h4>
 
         <Row>
-          {next && (
+          {nextPage && (
             <Col xs={12} lg={6} style={postStyle}>
-              <PostSummary post={next} />
+              <PostSummary post={nextPage} />
             </Col>
           )}
-          {previous && (
+          {previousPage && (
             <Col xs={12} lg={6} style={postStyle}>
-              <PostSummary post={previous} />
+              <PostSummary post={previousPage} />
             </Col>
           )}
         </Row>

@@ -28,6 +28,10 @@
   width: 152px;
 }
 
+.leftRoundedImage {
+  border-radius: 0 5px 5px 0;
+}
+
 @media screen and (max-width: 855px) {
   .postPreview {
     max-width: 100%;
