@@ -158,9 +158,9 @@ class BlogPostTemplate extends React.Component {
             <Like href={disqusConfig.url} colorScheme="dark" />
           </FacebookProvider>
 
-          <p>
+          <div style={{ margin: '1rem 0' }}>
             <ShareWidget url={disqusConfig.url} text={disqusConfig.title} />
-          </p>
+          </div>
         </div>
 
         <hr />

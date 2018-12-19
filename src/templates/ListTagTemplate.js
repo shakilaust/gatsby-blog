@@ -4,6 +4,7 @@ import Breadcrumb from '../components/Breadcrumb'
 import BlogList from '../components/BlogList'
 
 const ListTagTemplate = props => {
+  console.log(props)
   const { tag } = props.pageContext
   const { totalCount } = props.data.allMarkdownRemark
   const tagHeader = `${totalCount} post${

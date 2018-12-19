@@ -33,9 +33,18 @@ const buildQuery = `
 }
 `
 
-const generateListPages = (createPage, postsPerPage, total, path, template) => {
+const generateListPages = (
+  createPage,
+  postsPerPage,
+  total,
+  path,
+  template,
+  queryKey,
+  queryValue
+) => {
   const numPages = Math.ceil(total / postsPerPage)
-  const hasNext = index => (index < numPages - 1 ? `/blog/${index + 2}` : null)
+  const hasNext = index =>
+    index < numPages - 1 ? `${path}/${index + 2}` : null
   const hasPrev = index =>
     index > 0 ? (index === 1 ? path : `${path}/${index}`) : null
 
@@ -50,6 +59,7 @@ const generateListPages = (createPage, postsPerPage, total, path, template) => {
         total: numPages,
         previous: hasPrev(i),
         next: hasNext(i),
+        [queryKey]: queryValue,
       },
     })
   }
@@ -112,7 +122,9 @@ exports.createPages = ({ graphql, actions }) => {
             3,
             tagCount[tag],
             `/blog/tags/${tag}`,
-            ListTagTemplate
+            ListTagTemplate,
+            'tag',
+            tag
           )
         })
 
@@ -123,7 +135,9 @@ exports.createPages = ({ graphql, actions }) => {
             1,
             catCount[cat],
             `/blog/categories/${cat}`,
-            ListCategoryTemplate
+            ListCategoryTemplate,
+            'category',
+            cat
           )
         })
       })

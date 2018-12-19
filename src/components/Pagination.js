@@ -36,7 +36,7 @@ export default props => {
     <ul className="unorderedList">
       <li className="inlineListItem">{renderButton(previous, 'left')}</li>
       {current && total && (
-        <li className="inlineListItem">{`${current}/${total}`}</li>
+        <li className="inlineListItem">{`${current} of ${total}`}</li>
       )}
       <li className="inlineListItem">{renderButton(next, 'right')}</li>
     </ul>

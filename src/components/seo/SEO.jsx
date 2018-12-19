@@ -5,8 +5,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Facebook from './Facebook'
 import Twitter from './Twitter'
 
-// Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
-
 export default class SEO extends Component {
   render() {
     const { title, desc, banner, pathname, article } = this.props
