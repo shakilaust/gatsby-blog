@@ -1,39 +1,77 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+const BlogListTemplate = path.resolve('./src/templates/BlogListTemplate.js')
+const ListCategoryTemplate = path.resolve(
+  './src/templates/ListCategoryTemplate.js'
+)
+const ListTagTemplate = path.resolve('./src/templates/ListTagTemplate.js')
+
+const buildQuery = `
+{
+  allMarkdownRemark(
+    sort: { fields: [frontmatter___date], order: DESC }
+    limit: 1000
+  ) {
+    edges {
+      node {
+        id
+        excerpt
+        fields {
+          slug
+        }
+        timeToRead
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          tags
+          category
+        }
+      }
+    }
+  }
+}
+`
+
+const generateListPages = (
+  createPage,
+  postsPerPage,
+  total,
+  path,
+  template,
+  queryKey,
+  queryValue
+) => {
+  const numPages = Math.ceil(total / postsPerPage)
+  const hasNext = index =>
+    index < numPages - 1 ? `${path}/${index + 2}` : null
+  const hasPrev = index =>
+    index > 0 ? (index === 1 ? path : `${path}/${index}`) : null
+
+  for (let i = 0; i < numPages; i++) {
+    createPage({
+      path: i === 0 ? path : `${path}/${i + 1}`,
+      component: template,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        current: i + 1,
+        total: numPages,
+        previous: hasPrev(i),
+        next: hasNext(i),
+        [queryKey]: queryValue,
+      },
+    })
+  }
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
     resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark(
-              sort: { fields: [frontmatter___date], order: DESC }
-              limit: 1000
-            ) {
-              edges {
-                node {
-                  id
-                  excerpt
-                  fields {
-                    slug
-                  }
-                  timeToRead
-                  frontmatter {
-                    date(formatString: "MMMM DD, YYYY")
-                    title
-                    tags
-                    category
-                  }
-                }
-              }
-            }
-          }
-        `
-      ).then(result => {
+      graphql(buildQuery).then(result => {
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
@@ -42,7 +80,17 @@ exports.createPages = ({ graphql, actions }) => {
         // Create blog posts pages.
         const posts = result.data.allMarkdownRemark.edges
 
+        let tagCount = {}
+        let catCount = {}
+
         posts.forEach((post, index) => {
+          post.node.frontmatter.tags.forEach(tag => {
+            tagCount[tag] = (tagCount[tag] || 0) + 1
+          })
+
+          const cat = post.node.frontmatter.category
+          catCount[cat] = (catCount[cat] || 0) + 1
+
           const previous =
             index === posts.length - 1 ? null : posts[index + 1].node
           const next = index === 0 ? null : posts[index - 1].node
@@ -52,152 +100,45 @@ exports.createPages = ({ graphql, actions }) => {
             component: blogPost,
             context: {
               slug: post.node.fields.slug,
-              previous,
-              next,
+              previousPage: previous,
+              nextPage: next,
             },
           })
         })
 
-        const postsPerPage = 2
-        const numPages = Math.ceil(posts.length / postsPerPage)
+        // Blog list
+        generateListPages(
+          createPage,
+          2,
+          posts.length,
+          `/blog`,
+          BlogListTemplate
+        )
 
-        const hasNext = index =>
-          index < numPages - 1 ? `/blog/${index + 2}` : null
-        const hasPrev = index =>
-          index > 0 ? (index === 1 ? `/blog` : `/blog/${index}`) : null
-
-        // 0th page -> /blog
-        createPage({
-          path: `/blog`,
-          component: path.resolve('./src/templates/blog-list.js'),
-          context: {
-            limit: postsPerPage,
-            skip: 0,
-            current: 1,
-            total: numPages,
-            previous: hasPrev(0),
-            next: hasNext(0),
-          },
-        })
-
-        // page 0 to last
-        // blog/1 to blog/n+1
-        for (let i = 0; i < numPages; i++) {
-          createPage({
-            path: `/blog/${i + 1}`,
-            component: path.resolve('./src/templates/blog-list.js'),
-            context: {
-              limit: postsPerPage,
-              skip: i * postsPerPage,
-              current: i + 1,
-              total: numPages,
-              previous: hasPrev(i),
-              next: hasNext(i),
-            },
-          })
-        }
-
-        // Tag pages:
-        const tagTemplate = path.resolve('./src/templates/tags.js')
-        let tagCount = {}
-        posts.forEach(post => {
-          post.node.frontmatter.tags.forEach(tag => {
-            if (tagCount[tag]) tagCount[tag]++
-            else tagCount[tag] = 1
-          })
-        })
+        // Tag pages
         Object.keys(tagCount).forEach(tag => {
-          const postsPerPage = 10
-          const numPages = Math.ceil(tagCount[tag] / postsPerPage)
-          const hasNext = index =>
-            index < numPages - 1 ? `/blog/tags/${tag}/${index + 2}` : null
-          const hasPrev = index =>
-            index > 0
-              ? index === 1
-                ? `/blog/tags/${tag}`
-                : `/blog/tags/${tag}/${index}`
-              : null
-
-          createPage({
-            path: `/blog/tags/${tag}`,
-            component: tagTemplate,
-            context: {
-              tag,
-              limit: postsPerPage,
-              skip: 0,
-              previous: hasPrev(0),
-              next: hasNext(0),
-              current: 1,
-              total: numPages,
-            },
-          })
-
-          for (let i = 0; i < numPages; i++) {
-            createPage({
-              path: `/blog/tags/${tag}/${i + 1}`,
-              component: tagTemplate,
-              context: {
-                tag,
-                limit: postsPerPage,
-                skip: i * postsPerPage,
-                previous: hasPrev(i),
-                next: hasNext(i),
-                current: i + 1,
-                total: numPages,
-              },
-            })
-          }
+          generateListPages(
+            createPage,
+            3,
+            tagCount[tag],
+            `/blog/tags/${tag}`,
+            ListTagTemplate,
+            'tag',
+            tag
+          )
         })
 
         // Category pages
-        const catTemplate = path.resolve('./src/templates/category.js')
-        let catCount = {}
-        posts.forEach(post => {
-          const cat = post.node.frontmatter.category
-          if (catCount[cat]) catCount[cat]++
-          else catCount[cat] = 1
-        })
         Object.keys(catCount).forEach(cat => {
-          const postsPerPage = 1
-          const numPages = Math.ceil(catCount[cat] / postsPerPage)
-          const hasNext = index =>
-            index < numPages - 1 ? `/blog/categories/${cat}/${index + 2}` : null
-          const hasPrev = index =>
-            index > 0
-              ? index === 1
-                ? `/blog/categories/${cat}`
-                : `/blog/categories/${cat}/${index}`
-              : null
-
-          createPage({
-            path: `/blog/categories/${cat}`,
-            component: catTemplate,
-            context: {
-              category: cat,
-              limit: postsPerPage,
-              skip: 0,
-              previous: hasPrev(0),
-              next: hasNext(0),
-              current: 1,
-              total: numPages,
-            },
-          })
-
-          for (let i = 0; i < numPages; i++) {
-            createPage({
-              path: `/blog/categories/${cat}/${i + 1}`,
-              component: catTemplate,
-              context: {
-                category: cat,
-                limit: postsPerPage,
-                skip: i * postsPerPage,
-                previous: hasPrev(i),
-                next: hasNext(i),
-                current: i + 1,
-                total: numPages,
-              },
-            })
-          }
+          generateListPages(
+            createPage,
+            1,
+            catCount[cat],
+            `/blog/categories/${cat}`,
+            ListCategoryTemplate,
+            'category',
+            cat
+          )
         })
       })
     )

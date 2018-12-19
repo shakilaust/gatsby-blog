@@ -34,7 +34,7 @@ class BlogPostTemplate extends React.Component {
 
     const fbAppId = this.props.data.site.siteMetadata.fbAppId
     const siteDescription = post.excerpt
-    const { previous, next, slug } = this.props.pageContext
+    const { previousPage, nextPage, slug } = this.props.pageContext
 
     const disqusShortname = 'mehamasum'
     const disqusConfig = {
@@ -115,21 +115,23 @@ class BlogPostTemplate extends React.Component {
           ]}
         />
 
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: 'block',
-          }}
-        >
-          {post.frontmatter.date} in{' '}
-          <Link to={`/blog/categories/${post.frontmatter.category}`}>
-            {post.frontmatter.category}
-          </Link>
-          {` • ${post.timeToRead} min read`}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="card card-content">
+          <h1>{post.frontmatter.title}</h1>
+          <div
+            style={{
+              display: 'block',
+            }}
+          >
+            {post.frontmatter.date} in{' '}
+            <Link to={`/blog/categories/${post.frontmatter.category}`}>
+              {post.frontmatter.category}
+            </Link>
+            {` • ${post.timeToRead} min read`}
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
 
-        <p
+        <div
           style={{
             margin: '2em 0',
           }}
@@ -144,7 +146,7 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.tags.map(tag => (
             <Tag tag={tag} key={tag} />
           ))}
-        </p>
+        </div>
 
         <div
           style={{
@@ -156,9 +158,9 @@ class BlogPostTemplate extends React.Component {
             <Like href={disqusConfig.url} colorScheme="dark" />
           </FacebookProvider>
 
-          <p>
+          <div style={{ margin: '1rem 0' }}>
             <ShareWidget url={disqusConfig.url} text={disqusConfig.title} />
-          </p>
+          </div>
         </div>
 
         <hr />
@@ -169,14 +171,14 @@ class BlogPostTemplate extends React.Component {
         <h4>Read more stories...</h4>
 
         <Row>
-          {next && (
+          {nextPage && (
             <Col xs={12} lg={6} style={postStyle}>
-              <PostSummary post={next} />
+              <PostSummary post={nextPage} />
             </Col>
           )}
-          {previous && (
+          {previousPage && (
             <Col xs={12} lg={6} style={postStyle}>
-              <PostSummary post={previous} />
+              <PostSummary post={previousPage} />
             </Col>
           )}
         </Row>

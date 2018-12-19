@@ -34,10 +34,10 @@ class Summary extends React.Component {
             ))}
           </div>
         </div>
-        <div className="postPreviewThumbnail flex0">
+        <div className="postPreviewThumbnail leftRoundedImage flex0">
           <Link to={post.fields.slug}>
             <div
-              className="backgroundCover sizeFull"
+              className="leftRoundedImage backgroundCover sizeFull"
               style={{
                 backgroundImage: `url(https://picsum.photos/400/400)`,
               }}

@@ -51,3 +51,21 @@
   vertical-align: baseline;
   text-decoration: none;
 }
+
+.winnerColor {
+  color: $winner;
+  font-weight: 700;
+}
+.winnerLabel {
+  background-color: $winner;
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}

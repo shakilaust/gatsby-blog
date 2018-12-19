@@ -66,7 +66,7 @@ class Projects extends Component {
                         <Col
                           xs={12}
                           sm={6}
-                          md={4}
+                          lg={4}
                           key={project.id}
                           style={{
                             paddingLeft: '0.75em',
@@ -94,7 +94,7 @@ class Projects extends Component {
                               borderRadius: '5px',
                             }}
                           >
-                            {project.winner ? (
+                            {/* project.winner ? (
                               <aside
                                 style={{
                                   position: 'absolute',
@@ -112,62 +112,106 @@ class Projects extends Component {
                                   src={ribbon}
                                 />
                               </aside>
-                            ) : null}
-                            <a href={project.url[0].url} target="_blank">
-                              <img
-                                src={
-                                  project.thumbnail ||
-                                  'https://picsum.photos/400/300/?random'
-                                }
-                                alt={project.name}
-                                style={{
-                                  width: '100%',
-                                  borderRadius: '5px 5px 0 0',
-                                }}
-                              />
-                            </a>
+                                ) : null */}
+
                             <div
                               style={{
-                                padding: '1em',
+                                position: 'relative',
                               }}
                             >
-                              <h3
+                              <a href={project.url[0].url} target="_blank">
+                                <img
+                                  src={
+                                    project.thumbnail ||
+                                    'https://picsum.photos/400/300/?random'
+                                  }
+                                  alt={project.name}
+                                  style={{
+                                    width: '100%',
+                                    borderRadius: '5px 5px 0 0',
+                                  }}
+                                />
+                              </a>
+
+                              <header
                                 style={{
-                                  marginTop: 0,
-                                  textDecoration: 'none',
+                                  width: '100%',
+                                  position: 'absolute',
+                                  bottom: 0,
+                                  left: 0,
+                                  fontWeight: 700,
+                                  padding: '0.5em 1em 0.5em 1em',
+                                  paddingTop: '40px',
+                                  background:
+                                    'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)',
                                 }}
                               >
-                                <a
-                                  href={project.url[0].url}
-                                  target="_blank"
-                                  style={{ textDecoration: 'none' }}
-                                >
-                                  {project.name}
-                                </a>
-
-                                <ul
-                                  className="unorderedList"
+                                <h3
                                   style={{
-                                    height: '2rem',
-                                    float: 'right',
+                                    margin: 0,
+                                    padding: 0,
+                                    textDecoration: 'none',
+                                    color: '#fff',
                                   }}
                                 >
-                                  {project.url.map((url, index) => (
-                                    <li key={index} className="inlineListItem">
-                                      <a href={url.url} target="_blank">
-                                        {getIcon(url.title)}
-                                      </a>
-                                    </li>
+                                  {project.name}
+
+                                  <ul
+                                    className="unorderedList"
+                                    style={{
+                                      height: '2rem',
+                                      float: 'right',
+                                    }}
+                                  >
+                                    {project.url.map((url, index) => (
+                                      <li
+                                        key={index}
+                                        className="inlineListItem"
+                                      >
+                                        <a
+                                          href={url.url}
+                                          target="_blank"
+                                          style={{
+                                            color: '#fff',
+                                          }}
+                                        >
+                                          {getIcon(url.title)}
+                                        </a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </h3>
+                              </header>
+                            </div>
+                            <div>
+                              <section
+                                style={{
+                                  padding: '1em',
+                                }}
+                              >
+                                {project.winner ? (
+                                  <div>
+                                    <i
+                                      className="fa fa-trophy winnerColor"
+                                      style={{
+                                        marginRight: '0.5rem',
+                                      }}
+                                    />
+                                    <small className="winnerColor">{`${
+                                      project.winner.platform
+                                    }`}</small>
+                                  </div>
+                                ) : null}
+
+                                <p>{project.description}</p>
+
+                                <div>
+                                  <i className="fa fa-wrench" />
+                                  {project.tags.map((tag, index) => (
+                                    <Tag tag={tag} key={index} url="#" />
                                   ))}
-                                </ul>
-                              </h3>
-                              <p>{project.description}</p>
-                              <div>
-                                <i className="fa fa-tag fa-flip-horizontal" />
-                                {project.tags.map((tag, index) => (
-                                  <Tag tag={tag} key={index} url="#" />
-                                ))}
-                              </div>
+                                </div>
+                              </section>
                             </div>
                           </div>
                         </Col>
