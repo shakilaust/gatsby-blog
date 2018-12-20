@@ -1,11 +1,9 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
 import Bio from '../components/Bio'
 import Layout from '../components/TwoColumnLayout'
 import Tag from '../components/Tag'
-import Pagination from '../components/Pagination'
 import { Row, Col } from 'react-bootstrap'
 import PostSummary from '../components/PostSummary'
 import Disqus from 'disqus-react'
@@ -18,6 +16,7 @@ import {
 } from 'react-facebook'
 import ShareWidget from '../components/Share'
 import Breadcrumb from '../components/Breadcrumb'
+import SEO from '../components/seo/SEO'
 
 const _ = require('lodash')
 
@@ -30,15 +29,14 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
 
-    const { blogTitle, blogSlogan } = this.props.data.site.siteMetadata
+    const { blogTitle, blogSlogan, author } = this.props.data.site.siteMetadata
 
     const fbAppId = this.props.data.site.siteMetadata.fbAppId
-    const siteDescription = post.excerpt
     const { previousPage, nextPage, slug } = this.props.pageContext
 
     const disqusShortname = 'mehamasum'
     const disqusConfig = {
-      url: window.location.href,
+      url: `${this.props.location.href}`,
       identifier: slug,
       title: post.frontmatter.title,
     }
@@ -96,7 +94,13 @@ class BlogPostTemplate extends React.Component {
           </div>
         }
       >
-        <Helmet title={`${post.frontmatter.title} | ${blogTitle}`} />
+        <SEO
+          article={true}
+          title={`${post.frontmatter.title} - ${author} - ${blogTitle}`}
+          desc={`${post.frontmatter.spoiler}`}
+          pathname={this.props.location.pathname}
+          banner={post.frontmatter.thumbnail}
+        />
 
         <Breadcrumb
           links={[
@@ -206,6 +210,7 @@ export const pageQuery = graphql`
         fbAppId
         blogTitle
         blogSlogan
+        siteUrl: url
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -218,6 +223,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         tags
         category
+        thumbnail
+        spoiler
       }
     }
   }

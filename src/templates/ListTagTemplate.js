@@ -74,6 +74,8 @@ export const pageQuery = graphql`
             title
             tags
             category
+            thumbnail
+            spoiler
           }
         }
       }

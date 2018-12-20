@@ -22,10 +22,7 @@ class Summary extends React.Component {
             {` • ${post.timeToRead} min read`}
           </small>
 
-          <p
-            className="postPreviewExcerpt"
-            dangerouslySetInnerHTML={{ __html: post.excerpt }}
-          />
+          <p>{post.frontmatter.spoiler}</p>
 
           <div>
             <i className="fa fa-tag fa-flip-horizontal" />
@@ -39,7 +36,7 @@ class Summary extends React.Component {
             <div
               className="leftRoundedImage backgroundCover sizeFull"
               style={{
-                backgroundImage: `url(https://picsum.photos/400/400)`,
+                backgroundImage: `url(${post.frontmatter.thumbnail})`,
               }}
             />
           </Link>

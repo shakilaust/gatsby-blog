@@ -3,12 +3,9 @@ import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
 import '../assets/bootstrap.min.css'
 import '../assets/site.css'
-const avatar = require('../assets/avatar.jpg')
 import '../styles/index.scss'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import Layout from '../components/TwoColumnLayout'
-import ContactForm from '../components/widgets/ContactForm'
+import SEO from '../components/seo/SEO'
 
 import { StaticQuery } from 'gatsby'
 import Tag from '../components/Tag'
@@ -46,8 +43,7 @@ const Hackathons = () => (
             <span>{p.winner.platform}</span>
             <br />
             <span>
-              {p.winner.title}
-              {' | '}
+              <em>{`${p.winner.title}`}</em>&nbsp;{'|'}&nbsp;
               <Link to={`/#${p.hash}`} style={{ textDecoration: 'none' }}>
                 {p.name}
               </Link>
@@ -65,6 +61,12 @@ class About extends React.Component {
   render() {
     return (
       <Layout location={this.props.location}>
+        <SEO
+          article={false}
+          title={`About Meha Masum`}
+          desc={`Mehedi Hasan Masum's profile, software portfoilo and personal blog`}
+          pathname={this.props.location.pathname}
+        />
         <div className="card">
           <Row>
             <Col xs={12}>

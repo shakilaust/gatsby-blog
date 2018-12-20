@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import SEO from '../components/seo/SEO'
 import TwoColumnLayout from '../components/TwoColumnLayout'
 import Pagination from '../components/Pagination'
 import PostSummary from '../components/PostSummary'
@@ -8,8 +8,7 @@ import '../styles/index.scss'
 class BlogList extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const siteDescription = data.site.siteMetadata.description
+    const { blogTitle, blogSlogan, author } = data.site.siteMetadata
     const posts = data.allMarkdownRemark.edges
     const { previous, next, current, total } = this.props.pageContext
 
@@ -27,10 +26,11 @@ class BlogList extends React.Component {
           </h1>
         }
       >
-        <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
+        <SEO
+          article={false}
+          title={`${blogTitle} - ${blogSlogan}`}
+          desc={`${blogSlogan}`}
+          pathname={this.props.location.pathname}
         />
 
         <div>{this.props.topContent ? this.props.topContent : null}</div>

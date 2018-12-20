@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link, graphql } from 'gatsby'
 import '../assets/bootstrap.min.css'
 import '../assets/site.css'
 import '../styles/index.scss'
@@ -7,8 +6,10 @@ import 'rc-collapse/assets/index.css'
 import Collapse, { Panel } from 'rc-collapse'
 import { Grid, Row, Col } from 'react-bootstrap'
 import Tag from '../components/Tag'
-import ribbon from '../assets/winner-ribbon.png'
-import classnames from 'classnames'
+import ScrollableAnchor, {
+  configureAnchors,
+} from './lib/react-scrollable-anchor'
+// import ribbon from '../assets/winner-ribbon.png'
 
 const getIcon = urlType => {
   switch (urlType) {
@@ -29,6 +30,9 @@ class Projects extends Component {
     this.state = {
       activeKey: ['2016', '2017', '2018'],
     }
+    configureAnchors({
+      scrollUrlHashUpdate: false,
+    })
   }
   onChange = activeKey => {
     this.setState({
@@ -74,27 +78,27 @@ class Projects extends Component {
                             margin: 0,
                           }}
                         >
-                          <div
-                            id={project.hash}
-                            className={
-                              this.shouldHighlight(
-                                this.props.hash,
-                                project.hash
-                              )
-                                ? 'highlighted'
-                                : ''
-                            }
-                            style={{
-                              backgroundColor: 'white',
-                              marginBottom: '1.5em',
-                              height: 'calc(100% - 1.5em)',
-                              boxShadow:
-                                '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-                              transition: '0.3s',
-                              borderRadius: '5px',
-                            }}
-                          >
-                            {/* project.winner ? (
+                          <ScrollableAnchor id={project.hash}>
+                            <div
+                              className={
+                                this.shouldHighlight(
+                                  this.props.hash,
+                                  project.hash
+                                )
+                                  ? 'highlighted'
+                                  : ''
+                              }
+                              style={{
+                                backgroundColor: 'white',
+                                marginBottom: '1.5em',
+                                height: 'calc(100% - 1.5em)',
+                                boxShadow:
+                                  '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+                                transition: '0.3s',
+                                borderRadius: '5px',
+                              }}
+                            >
+                              {/* project.winner ? (
                               <aside
                                 style={{
                                   position: 'absolute',
@@ -114,106 +118,107 @@ class Projects extends Component {
                               </aside>
                                 ) : null */}
 
-                            <div
-                              style={{
-                                position: 'relative',
-                              }}
-                            >
-                              <a href={project.url[0].url} target="_blank">
-                                <img
-                                  src={
-                                    project.thumbnail ||
-                                    'https://picsum.photos/400/300/?random'
-                                  }
-                                  alt={project.name}
+                              <div
+                                style={{
+                                  position: 'relative',
+                                }}
+                              >
+                                <a href={project.url[0].url} target="_blank">
+                                  <img
+                                    src={
+                                      project.thumbnail ||
+                                      'https://picsum.photos/400/300/?random'
+                                    }
+                                    alt={project.name}
+                                    style={{
+                                      width: '100%',
+                                      borderRadius: '5px 5px 0 0',
+                                    }}
+                                  />
+                                </a>
+
+                                <header
                                   style={{
                                     width: '100%',
-                                    borderRadius: '5px 5px 0 0',
-                                  }}
-                                />
-                              </a>
-
-                              <header
-                                style={{
-                                  width: '100%',
-                                  position: 'absolute',
-                                  bottom: 0,
-                                  left: 0,
-                                  fontWeight: 700,
-                                  padding: '0.5em 1em 0.5em 1em',
-                                  paddingTop: '40px',
-                                  background:
-                                    'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)',
-                                }}
-                              >
-                                <h3
-                                  style={{
-                                    margin: 0,
-                                    padding: 0,
-                                    textDecoration: 'none',
-                                    color: '#fff',
+                                    position: 'absolute',
+                                    bottom: 0,
+                                    left: 0,
+                                    fontWeight: 700,
+                                    padding: '0.5em 1em 0.5em 1em',
+                                    paddingTop: '40px',
+                                    background:
+                                      'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)',
                                   }}
                                 >
-                                  {project.name}
-
-                                  <ul
-                                    className="unorderedList"
+                                  <h3
                                     style={{
-                                      height: '2rem',
-                                      float: 'right',
+                                      margin: 0,
+                                      padding: 0,
+                                      textDecoration: 'none',
+                                      color: '#fff',
                                     }}
                                   >
-                                    {project.url.map((url, index) => (
-                                      <li
-                                        key={index}
-                                        className="inlineListItem"
-                                      >
-                                        <a
-                                          href={url.url}
-                                          target="_blank"
-                                          style={{
-                                            color: '#fff',
-                                          }}
-                                        >
-                                          {getIcon(url.title)}
-                                        </a>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </h3>
-                              </header>
-                            </div>
-                            <div>
-                              <section
-                                style={{
-                                  padding: '1em',
-                                }}
-                              >
-                                {project.winner ? (
-                                  <div>
-                                    <i
-                                      className="fa fa-trophy winnerColor"
+                                    {project.name}
+
+                                    <ul
+                                      className="unorderedList"
                                       style={{
-                                        marginRight: '0.5rem',
+                                        height: '2rem',
+                                        float: 'right',
                                       }}
-                                    />
-                                    <small className="winnerColor">{`${
-                                      project.winner.platform
-                                    }`}</small>
+                                    >
+                                      {project.url.map((url, index) => (
+                                        <li
+                                          key={index}
+                                          className="inlineListItem"
+                                        >
+                                          <a
+                                            href={url.url}
+                                            target="_blank"
+                                            style={{
+                                              color: '#fff',
+                                            }}
+                                          >
+                                            {getIcon(url.title)}
+                                          </a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </h3>
+                                </header>
+                              </div>
+                              <div>
+                                <section
+                                  style={{
+                                    padding: '1em',
+                                  }}
+                                >
+                                  {project.winner ? (
+                                    <div>
+                                      <i
+                                        className="fa fa-trophy winnerColor"
+                                        style={{
+                                          marginRight: '0.5rem',
+                                        }}
+                                      />
+                                      <small className="winnerColor">{`${
+                                        project.winner.platform
+                                      }`}</small>
+                                    </div>
+                                  ) : null}
+
+                                  <p>{project.description}</p>
+
+                                  <div>
+                                    <i className="fa fa-wrench" />
+                                    {project.tags.map((tag, index) => (
+                                      <Tag tag={tag} key={index} url="#" />
+                                    ))}
                                   </div>
-                                ) : null}
-
-                                <p>{project.description}</p>
-
-                                <div>
-                                  <i className="fa fa-wrench" />
-                                  {project.tags.map((tag, index) => (
-                                    <Tag tag={tag} key={index} url="#" />
-                                  ))}
-                                </div>
-                              </section>
+                                </section>
+                              </div>
                             </div>
-                          </div>
+                          </ScrollableAnchor>
                         </Col>
                       )
                     })}

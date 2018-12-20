@@ -3,6 +3,8 @@ title: My Second Post!
 date: '2015-09-06T23:46:37.121Z'
 category: 'Interview'
 tags: ['animals']
+thumbnail: '/images/meta/favicon.png'
+spoiler: Lessons learned from mixins, render props, HOCs, and classes.
 ---
 
 Wow! I love blogging so much already.

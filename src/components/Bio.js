@@ -36,8 +36,20 @@ class Bio extends React.Component {
               fontSize: '80%',
             }}
           >
-            <a href="/" target="_blank">
-              Contact
+            <a
+              className="twitter-follow-button"
+              href="https://twitter.com/mehamasum"
+              target="_blank"
+              data-show-count="false"
+            >
+              <i
+                className="fa fa-twitter"
+                style={{
+                  color: '#1da1f2',
+                  marginRight: '0.25em',
+                }}
+              />
+              @mehamasum
             </a>
           </span>
         </div>

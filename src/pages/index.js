@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { Grid, Row, Col } from 'react-bootstrap'
-
+import SEO from '../components/seo/SEO'
 import Layout from '../components/TwoColumnLayout'
 import Projects from '../components/Projects'
 
@@ -12,10 +11,14 @@ import '../styles/index.scss'
 class Index extends React.Component {
   render() {
     const { data } = this.props
-    const { blogTitle, blogSlogan } = data.site.siteMetadata
-    console.log(data)
     return (
       <Layout location={this.props.location}>
+        <SEO
+          article={false}
+          title={`Meha Masum's software portfoilo`}
+          desc={`Mehedi Hasan Masum's profile, software portfoilo and personal blog`}
+          pathname={this.props.location.pathname}
+        />
         <Projects data={data} hash={this.props.location.hash} />
       </Layout>
     )
