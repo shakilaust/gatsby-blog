@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import '../styles/index.scss'
+import '../../styles/index.scss'
 
 const renderButton = (context, dir) => {
   if (!context || !context.url)

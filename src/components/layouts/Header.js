@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
-import '../assets/bootstrap.min.css'
-import '../assets/site.css'
-const avatar = require('../assets/avatar.jpg')
-import '../styles/index.scss'
+import avatar from '../../assets/images/avatar.jpg'
+import '../../styles/index.scss'
 import classnames from 'classnames'
 
 class Header extends React.Component {

@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
-import '../assets/bootstrap.min.css'
-import '../assets/site.css'
-import '../styles/index.scss'
+import '../../styles/index.scss'
 import 'rc-collapse/assets/index.css'
 import Collapse, { Panel } from 'rc-collapse'
 import { Grid, Row, Col } from 'react-bootstrap'
-import Tag from '../components/Tag'
+import Tag from '../../components/Tag/Tag'
 import ScrollableAnchor, {
   configureAnchors,
-} from './lib/react-scrollable-anchor'
-// import ribbon from '../assets/winner-ribbon.png'
+} from '../lib/react-scrollable-anchor'
 
 const getIcon = urlType => {
   switch (urlType) {
@@ -158,7 +155,15 @@ class Projects extends Component {
                                       color: '#fff',
                                     }}
                                   >
-                                    {project.name}
+                                    <a
+                                      href={project.url[0].url}
+                                      target="_blank"
+                                      style={{
+                                        color: '#fff',
+                                      }}
+                                    >
+                                      {project.name}
+                                    </a>
 
                                     <ul
                                       className="unorderedList"

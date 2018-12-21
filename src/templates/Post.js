@@ -1,21 +1,14 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-
+import SharingIsCaring from '../assets/images/sharing.svg'
 import Bio from '../components/Bio'
-import Layout from '../components/TwoColumnLayout'
-import Tag from '../components/Tag'
+import Layout from '../components/layouts/TwoColumnLayout'
+import Tag from '../components/Tag/Tag'
 import { Row, Col } from 'react-bootstrap'
-import PostSummary from '../components/PostSummary'
+import PostSummary from '../components/PostSummary/PostSummary'
 import Disqus from 'disqus-react'
-import {
-  FacebookProvider,
-  Like,
-  Share,
-  Comments,
-  CommentsCount,
-} from 'react-facebook'
-import ShareWidget from '../components/Share'
-import Breadcrumb from '../components/Breadcrumb'
+import ShareWidget from '../components/Share/Share'
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
 import SEO from '../components/seo/SEO'
 
 const _ = require('lodash')
@@ -137,7 +130,7 @@ class BlogPostTemplate extends React.Component {
 
         <div
           style={{
-            margin: '2em 0',
+            margin: '2rem 0',
           }}
         >
           <i
@@ -152,48 +145,56 @@ class BlogPostTemplate extends React.Component {
           ))}
         </div>
 
-        <div
-          style={{
-            marginTop: '1rem',
-            marginBottom: '1rem',
-          }}
-        >
-          <FacebookProvider appId={fbAppId}>
-            <Like href={disqusConfig.url} colorScheme="dark" />
-          </FacebookProvider>
-
-          <div style={{ margin: '1rem 0' }}>
+        <div>
+          <img
+            src={SharingIsCaring}
+            alt={'Sharing is caring!'}
+            style={{
+              height: '32px',
+              float: 'left',
+              marginRight: '0.5em',
+            }}
+          />
+          <div style={{ float: 'left' }}>
             <ShareWidget url={disqusConfig.url} text={disqusConfig.title} />
           </div>
         </div>
 
-        <hr />
+        <div style={{ clear: 'both', marginTop: '7rem' }}>
+          <hr />
 
-        <Bio />
-
-        <hr />
-        <h4>Read more stories...</h4>
-
-        <Row>
-          {nextPage && (
-            <Col xs={12} lg={6} style={postStyle}>
-              <PostSummary post={nextPage} />
-            </Col>
-          )}
-          {previousPage && (
-            <Col xs={12} lg={6} style={postStyle}>
-              <PostSummary post={previousPage} />
-            </Col>
-          )}
-        </Row>
-
-        <hr />
-
-        <div>
-          <FacebookProvider appId={fbAppId}>
-            <Comments href={disqusConfig.url} />
-          </FacebookProvider>
+          <Bio />
         </div>
+
+        {nextPage || previousPage ? (
+          <div>
+            <hr />
+
+            <h4>Read more stories...</h4>
+            <Row>
+              {nextPage && (
+                <Col xs={12} lg={6} style={postStyle}>
+                  <PostSummary post={nextPage} />
+                </Col>
+              )}
+              {previousPage && (
+                <Col xs={12} lg={6} style={postStyle}>
+                  <PostSummary post={previousPage} />
+                </Col>
+              )}
+            </Row>
+          </div>
+        ) : null}
+
+        <div style={{ margin: '1rem 0' }}>
+          <hr />
+          <Disqus.DiscussionEmbed
+            shortname={disqusShortname}
+            config={disqusConfig}
+          />
+        </div>
+
+        <div />
       </Layout>
     )
   }

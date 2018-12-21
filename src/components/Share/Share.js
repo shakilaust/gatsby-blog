@@ -44,7 +44,7 @@ import {
   WorkplaceIcon,
   LineIcon,
 } from 'react-share'
-import '../styles/share.scss'
+import '../../styles/share.scss'
 
 class ShareWidget extends Component {
   render() {

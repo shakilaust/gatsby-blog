@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
-import '../styles/index.scss'
+import '../../styles/index.scss'
 
 class Section extends React.Component {
   render() {

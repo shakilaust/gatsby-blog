@@ -299,6 +299,7 @@ a:focus {
   transform: scale(1, 1);
 }
 
+.btn,
 .form-wrapper .button,
 .form-wrapper .submit {
   background-color: #3498db;

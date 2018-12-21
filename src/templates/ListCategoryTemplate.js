@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlogList from '../components/BlogList'
-import Breadcrumb from '../components/Breadcrumb'
+import BlogList from '../components/PostList/BlogList'
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
 
 const ListCategoryTemplate = props => {
   const { category } = props.pageContext

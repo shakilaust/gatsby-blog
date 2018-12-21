@@ -1,6 +1,6 @@
 import React from 'react'
 
-import profilePic from '../assets/avatar.jpg'
+import profilePic from '../../assets/images/avatar.jpg'
 
 class Bio extends React.Component {
   render() {

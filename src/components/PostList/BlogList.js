@@ -1,9 +1,9 @@
 import React from 'react'
-import SEO from '../components/seo/SEO'
-import TwoColumnLayout from '../components/TwoColumnLayout'
-import Pagination from '../components/Pagination'
-import PostSummary from '../components/PostSummary'
-import '../styles/index.scss'
+import SEO from '../seo/SEO'
+import TwoColumnLayout from '../layouts/TwoColumnLayout'
+import Pagination from '../Pagination/Pagination'
+import PostSummary from '../PostSummary/PostSummary'
+import '../../styles/index.scss'
 
 class BlogList extends React.Component {
   render() {

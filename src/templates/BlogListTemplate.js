@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import '../styles/index.scss'
-import BlogList from '../components/BlogList'
+import BlogList from '../components/PostList/BlogList'
 
 class BlogListTemplate extends React.Component {
   render() {

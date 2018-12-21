@@ -1,14 +1,12 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
-import '../assets/bootstrap.min.css'
-import '../assets/site.css'
 import '../styles/index.scss'
-import Layout from '../components/TwoColumnLayout'
+import Layout from '../components/layouts/TwoColumnLayout'
 import SEO from '../components/seo/SEO'
 
 import { StaticQuery } from 'gatsby'
-import Tag from '../components/Tag'
+import Tag from '../components/Tag/Tag'
 
 const Hackathons = () => (
   <StaticQuery

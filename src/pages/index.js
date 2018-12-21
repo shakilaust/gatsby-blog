@@ -1,11 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import SEO from '../components/seo/SEO'
-import Layout from '../components/TwoColumnLayout'
-import Projects from '../components/Projects'
-
-import '../assets/bootstrap.min.css'
-import '../assets/site.css'
+import Layout from '../components/layouts/TwoColumnLayout'
+import Projects from '../components/Projects/Projects'
 import '../styles/index.scss'
 
 class Index extends React.Component {
@@ -15,8 +12,8 @@ class Index extends React.Component {
       <Layout location={this.props.location}>
         <SEO
           article={false}
-          title={`Meha Masum's software portfoilo`}
-          desc={`Mehedi Hasan Masum's profile, software portfoilo and personal blog`}
+          title={`Meha Masum's software portfolio`}
+          desc={`Mehedi Hasan Masum's profile, software portfolio and personal blog`}
           pathname={this.props.location.pathname}
         />
         <Projects data={data} hash={this.props.location.hash} />

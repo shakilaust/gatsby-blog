@@ -1,7 +1,7 @@
 import React from 'react'
-import Tag from '../components/Tag'
+import Tag from '../Tag/Tag'
 import { Link } from 'gatsby'
-import '../styles/post.scss'
+import '../../styles/post.scss'
 
 class Summary extends React.Component {
   render() {
