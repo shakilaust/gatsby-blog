@@ -1,20 +1,12 @@
 import React from 'react'
+import {Link} from 'gatsby'
 export default props => (
-  <div>
-    <form
-      className="form-wrapper"
-      action="https://formspree.io/your@email.com"
-      method="POST"
-    >
-      <h4>Contact me</h4>
-      <input type="email" name="email" id="email" placeholder="Your email" />
-      <textarea
-        name="message"
-        id="message"
-        rows="5"
-        placeholder="Your message..."
-      />
-      <input type="submit" className="submit" value="Leave a message" />
-    </form>
-  </div>
+    <div>
+        <h4>Interested in talking?</h4>
+        <Link to="/contact" style={{color: '#fff'}}>
+            <button className="btn">
+                Leave a message
+            </button>
+        </Link>
+    </div>
 )

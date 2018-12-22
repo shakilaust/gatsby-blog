@@ -1,21 +1,21 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { Grid, Row, Col } from 'react-bootstrap'
-
-import Layout from '../components/TwoColumnLayout'
-import Projects from '../components/Projects'
-
-import '../assets/bootstrap.min.css'
-import '../assets/site.css'
+import SEO from '../components/seo/SEO'
+import Layout from '../components/layouts/TwoColumnLayout'
+import Projects from '../components/Projects/Projects'
 import '../styles/index.scss'
 
 class Index extends React.Component {
   render() {
     const { data } = this.props
-    const { blogTitle, blogSlogan } = data.site.siteMetadata
-    console.log(data)
     return (
       <Layout location={this.props.location}>
+        <SEO
+          article={false}
+          title={`Meha Masum's software portfolio`}
+          desc={`Mehedi Hasan Masum's profile, software portfolio and personal blog`}
+          pathname={this.props.location.pathname}
+        />
         <Projects data={data} hash={this.props.location.hash} />
       </Layout>
     )

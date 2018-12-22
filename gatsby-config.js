@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+console.log('Env version', process.env.NODE_ENV)
+
 const SITE_CONFIG = {
   title: 'Meha Masum',
   shortName: 'Meha Masum',
@@ -10,21 +12,21 @@ const SITE_CONFIG = {
 module.exports = {
   siteMetadata: {
     title: SITE_CONFIG.title,
-    titleTemplate: '%s · The Real Hero',
+    titleTemplate: `%s · ${SITE_CONFIG.title}`,
     titleAlt: SITE_CONFIG.title,
     shortName: SITE_CONFIG.shortName,
 
-    blogTitle: "Meha Masum's Personal Blog",
-    blogSlogan: 'Learning in public',
+    blogTitle: 'Learning in public',
+    blogSlogan: "Meha Masum's Personal Blog",
 
     author: 'Meha Masum',
-    description: 'A starter blog demonstrating what Gatsby can do.',
+    description: "Meha Masum's Software Portfolio and Blog",
     url: process.env.SITE_URL,
     siteUrl: process.env.SITE_URL,
     siteLanguage: 'en',
-    logo: `${__dirname}/src/assets/favicon.png`,
-    pathPrefix: '/',
-    banner: `${__dirname}/src/assets/favicon.png`,
+    logo: `/images/meta/favicon.png`,
+    pathPrefix: '/gatsby-blog',
+    banner: `/images/meta/favicon.png`,
     twitter: '@mehamasum',
     fbAppId: process.env.FB_APP_ID,
   },
@@ -78,7 +80,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/favicon.png`,
+        icon: `static/images/meta/favicon.png`,
       },
     },
     `gatsby-plugin-offline`,

@@ -11,7 +11,7 @@
       }
     ],
     "description": "An unofficial skill that connects your Slack workspace with Amazon Echo",
-    "thumbnail": "/projects/thumbs/swv.jpg",
+    "thumbnail": "/images/projects/swv.jpg",
     "winner": {
       "title": "Best Student Software",
       "platform": "Alexa Skills Challenge: Life Hacks"
@@ -30,7 +30,7 @@
       }
     ],
     "description": "A classroom chat-bot that automates repetitive and time-consuming replies from the Professors",
-    "thumbnail": "/projects/thumbs/bear.png",
+    "thumbnail": "/images/projects/bear.png",
     "winner": {
       "title": "Best Education Software",
       "platform": "Cisco Spark The Industry Challenge"
@@ -49,7 +49,7 @@
       }
     ],
     "description": "A Reddit like mobile utility for sharing road safety issues to draw local authority’s attention",
-    "thumbnail": "/projects/thumbs/apprise.png",
+    "thumbnail": "/images/projects/apprise.png",
     "winner": {
       "title": "Second Prize",
       "platform": "Ford Hack and Role Indore"
@@ -72,7 +72,7 @@
       }
     ],
     "description": "A web based visual programming editor for interfacing DIY Robotics kits",
-    "thumbnail": "/projects/thumbs/rupai.png",
+    "thumbnail": "/images/projects/rupai.png",
     "winner": null,
     "tags": ["Google Blockly", "Arduino", "Raspberry Pi", "Python"]
   },
@@ -88,7 +88,7 @@
       }
     ],
     "description": "A lightweight 'in-app' diagram maker plugin for Trello",
-    "thumbnail": "/projects/thumbs/draw-in-trello.png",
+    "thumbnail": "/images/projects/draw-in-trello.png",
     "winner": null,
     "tags": ["Vanilla JS", "mxGraph"]
   },
@@ -104,7 +104,7 @@
       }
     ],
     "description": "An interactive game for Google Assistant",
-    "thumbnail": "/projects/thumbs/dond.png",
+    "thumbnail": "/images/projects/dond.png",
     "winner": null,
     "tags": ["NodeJS", "API.AI", "Google cloud"]
   },
@@ -120,7 +120,7 @@
       }
     ],
     "description": "A Web app for Physicians to visualize raw health data synced across multiple devices of the patient",
-    "thumbnail": "/projects/thumbs/live-healthy.png",
+    "thumbnail": "/images/projects/live-healthy.png",
     "winner": {
       "title": "Best Student Software",
       "platform": "Redhat Code Healthy with OpenShift"
@@ -139,7 +139,7 @@
       }
     ],
     "description": "Swiss army knife health app, pairs with LiveHealthy as health data collector",
-    "thumbnail": "/projects/thumbs/healthpal.png",
+    "thumbnail": "/images/projects/healthpal.png",
     "winner": {
       "platform": "EATL Prothom Alo Local Contest",
       "title": "1st Runner Up (Health)"
@@ -158,7 +158,7 @@
       }
     ],
     "description": "A Snapchat like Android application for sharing texts and images that connects nearby users by creating a WiFi Hotspot",
-    "thumbnail": "/projects/thumbs/wichat.png",
+    "thumbnail": "/images/projects/wichat.png",
     "winner": {
       "title": "Best Mobile App in Java Tools Challenge",
       "platform": "Microsoft Visual Studio Marketplace Hackfest"
@@ -177,7 +177,7 @@
       }
     ],
     "description": "A DropBox like file hosting and sharing web app intended for local networks (i.e. lab/classroom)",
-    "thumbnail": "/projects/thumbs/overdrive.png",
+    "thumbnail": "/images/projects/overdrive.png",
     "winner": null,
     "tags": ["C++", "POCO", "Vanilla JS"]
   },
@@ -193,7 +193,7 @@
       }
     ],
     "description": "Bus tracking and schedule management web app for University of Dhaka",
-    "thumbnail": "/projects/thumbs/lalbus.png",
+    "thumbnail": "/images/projects/lalbus.png",
     "winner": null,
     "tags": ["PHP", "MySQL", "jQuery"]
   },
@@ -209,7 +209,7 @@
       }
     ],
     "description": "Visualization on sorting algorithms in an Interactive Android App",
-    "thumbnail": "/projects/thumbs/visuQSort.png",
+    "thumbnail": "/images/projects/visuQSort.png",
     "winner": null,
     "tags": ["Java", "Android SDK"]
   },
@@ -225,7 +225,7 @@
       }
     ],
     "description": "Dashboard based web app maker, for non-tech people ",
-    "thumbnail": "/projects/thumbs/elegant-resume.png",
+    "thumbnail": "/images/projects/elegant-resume.png",
     "winner": null,
     "tags": ["PHP", "MySQL", "jQuery"]
   },
@@ -241,7 +241,7 @@
       }
     ],
     "description": "ASCII charecter based Snake game in assembly language",
-    "thumbnail": "/projects/thumbs/snake.png",
+    "thumbnail": "/images/projects/snake.png",
     "winner": null,
     "tags": ["Assembly x86", "TASM"]
   },
@@ -257,7 +257,7 @@
       }
     ],
     "description": "Clone of famous DX Ball game",
-    "thumbnail": "/projects/thumbs/dy-ball.png",
+    "thumbnail": "/images/projects/dy-ball.png",
     "winner": null,
     "tags": ["C", "C++", "BGI"]
   }

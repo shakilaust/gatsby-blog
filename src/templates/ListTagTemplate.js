@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Breadcrumb from '../components/Breadcrumb'
-import BlogList from '../components/BlogList'
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
+import BlogList from '../components/PostList/BlogList'
 
 const ListTagTemplate = props => {
   console.log(props)
@@ -74,6 +74,8 @@ export const pageQuery = graphql`
             title
             tags
             category
+            thumbnail
+            spoiler
           }
         }
       }
