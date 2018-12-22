@@ -5,9 +5,17 @@ export default props => (
     <p>Hi, I am Meha. I am a Full Stack developer based in Dhaka.</p>
     <p>
       After spending some time in software industry I felt I should start
-      writing about things I do, as well as about things I learn everyday. Because one day
-      it might be very helpful to someone out there. If you find any
-      inconsistency feel free to send a PR. :)
+      writing about things I do, as well as about things I learn everyday.
+      Because one day it might be very helpful to someone out there. If you find
+      any inconsistency feel free to{' '}
+      <a
+        href="https://github.com/mehamasum/gatsby-blog"
+        target="_blank"
+        style={{ color: '#fff', textDecoration: 'underline' }}
+      >
+        send a PR
+      </a>
+      {'  :)'}
     </p>
   </div>
 )

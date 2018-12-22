@@ -8,8 +8,6 @@ import Twitter from './Twitter'
 export default class SEO extends Component {
   render() {
     const { title, desc, banner, pathname, article } = this.props
-    console.log(this.props)
-
     return (
       <StaticQuery
         query={query}

@@ -30,10 +30,7 @@ class Footer extends React.Component {
             </span>
           </Col>
           <Col xs={12} md={6} className="footer-right-panel">
-            <a
-              href="https://github.com/mehamasum/mehamasum.github.io"
-              target="_blank"
-            >
+            <a href="https://github.com/mehamasum/gatsby-blog" target="_blank">
               <i
                 className="fa fa-code-fork"
                 style={{
