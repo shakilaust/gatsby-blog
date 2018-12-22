@@ -58,7 +58,9 @@ pre[class*='language-'] {
   padding: 0.2em;
   padding-top: 1px;
   padding-bottom: 1px;
-  background: rgba(255, 229, 100, 0.2);
+  color: #d72b3f;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
   border-radius: 5px;
 }
 

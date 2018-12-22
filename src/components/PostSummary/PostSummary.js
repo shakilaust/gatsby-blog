@@ -24,11 +24,8 @@ class Summary extends React.Component {
 
           <p>{post.frontmatter.spoiler}</p>
 
-          <div>
-            <i className="fa fa-tag fa-flip-horizontal" />
-            {post.frontmatter.tags.map(tag => (
-              <Tag tag={tag} key={tag} />
-            ))}
+          <div style={{ margin: '1rem 0' }}>
+            <Link to={post.fields.slug}>Read More </Link>▸
           </div>
         </div>
         <div className="postPreviewThumbnail leftRoundedImage flex0">

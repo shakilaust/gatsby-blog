@@ -29,7 +29,7 @@ class Bio extends React.Component {
             {'. '}
           </strong>
           <br />
-          I explain things with words and code.
+          Software engineer based in Dhaka
           <br />
           <span
             style={{

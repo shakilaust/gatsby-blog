@@ -1,13 +1,13 @@
 {
-  "name": "gatsby-starter-blog",
-  "description": "Starter Gatsby Blog",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "mehamasum-web",
+  "description": "Mehedi Hasan Masum's personal web app",
+  "version": "0.0.1",
+  "author": "Mehedi Hasan Masum <mehamasum@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
+    "url": "https://github.com/mehamasum/gatsby-blog/issues"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.1.2",
     "classnames": "^2.2.6",
     "disqus-react": "^1.0.5",
     "gatsby": "^2.0.19",
@@ -43,12 +43,13 @@
     "react-typography": "^0.16.13"
   },
   "devDependencies": {
+    "dotenv": "6.2.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^1.2.0",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/mehamasum/gatsby-blog",
   "keywords": [
     "gatsby"
   ],
@@ -56,7 +57,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/mehamasum/gatsby-blog.git"
   },
   "scripts": {
     "dev": "gatsby develop",
@@ -67,6 +68,7 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy-with-path": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }
