@@ -32,8 +32,6 @@ export default class SEO extends Component {
             },
           } = props
 
-          console.log(props)
-
           const seo = {
             title: title || defaultTitle,
             description: defaultDescription || desc,
