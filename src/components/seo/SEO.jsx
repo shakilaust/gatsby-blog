@@ -16,7 +16,7 @@ export default class SEO extends Component {
             site: {
               buildTime,
               siteMetadata: {
-                defaultTitle,
+                title: defaultTitle,
                 titleAlt,
                 shortName,
                 author,
@@ -24,12 +24,15 @@ export default class SEO extends Component {
                 logo,
                 siteUrl,
                 pathPrefix,
-                defaultDescription,
-                defaultBanner,
+                description: defaultDescription,
+                banner: defaultBanner,
                 twitter,
+                fbAppId,
               },
             },
           } = props
+
+          console.log(props)
 
           const seo = {
             title: title || defaultTitle,
@@ -107,6 +110,7 @@ export default class SEO extends Component {
                 title={seo.title}
                 type={article ? 'article' : 'website'}
                 url={seo.url}
+                fbAppId={fbAppId}
               />
               <Twitter
                 title={seo.title}
@@ -154,6 +158,7 @@ const query = graphql`
         defaultDescription: description
         defaultBanner: banner
         twitter
+        fbAppId
       }
     }
   }
