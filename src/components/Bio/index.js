@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'gatsby'
 import profilePic from '../../assets/images/avatar.jpg'
 
 class Bio extends React.Component {
@@ -25,7 +25,7 @@ class Bio extends React.Component {
         <div>
           Personal blog by{' '}
           <strong>
-            <a href="/">Mehedi Hasan Masum</a>
+            <a href="/about">Mehedi Hasan Masum</a>
             {'. '}
           </strong>
           <br />
@@ -36,12 +36,7 @@ class Bio extends React.Component {
               fontSize: '80%',
             }}
           >
-            <a
-              className="twitter-follow-button"
-              href="https://twitter.com/mehamasum"
-              target="_blank"
-              data-show-count="false"
-            >
+            <a href="https://twitter.com/mehamasum" target="_blank">
               <i
                 className="fa fa-twitter"
                 style={{
@@ -51,6 +46,22 @@ class Bio extends React.Component {
               />
               @mehamasum
             </a>
+            {' | '}
+            <Link
+              to="/contact"
+              style={{
+                marginLeft: '0.25em',
+              }}
+            >
+              <i
+                className="fa fa-envelope"
+                style={{
+                  color: '#f05f70',
+                  marginRight: '0.25em',
+                }}
+              />
+              Message
+            </Link>
           </span>
         </div>
       </div>

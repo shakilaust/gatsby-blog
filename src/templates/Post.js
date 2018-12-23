@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import SharingIsCaring from '../assets/images/sharing.svg'
 import Bio from '../components/Bio'
-import Layout from '../components/layouts/TwoColumnLayout'
+import Layout from '../components/layouts/StickyLeftLayout'
 import Tag from '../components/Tag/Tag'
 import { Row, Col } from 'react-bootstrap'
 import PostSummary from '../components/PostSummary/PostSummary'
@@ -42,48 +42,10 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout
         location={this.props.location}
-        header={
-          <div
-            style={{
-              color: 'white',
-              backgroundColor: '#364657',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              padding: '2em 0',
-            }}
-          >
-            <Row>
-              <Col xs={12} md={8} mdOffset={1}>
-                <div>
-                  <div>
-                    <h1
-                      style={{
-                        marginBottom: '0.2em',
-                        fontFamily: 'monospace',
-                      }}
-                    >
-                      <Link
-                        to="/blog"
-                        style={{
-                          color: 'white',
-                          textDecoration: 'none',
-                        }}
-                      >
-                        {'<Learning in public/>'}
-                      </Link>
-                    </h1>
-
-                    <div
-                      style={{
-                        padding: '0 0 1.3em 0',
-                      }}
-                    >
-                      Meha Masum's Personal blog
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </Row>
+        sidebar={
+          <div>
+            <h4>Content</h4>
+            <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
           </div>
         }
       >
@@ -125,6 +87,9 @@ class BlogPostTemplate extends React.Component {
             </Link>
             {` • ${post.timeToRead} min read`}
           </div>
+
+          <hr />
+
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
 
@@ -219,6 +184,7 @@ export const pageQuery = graphql`
       timeToRead
       excerpt
       html
+      tableOfContents
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
