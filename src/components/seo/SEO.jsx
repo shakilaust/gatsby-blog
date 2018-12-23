@@ -8,8 +8,6 @@ import Twitter from './Twitter'
 export default class SEO extends Component {
   render() {
     const { title, desc, banner, pathname, article } = this.props
-    console.log(this.props)
-
     return (
       <StaticQuery
         query={query}
@@ -18,7 +16,7 @@ export default class SEO extends Component {
             site: {
               buildTime,
               siteMetadata: {
-                defaultTitle,
+                title: defaultTitle,
                 titleAlt,
                 shortName,
                 author,
@@ -26,9 +24,10 @@ export default class SEO extends Component {
                 logo,
                 siteUrl,
                 pathPrefix,
-                defaultDescription,
-                defaultBanner,
+                description: defaultDescription,
+                banner: defaultBanner,
                 twitter,
+                fbAppId,
               },
             },
           } = props
@@ -109,6 +108,7 @@ export default class SEO extends Component {
                 title={seo.title}
                 type={article ? 'article' : 'website'}
                 url={seo.url}
+                fbAppId={fbAppId}
               />
               <Twitter
                 title={seo.title}
@@ -156,6 +156,7 @@ const query = graphql`
         defaultDescription: description
         defaultBanner: banner
         twitter
+        fbAppId
       }
     }
   }

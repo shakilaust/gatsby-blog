@@ -140,7 +140,6 @@ class Projects extends Component {
                                     position: 'absolute',
                                     bottom: 0,
                                     left: 0,
-                                    fontWeight: 700,
                                     padding: '0.5em 1em 0.5em 1em',
                                     paddingTop: '40px',
                                     background:

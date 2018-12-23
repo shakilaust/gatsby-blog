@@ -2,7 +2,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-console.log('Env version', process.env.NODE_ENV)
+console.log('[Env version]: ', process.env.NODE_ENV)
 
 const SITE_CONFIG = {
   title: 'Meha Masum',
@@ -25,7 +25,7 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
     siteLanguage: 'en',
     logo: `/images/meta/favicon.png`,
-    pathPrefix: '/gatsby-blog',
+    pathPrefix: '/',
     banner: `/images/meta/favicon.png`,
     twitter: '@mehamasum',
     fbAppId: process.env.FB_APP_ID,
