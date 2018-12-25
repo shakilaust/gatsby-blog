@@ -6,6 +6,7 @@ import Header from '../layouts/Header'
 import Footer from '../layouts/Footer'
 import ContactForm from '../../components/widgets/ContactForm'
 import AboutBlog from '../../components/widgets/AboutBlog'
+import RSS from '../../components/widgets/RSS'
 import TagCloud from '../widgets/TagCloud'
 import SocialLinks from '../widgets/SocialLinks'
 import '../../styles/index.scss'
@@ -37,6 +38,9 @@ class Layout extends React.Component {
               <hr />
 
               <TagCloud />
+              <hr />
+
+              <RSS />
               <hr />
 
               <SocialLinks />

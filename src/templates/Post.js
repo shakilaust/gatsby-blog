@@ -74,11 +74,18 @@ class BlogPostTemplate extends React.Component {
           ]}
         />
 
-        <div className="card card-content">
-          <h1>{post.frontmatter.title}</h1>
+        <div>
+          <h1
+            style={{
+              marginBottom: '0',
+            }}
+          >
+            {post.frontmatter.title}
+          </h1>
           <div
             style={{
               display: 'block',
+              margin: '1em 0 2em',
             }}
           >
             {post.frontmatter.date} in{' '}
@@ -87,9 +94,9 @@ class BlogPostTemplate extends React.Component {
             </Link>
             {` • ${post.timeToRead} min read`}
           </div>
+        </div>
 
-          <hr />
-
+        <div className="card card-content">
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
 
