@@ -31,14 +31,16 @@ class Projects extends Component {
       scrollUrlHashUpdate: false,
     })
   }
-  onChange = activeKey => {
+
+  onChange(activeKey) {
     this.setState({
       activeKey,
     })
   }
 
-  shouldHighlight = (highlightedHash, projectHash) =>
+  shouldHighlight(highlightedHash, projectHash) {
     highlightedHash.split('#')[1] === projectHash
+  }
 
   render() {
     const { data } = this.props
