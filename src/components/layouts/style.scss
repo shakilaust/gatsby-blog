@@ -1,12 +1,7 @@
-.stickySidebar {
-  position: sticky;
-  top: 68px;
-  overflow-y: auto;
-}
-
-@media screen and (max-width: 768px) {
+@media (min-width: 992px) {
   .stickySidebar {
-    position: inherit;
+    position: sticky;
+    top: 68px;
     overflow-y: auto;
   }
 }

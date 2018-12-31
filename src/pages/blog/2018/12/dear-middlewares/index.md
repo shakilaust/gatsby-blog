@@ -250,7 +250,7 @@ Of course we could loop over an array and still get that final fully wrapped `di
 
 There we have it. We got a `store` object for our app with both middleware installed.
 
-### Redux's `applyMiddleware`
+### Redux's applyMiddleware()
 
 Redux provides an utility called `applyMiddleware` that would take care of calling our functions while setting up a store. `createStore` takes an optional last argument for this purpose.
 
@@ -320,6 +320,6 @@ As middlewares are chained together, if one of them forgets to return the value 
 
 See you next time.
 
-### Further reading:
+## Further reading
 
 - [7 examples of redux middlewares](https://redux.js.org/advanced/middleware#seven-examples)
