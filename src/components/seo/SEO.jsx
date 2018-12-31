@@ -91,7 +91,7 @@ export default class SEO extends Component {
           }
 
           return (
-            <>
+            <React.Fragment>
               <Helmet title={seo.title}>
                 <html lang={siteLanguage} />
                 <meta name="description" content={seo.description} />
@@ -116,7 +116,7 @@ export default class SEO extends Component {
                 desc={seo.description}
                 username={twitter}
               />
-            </>
+            </React.Fragment>
           )
         }}
       />

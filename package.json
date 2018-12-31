@@ -10,7 +10,7 @@
     "bootstrap": "^4.1.2",
     "classnames": "^2.2.6",
     "disqus-react": "^1.0.5",
-    "gatsby": "^2.0.19",
+    "gatsby": "^2.0.78",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.5",
     "gatsby-plugin-manifest": "^2.0.5",
@@ -18,7 +18,6 @@
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sass": "^2.0.7",
     "gatsby-plugin-sharp": "^2.0.6",
-    "gatsby-plugin-typography": "^2.2.0",
     "gatsby-remark-autolink-headers": "^2.0.12",
     "gatsby-remark-copy-linked-files": "^2.0.5",
     "gatsby-remark-images": "^2.0.4",
@@ -39,14 +38,12 @@
     "react-facebook": "^6.0.15",
     "react-helmet": "^5.2.0",
     "react-share": "^2.4.0",
-    "react-tagcloud": "^1.3.1",
-    "react-typography": "^0.16.13"
+    "react-tagcloud": "^1.3.1"
   },
   "devDependencies": {
     "dotenv": "6.2.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
-    "gh-pages": "^1.2.0",
     "prettier": "^1.14.2"
   },
   "homepage": "https://github.com/mehamasum/gatsby-blog",
@@ -62,14 +59,13 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "deploy-master": "gatsby build && gh-pages -d public -b master",
-    "deploy-with-path": "gatsby build --prefix-paths && gh-pages -d public",
+    "build-with-path": "gatsby build --prefix-paths",
+    "deploy": "gatsby build && gh-pages -d public -b master",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }
