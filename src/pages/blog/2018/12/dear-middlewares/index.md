@@ -46,7 +46,7 @@ So here is a conceptual view:
 
 But why does it sit there? Consider these use cases:
 
-- We want to log every action that is dispatched and how that action changed the state. That way, when something is wrong we can look back at our log and figure out which action is resposible in putting our app in a wrong state. We have to put this logger between those two points to acheive this.
+- We want to log every action that is dispatched and how that action changed the state. That way, when something is wrong we can look back at our log and figure out which action is resposible for putting our app in a bad state. We have to put this logger between those two points to acheive this.
 
 - We want to have a common error catching logic for our app (and possibly send it to a crash reporting service).
 
@@ -89,7 +89,7 @@ store.dispatch = function ourDispatch(action) {
 }
 ```
 
-Here we copied the original version of `store.dispatch` to `originalDispatch`. Then we assign it our own definition. The original one take one argument (`action`), so does ours. We also return the `originalReturnValue`. May be, we do not know what original `store.dispatch` was supposed to return, but we don't want to polute it's old signature.
+Here we copied the original version of `store.dispatch` to `originalDispatch`. Then we assign it our own definition. The original one take one argument (`action`), so does ours. We also return the `originalReturnValue`. May be, we do not know what original `store.dispatch` was supposed to return, but we don't want to pollute it's old signature.
 
 So we got what we wanted. But this is a bad approach. Because we are modifying things at our will, but we know things should only be [extended not modified](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle). But let's keep it like this for a while.
 
@@ -167,7 +167,7 @@ Good, now we have chained middlewares.
 
 ### Better implementation
 
-Now let's go back to our previous problem. We don't want to modify the library function `store.dispatch` like this. What else could we do? Instead of modifying the current version 'in-place', we could just return the new version of the `store.dispatch`.
+Now let's go back to our previous problem. We don't want to modify the library function `store.dispatch` like this. What else could we do? Instead of modifying the current version 'in-place', we could just return the new version of the `store.dispatch`. This technique is actually called [Currying](https://stackoverflow.com/questions/36314/what-is-currying) and pretty common in JS.
 
 ```diff
 export function patchStoreToAddLogging(store) {
@@ -204,7 +204,7 @@ store.dispatch = patchStoreToAddLogging(store)
 store.dispatch = patchStoreToSupportErrorHandling(store)
 ```
 
-If we want to avoid assigning, in order to 'chain' them we have pass the current version of `store.dispatch` to each of them as argument. That way, the first function will get the original `store.dispatch` and return a new version of `store.dispatch`. This will go as argument to the second function so that can return a further modified version. Eventually we will receive a fully changed version of `store.dispatch`. Instead of changing `store.dispatch` itself we will create a copy of store at setup time with the last fully changed version of `dispatch`.
+If we want to avoid assigning, in order to 'chain' them we have to pass the current version of `store.dispatch` to each of them as argument. That way, the first function will get the original `store.dispatch` and return a new version of `store.dispatch`. This will go as argument to the second function so that can return a further modified version. Eventually we will receive a fully changed version of `store.dispatch`. Instead of changing `store.dispatch` itself we will create a copy of store at setup time with the last fully changed version of `dispatch`.
 
 So the final version of those two functions will look like this:
 
@@ -322,4 +322,5 @@ See you next time.
 
 ## Further reading
 
+- [Currying in JS](https://hackernoon.com/currying-in-js-d9ddc64f162e)
 - [7 examples of redux middlewares](https://redux.js.org/advanced/middleware#seven-examples)
