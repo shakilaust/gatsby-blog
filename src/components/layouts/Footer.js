@@ -18,6 +18,9 @@ class Footer extends React.Component {
             <span
               style={{
                 margin: 0,
+                fontSize: '0.8em',
+                textTransform: 'uppercase',
+                letterSpacing: '2px',
               }}
             >
               Made by <Link to="#"> meha</Link>{' '}
