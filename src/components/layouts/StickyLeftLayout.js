@@ -13,43 +13,23 @@ class Layout extends React.Component {
       <div>
         <SEO />
         <header className="fixedHeader">
-          <div
-            style={{
-              color: 'white',
-              backgroundColor: '#364657',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            <Row>
-              <Col xs={12} md={10} mdOffset={1}>
-                <div>
-                  <div className="title">
-                    <Link
-                      to="/blog"
-                      style={{
-                        color: 'white',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      {'<Learning in public/>'}
-                    </Link>
-                  </div>
-
-                  <div className="links">
-                    <Link
-                      to="/"
-                      style={{
-                        color: 'white',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      <i className="fa fa-home" />
-                    </Link>
-                  </div>
-                </div>
-              </Col>
-            </Row>
+          <div className="nav">
+            <div className="nav-header">
+              <div className="nav-title">
+                <Link to="/">{'<Learning in public />'}</Link>
+              </div>
+            </div>
+            <div className="nav-btn">
+              <label htmlFor="nav-check">
+                <i className="fa fa-bars" />
+              </label>
+            </div>
+            <input type="checkbox" id="nav-check" />
+            <div className="nav-links">
+              <Link to="/">Projects</Link>
+              <Link to="/about">About Me</Link>
+              <Link to="/blog">Blog</Link>
+            </div>
           </div>
         </header>
 

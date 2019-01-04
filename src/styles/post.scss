@@ -73,3 +73,29 @@
   width: 100% !important;
   height: 100% !important;
 }
+
+.postTOC > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.postTOC > ul > li::before {
+  content: '•';
+  margin: 0 1rem 0 0;
+  color: #b1b1b1;
+}
+
+.postTOC > ul > li > p {
+  display: inline;
+}
+
+.postTOC > ul > li > ul {
+  list-style: none;
+  padding: 0 2rem;
+}
+
+.postTOC > ul > li > ul > li::before {
+  content: '▪';
+  margin: 0 1rem 0 0;
+  color: #b1b1b1;
+}

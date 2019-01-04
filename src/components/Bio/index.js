@@ -54,9 +54,8 @@ class Bio extends React.Component {
               }}
             >
               <i
-                className="fa fa-envelope"
+                className="fa fa-envelope-o"
                 style={{
-                  color: '#f05f70',
                   marginRight: '0.25em',
                 }}
               />

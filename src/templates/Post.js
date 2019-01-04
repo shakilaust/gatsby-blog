@@ -8,7 +8,6 @@ import { Row, Col } from 'react-bootstrap'
 import PostSummary from '../components/PostSummary/PostSummary'
 import Disqus from 'disqus-react'
 import ShareWidget from '../components/Share/Share'
-import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
 import SEO from '../components/seo/SEO'
 
 const _ = require('lodash')
@@ -45,7 +44,10 @@ class BlogPostTemplate extends React.Component {
         sidebar={
           <div>
             <h4>Content</h4>
-            <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
+            <div
+              className="postTOC"
+              dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
+            />
           </div>
         }
       >
@@ -55,23 +57,6 @@ class BlogPostTemplate extends React.Component {
           desc={`${post.frontmatter.spoiler}`}
           pathname={this.props.location.pathname}
           banner={post.frontmatter.thumbnail}
-        />
-
-        <Breadcrumb
-          links={[
-            {
-              url: '/',
-              label: 'root',
-            },
-            {
-              url: '/blog',
-              label: 'blog',
-            },
-            {
-              url: '#',
-              label: 'post',
-            },
-          ]}
         />
 
         <div>
@@ -96,7 +81,7 @@ class BlogPostTemplate extends React.Component {
           </div>
         </div>
 
-        <div className="card card-content">
+        <div style={{ fontSize: '1.2em' }}>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
 
