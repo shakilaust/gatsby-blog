@@ -16,14 +16,13 @@ class BlogList extends React.Component {
       <TwoColumnLayout
         location={this.props.location}
         title={
-          <h1
-            className="portfolio-user-name"
+          <div
             style={{
               fontFamily: 'monospace',
             }}
           >
             {'<Learning in public/>'}
-          </h1>
+          </div>
         }
       >
         <SEO

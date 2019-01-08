@@ -1,0 +1,21 @@
+.footer-left-panel {
+  float: left;
+  text-align: left;
+}
+
+.footer-right-panel {
+  float: right;
+  text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-left-panel {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .footer-right-panel {
+    text-align: center;
+    padding: 0.5rem;
+  }
+}

@@ -32,7 +32,7 @@ class Projects extends Component {
     })
   }
 
-  onChange(activeKey) {
+  onChange = activeKey => {
     this.setState({
       activeKey,
     })
@@ -69,7 +69,8 @@ class Projects extends Component {
                         <Col
                           xs={12}
                           sm={6}
-                          lg={4}
+                          md={4}
+                          lg={3}
                           key={project.id}
                           style={{
                             paddingLeft: '0.75em',

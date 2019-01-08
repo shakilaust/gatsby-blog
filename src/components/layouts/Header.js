@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
 import avatar from '../../assets/images/avatar.jpg'
 import '../../styles/index.scss'
+import './Header/style.scss'
 import classnames from 'classnames'
 
 class Header extends React.Component {
@@ -40,11 +41,15 @@ class Header extends React.Component {
               </div>
 
               <div className="portfolio-user-info">
-                {this.props.title || (
-                  <h1 className="portfolio-user-name">
-                    Mehedi Hasan Masum <small>(@mehamasum)</small>
-                  </h1>
-                )}
+                <h1 className="portfolio-user-name">
+                  {this.props.title ? (
+                    this.props.title
+                  ) : (
+                    <div>
+                      Mehedi Hasan Masum <small>(@mehamasum)</small>
+                    </div>
+                  )}
+                </h1>
                 <nav>
                   <Link to="/">
                     <div className={this.getClassNames('project')}>

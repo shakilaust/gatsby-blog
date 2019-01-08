@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
 import '../styles/index.scss'
-import Layout from '../components/layouts/TwoColumnLayout'
+import Layout from '../components/layouts/Layout'
 import SEO from '../components/seo/SEO'
 
 import { StaticQuery } from 'gatsby'
