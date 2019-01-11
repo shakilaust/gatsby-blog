@@ -144,23 +144,7 @@
       "title": "Best Student Software",
       "platform": "Redhat Code Healthy with OpenShift"
     },
-    "tags": ["Redhat Openshift", "PHP", "MySQL"]
-  },
-  {
-    "name": "HealthPal",
-    "hash": "healthpal",
-    "kid": false,
-    "year": "2016",
-    "url": [
-      {
-        "title": "Website",
-        "url": "http://eatlapps.com/apps/app_details/201768"
-      }
-    ],
-    "description": "Swiss army knife health app, pairs with LiveHealthy as health data collector",
-    "thumbnail": "/images/projects/healthpal.png",
-    "winner": null,
-    "tags": ["Java", "Android SDK"]
+    "tags": ["Redhat Openshift", "PHP", "MySQL", "Java", "Android SDK"]
   },
   {
     "name": "OverDrive",
