@@ -109,7 +109,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Blog list
         generateListPages(
           createPage,
-          2,
+          1,
           posts.length,
           `/blog`,
           BlogListTemplate

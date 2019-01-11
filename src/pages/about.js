@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
 import '../styles/index.scss'
+import '../styles/card.scss'
+import '../styles/about.scss'
 import Layout from '../components/layouts/Layout'
 import SEO from '../components/seo/SEO'
 
@@ -78,7 +80,7 @@ class About extends React.Component {
 
           <Row>
             <Col xs={12}>
-              <div className="about-section">
+              <div className="bio-section">
                 <h3>
                   <i className="fa fa-briefcase" /> Experience
                 </h3>
@@ -194,7 +196,7 @@ class About extends React.Component {
                 </div>
               </div>
 
-              <div className="about-section">
+              <div className="bio-section">
                 <h3>
                   <i className="fa fa-graduation-cap" /> Education
                 </h3>
@@ -218,7 +220,7 @@ class About extends React.Component {
                 </div>
               </div>
 
-              <div className="about-section">
+              <div className="bio-section">
                 <h3>
                   <i className="fa fa-trophy" /> Honors
                 </h3>

@@ -109,6 +109,25 @@
     "tags": ["NodeJS", "API.AI", "Google cloud"]
   },
   {
+    "name": "WiChat",
+    "hash": "wichat",
+    "kid": false,
+    "year": "2016",
+    "url": [
+      {
+        "title": "Website",
+        "url": "https://devpost.com/software/wichat"
+      }
+    ],
+    "description": "A Snapchat like Android application for sharing texts and images that connects nearby users by creating a WiFi Hotspot",
+    "thumbnail": "/images/projects/wichat.png",
+    "winner": {
+      "title": "Best Mobile App in Java Tools Challenge",
+      "platform": "Microsoft Visual Studio Marketplace Hackfest"
+    },
+    "tags": ["Java", "Java Socket", "Android SDK"]
+  },
+  {
     "name": "LiveHealthy",
     "hash": "live-healthy",
     "kid": false,
@@ -140,30 +159,8 @@
     ],
     "description": "Swiss army knife health app, pairs with LiveHealthy as health data collector",
     "thumbnail": "/images/projects/healthpal.png",
-    "winner": {
-      "platform": "EATL Prothom Alo Local Contest",
-      "title": "1st Runner Up (Health)"
-    },
+    "winner": null,
     "tags": ["Java", "Android SDK"]
-  },
-  {
-    "name": "WiChat",
-    "hash": "wichat",
-    "kid": false,
-    "year": "2016",
-    "url": [
-      {
-        "title": "Website",
-        "url": "https://devpost.com/software/wichat"
-      }
-    ],
-    "description": "A Snapchat like Android application for sharing texts and images that connects nearby users by creating a WiFi Hotspot",
-    "thumbnail": "/images/projects/wichat.png",
-    "winner": {
-      "title": "Best Mobile App in Java Tools Challenge",
-      "platform": "Microsoft Visual Studio Marketplace Hackfest"
-    },
-    "tags": ["Java", "Java Socket", "Android SDK"]
   },
   {
     "name": "OverDrive",

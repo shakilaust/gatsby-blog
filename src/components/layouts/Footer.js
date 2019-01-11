@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Row, Col } from 'react-bootstrap'
-import './Footer/style.scss'
+import '../../styles/footer.scss'
 
 class Footer extends React.Component {
   render() {

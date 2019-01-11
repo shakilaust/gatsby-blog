@@ -69,3 +69,18 @@
   vertical-align: baseline;
   border-radius: 0.25em;
 }
+
+.dimText {
+  color: $primaryDimTextColor;
+}
+
+.trophy {
+  color: $primarySpecialTextColor;
+  //text-shadow: 0px 0px 1px grey;
+  transition: 0.2s linear;
+  transition-property: text-shadow, color, opacity, transform;
+}
+
+.specialText {
+  color: $primarySpecialTextColor;
+}

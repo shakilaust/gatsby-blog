@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import './variables';
 
 .portfolio-user {
   display: -ms-flexbox;
@@ -64,14 +64,14 @@
   .portfolio-user-name {
     height: 3.63333rem;
     margin-top: 0;
-    color: $primaryContrastColor;
+    color: $primaryTextColor;
     margin-bottom: 1rem;
   }
 
   .portfolio-user-name small {
     display: inline;
     width: auto;
-    color: $primaryContrastColor;
+    color: $primaryTextColor;
   }
 }
 
@@ -80,7 +80,7 @@
 }
 
 .portfolio-user-photo .user-photo {
-  background-color: $primaryContrastColor;
+  background-color: $primaryTextColor;
   border: 0.3rem solid $white;
   width: 12rem;
   height: 12rem;

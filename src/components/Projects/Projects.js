@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../styles/index.scss'
+import '../../styles/card.scss'
 import 'rc-collapse/assets/index.css'
 import Collapse, { Panel } from 'rc-collapse'
 import { Grid, Row, Col } from 'react-bootstrap'
@@ -39,7 +40,7 @@ class Projects extends Component {
   }
 
   shouldHighlight(highlightedHash, projectHash) {
-    highlightedHash.split('#')[1] === projectHash
+    return highlightedHash.split('#')[1] === projectHash
   }
 
   render() {
@@ -85,18 +86,9 @@ class Projects extends Component {
                                   this.props.hash,
                                   project.hash
                                 )
-                                  ? 'highlighted'
-                                  : ''
+                                  ? 'card highlighted'
+                                  : 'card'
                               }
-                              style={{
-                                backgroundColor: 'white',
-                                marginBottom: '1.5em',
-                                height: 'calc(100% - 1.5em)',
-                                boxShadow:
-                                  '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-                                transition: '0.3s',
-                                borderRadius: '5px',
-                              }}
                             >
                               {/* project.winner ? (
                               <aside
@@ -201,16 +193,26 @@ class Projects extends Component {
                                   }}
                                 >
                                   {project.winner ? (
-                                    <div>
+                                    <div
+                                      style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                      }}
+                                    >
                                       <i
-                                        className="fa fa-trophy winnerColor"
+                                        className="fa fa-trophy trophy"
                                         style={{
                                           marginRight: '0.5rem',
+                                          flex: '0 0 auto',
+                                          fontSize: '2rem',
                                         }}
                                       />
-                                      <small className="winnerColor">{`${
-                                        project.winner.platform
-                                      }`}</small>
+                                      <p
+                                        style={{
+                                          fontSize: '1.2rem',
+                                          fontWeight: 700,
+                                        }}
+                                      >{`${project.winner.platform}`}</p>
                                     </div>
                                   ) : null}
 

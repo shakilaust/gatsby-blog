@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { Grid, Row, Col } from 'react-bootstrap'
 import avatar from '../../assets/images/avatar.jpg'
 import '../../styles/index.scss'
-import './Header/style.scss'
+import '../../styles/header.scss'
 import classnames from 'classnames'
 
 class Header extends React.Component {

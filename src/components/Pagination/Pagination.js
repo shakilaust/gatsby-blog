@@ -4,11 +4,7 @@ import '../../styles/index.scss'
 
 const renderButton = (context, dir) => {
   if (!context || !context.url)
-    return (
-      <button className="btn" disabled>
-        {context.label}
-      </button>
-    )
+    return <span className="dimText">{context.label}</span>
   return (
     <Link to={context.url} rel="prev">
       {dir === 'left' ? (

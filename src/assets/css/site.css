@@ -21,24 +21,6 @@ a:focus {
   margin-right: 0;
 }
 
-.btn {
-  padding: 0;
-  margin: 0;
-  color: #364657;
-  background: none;
-  border: 0 solid #333;
-}
-
-.btn:hover {
-  border: 0 solid #364657;
-}
-
-.btn:disabled,
-.btn[disabled] {
-  border: 0 solid #999999;
-  color: #cccccc;
-}
-
 #___gatsby {
   width: 100%;
 }
@@ -70,6 +52,8 @@ blockquote {
   flex-wrap: wrap;
 }
 
+/* rc-collapse override */
+
 .rc-collapse {
   border: none !important;
   background-color: inherit !important;
@@ -83,49 +67,6 @@ blockquote {
   background-color: inherit !important;
 }
 
-.about-section {
-  margin: 0 5%;
-  margin-bottom: 3rem;
-}
-
-.card-content {
-  padding: 10px 16px;
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 5px;
-  margin: 1rem 0;
-}
-
-.card-light {
-  background: #f4f5f7;
-  box-shadow: none !important;
-}
-
-.card {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* .card:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-} */
-
-.padder {
-  padding: 16px 16px 16px;
-}
-
-.date {
-  font-size: 80%;
-}
-
-.highlighted {
-  border: #ffb300;
-  border-width: 1px;
-  border-style: solid;
-}
-
 hr {
-  border-top: 1px solid #d9d9d9;
+  border-top: 2px solid #e7e9ee;
 }
