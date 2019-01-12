@@ -5,7 +5,7 @@ export default props => (
     <p>Hi, I am Meha, a full stack software engineer based in Dhaka.</p>
     <p>
       "Learning in Public" is my personal blog to share things I learn every
-      day. I beleive it might be helpful to someone out there to learn
+      day. I believe it might be helpful to someone out there to learn
       something. If you find any inconsistency feel free to{' '}
       <a
         href="https://github.com/mehamasum/gatsby-blog"

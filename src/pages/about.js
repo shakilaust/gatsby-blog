@@ -40,16 +40,13 @@ const Hackathons = () => (
         .filter(p => p.winner)
         .map(p => (
           <li key={p.id} style={{ marginBottom: '1rem' }}>
-            <span>{p.winner.platform}</span>
-            <br />
-            <span>
-              <em>{`${p.winner.title}`}</em>&nbsp;{'|'}&nbsp;
+            {p.winner.platform}, {p.year}
+            <p>
+              {`${p.winner.title}`}&nbsp; (Project: &nbsp;
               <Link to={`/#${p.hash}`} style={{ textDecoration: 'none' }}>
-                {p.name}
+                {p.name})
               </Link>
-            </span>
-
-            <div className="date">{p.year}</div>
+            </p>
           </li>
         ))
       return projects
@@ -64,7 +61,7 @@ class About extends React.Component {
         <SEO
           article={false}
           title={`About Meha Masum`}
-          desc={`Mehedi Hasan Masum's profile, software portfoilo and personal blog`}
+          desc={`Mehedi Hasan Masum's profile, software portfolio and personal blog`}
           pathname={this.props.location.pathname}
         />
         <div className="card">
@@ -102,10 +99,41 @@ class About extends React.Component {
                           <br />
                           <div className="date">Feb 2018 - Present</div>
                         </span>
-                        <p>
-                          Wroking as a Full Stack engineer in building robust
-                          SPAs
-                        </p>
+
+                        <ul>
+                          <li>
+                            <Link to="/#ronangon">
+                              Project: Analytical gaming platform
+                            </Link>
+                            <p>
+                              Working as a Full Stack engineer in building a
+                              robust SPA with a Rest API.
+                            </p>
+                            <ul>
+                              <li>
+                                Built the game simulator using{' '}
+                                <a
+                                  href="http://www.pixijs.com/"
+                                  target="_blank"
+                                >
+                                  PixiJS
+                                </a>{' '}
+                                and integrated it with the online IDE
+                              </li>
+                              <li>
+                                Implemented messaging backend from scratch with
+                                RTC support via{' '}
+                                <a
+                                  href="https://channels.readthedocs.io"
+                                  target="_blank"
+                                >
+                                  django channels
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+
                         <div>
                           <i className="fa fa-wrench" />
                           <Tag
@@ -153,18 +181,32 @@ class About extends React.Component {
                         </span>
                         <ul>
                           <li>
-                            Developed Low Cost Robotic kit and Graphical
-                            Programming Language for School Students{' '}
-                            <Link to="/#rupai">(Project: Rupai)</Link>
-                          </li>
-                          <li>
-                            Funded by Ministry of Education, Govt. of Bangladesh
-                          </li>
-                          <li>
-                            Published the work in{' '}
-                            <a href="http://www.icetc.org" target="_blank">
-                              ICETC 2018
-                            </a>
+                            <Link to="/#rupai">Project: Rupai</Link>
+                            <p>
+                              A framework for interfacing DIY low cost robotics
+                              kits with graphical programming language. Funded
+                              by Ministry of Education, Govt. of Bangladesh.
+                            </p>
+                            <ul>
+                              <li>
+                                Implemented a web based programming language
+                                editor from scratch
+                              </li>
+                              <li>
+                                Implemented advance language features such as
+                                Event handlers and Parallel programming
+                              </li>
+                              <li>
+                                Worked on building ML based object recognition
+                                module for robotics vision
+                              </li>
+                              <li>
+                                Published and presented the framework in{' '}
+                                <a href="http://www.icetc.org" target="_blank">
+                                  ICETC 2018
+                                </a>
+                              </li>
+                            </ul>
                           </li>
                         </ul>
                         <div>
@@ -238,10 +280,9 @@ class About extends React.Component {
                               href="https://icpc.baylor.edu/regionals/finder/dhaka-2015"
                               target="_blank"
                             >
-                              ACM-ICPC Asia Dhaka On Site Regional Contest
-                              (DU_Introspection)
-                            </a>
-                            <div className="date">2015</div>
+                              2015 ACM-ICPC Asia Dhaka
+                            </a>{' '}
+                            On Site Regional Contest (DU_Introspection)
                           </li>
                         </ul>
                       </div>

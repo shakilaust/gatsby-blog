@@ -18,7 +18,7 @@ const middleware = store => next => action => {
 }
 ```
 
-When I first started, it really intimidated me- what's with all those arraows?. Then of course when I got to know them a little bit better, it was pretty clear. That's what we will try to do in this post. We will start from ground up and reach that `store => next => action =>` thingy gradually.
+When I first started, it really intimidated me- what's with all those arrows?. Then of course when I got to know them a little bit better, it was pretty clear. That's what we will try to do in this post. We will start from ground up and reach that `store => next => action =>` thingy gradually.
 
 If you are familiar with the concept of middleware you can skip the next section and go directly to [Redux's version of middleware](#redux-middleware).
 
@@ -30,7 +30,7 @@ For example, when a server-side library receives a request at a particular endpo
 
 Similarly if you want to parse the "body" of the request you don't want to do that in every function. You may add a middleware that parses the body of each request so that your "view"s get already parsed ("ready made") body to work with.
 
-Another popular use case would be, one middleware checks the authtication credentials of the request and put the user details in that "request object"- so that every response generator function doesn't have to make a DB call to find out who the request came from. There could be many more of these. And the best part is- you can chain them after one another. Here is a conceptual view:
+Another popular use case would be, one middleware checks the authentication credentials of the request and put the user details in that "request object"- so that every response generator function doesn't have to make a DB call to find out who the request came from. There could be many more of these. And the best part is- you can chain them after one another. Here is a conceptual view:
 
 ![](example.png)
 
@@ -46,7 +46,7 @@ So here is a conceptual view:
 
 But why does it sit there? Consider these use cases:
 
-- We want to log every action that is dispatched and how that action changed the state. That way, when something is wrong we can look back at our log and figure out which action is resposible for putting our app in a bad state. We have to put this logger between those two points to acheive this.
+- We want to log every action that is dispatched and how that action changed the state. That way, when something is wrong we can look back at our log and figure out which action is responsible for putting our app in a bad state. We have to put this logger between those two points to achieve this.
 
 - We want to have a common error catching logic for our app (and possibly send it to a crash reporting service).
 
@@ -75,7 +75,7 @@ function ourDispatch(store, action) {
 }
 ```
 
-So everytime we want to dispatch an action, we call `ourDispatch` instead of `store.dispatch`. But this will probably cause inconsistency in our project if we call `store.dispatch` in some files and `ourDispatch` in some others. We need a better solution.
+So every time we want to dispatch an action, we call `ourDispatch` instead of `store.dispatch`. But this will probably cause inconsistency in our project if we call `store.dispatch` in some files and `ourDispatch` in some others. We need a better solution.
 
 Can we not modify `store.dispatch` itself?
 
@@ -97,7 +97,7 @@ So we got what we wanted. But this is a bad approach. Because we are modifying t
 
 An important feature of middleware is chaining. How can we do that with what we have written so far?
 
-Let's say we want to add a common error catching behaviour. That is- we want a common place where we can catch any thrown error.
+Let's say we want to add a common error catching behavior. That is- we want a common place where we can catch any thrown error.
 
 We will modify `dispatch` one more time:
 
@@ -237,7 +237,7 @@ export function patchStoreToSupportErrorHandling(store) {
 }
 ```
 
-Just one line of change in each function: `currentDispatch` now comes as a argument, not from `store`. This allows us to apply the desired chaining without assigning everytime. With this we would get a new copy of `store` object when we set things up at the beginning and work with that.
+Just one line of change in each function: `currentDispatch` now comes as a argument, not from `store`. This allows us to apply the desired chaining without assigning every time. With this we would get a new copy of `store` object when we set things up at the beginning and work with that.
 
 ```jsx
 let dispatch = store.dispatch // original one
@@ -303,7 +303,7 @@ I hope now you understand why there is that `store => next => action` thingy in 
 
 ### We must return
 
-I have seen a lot of tutorials online and several npm package's source code that ship with middlewares that we can use in our projects and found out one crutial mistake in many such codes:
+I have seen a lot of tutorials online and several npm package's source code that ship with middlewares that we can use in our projects and found out one crucial mistake in many such codes:
 
 ```jsx
 const middleware = store => next => action => {

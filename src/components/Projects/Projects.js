@@ -89,6 +89,7 @@ class Projects extends Component {
                                   : 'card'
                               }
                               style={{
+                                flex: '1 1 auto',
                                 display: 'flex',
                                 flexDirection: 'column',
                               }}
