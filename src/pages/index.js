@@ -41,7 +41,7 @@ export const indexQuery = graphql`
           id
           hash
           name
-          kid
+          type
           year
           url {
             title

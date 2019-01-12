@@ -9,18 +9,17 @@ import Tag from '../../components/Tag/Tag'
 import ScrollableAnchor, {
   configureAnchors,
 } from '../lib/react-scrollable-anchor'
-import ReactTooltip from 'react-tooltip'
 
 const getIcon = urlType => {
   switch (urlType) {
     case 'Github':
-      return <i className="fa fa-github" />
+      return <i className="icon fa fa-github" />
     case 'Website':
-      return <i className="fa fa-external-link" />
+      return <i className="icon fa fa-external-link" />
     case 'Publication':
-      return <i className="fa fa-book" />
+      return <i className="icon fa fa-book" />
     default:
-      return <i className="fa fa-link" />
+      return <i className="icon fa fa-link" />
   }
 }
 
@@ -49,7 +48,7 @@ class Projects extends Component {
     const { data } = this.props
     const projects = data.allProjectsJson.edges
       .map(p => p.node)
-      .filter(p => !p.kid)
+      .filter(p => p.type !== 'kid')
     let catCount = {}
     projects.forEach(post => {
       const cat = post.year
@@ -59,7 +58,6 @@ class Projects extends Component {
 
     return (
       <div>
-        <ReactTooltip place="top" type="dark" effect="solid" />
         <Collapse onChange={this.onChange} activeKey={this.state.activeKey}>
           {Object.keys(catCount)
             .reverse()
@@ -67,7 +65,7 @@ class Projects extends Component {
               const projects = catCount[key]
               return (
                 <Panel header={`${key} (${projects.length})`} key={key}>
-                  <Row>
+                  <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
                     {projects.map(project => {
                       return (
                         <Col
@@ -76,6 +74,9 @@ class Projects extends Component {
                           md={4}
                           key={project.id}
                           className="project-column"
+                          style={{
+                            display: 'flex',
+                          }}
                         >
                           <ScrollableAnchor id={project.hash}>
                             <div
@@ -87,72 +88,86 @@ class Projects extends Component {
                                   ? 'card highlighted'
                                   : 'card'
                               }
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                              }}
                             >
-                              <div
-                                style={{
-                                  position: 'relative',
-                                }}
+                              <a href={project.url[0].url} target="_blank">
+                                <img
+                                  src={
+                                    project.thumbnail ||
+                                    'https://picsum.photos/400/300/?random'
+                                  }
+                                  alt={project.name}
+                                  className="project-thumb"
+                                />
+                              </a>
+                              <section
+                                className="project-desc"
+                                style={{ flex: '1 1 auto' }}
                               >
-                                <a href={project.url[0].url} target="_blank">
-                                  <img
-                                    src={
-                                      project.thumbnail ||
-                                      'https://picsum.photos/400/300/?random'
-                                    }
-                                    alt={project.name}
-                                    className="project-thumb"
-                                  />
-                                </a>
-                              </div>
-                              <div>
-                                <section className="project-desc">
-                                  <header>
-                                    <h3 className="project-header">
-                                      <a
-                                        href={project.url[0].url}
-                                        target="_blank"
-                                      >
-                                        {project.name}
-                                      </a>
+                                <header>
+                                  <h3 className="project-header">
+                                    <a
+                                      href={project.url[0].url}
+                                      target="_blank"
+                                    >
+                                      {project.name}
+                                    </a>
 
-                                      <ul className="unorderedList project-urls">
-                                        {project.url.map((url, index) => (
-                                          <li
-                                            key={index}
-                                            className="inlineListItem"
-                                          >
-                                            <a
-                                              href={url.url}
-                                              target="_blank"
-                                              data-tip={url.title}
-                                            >
-                                              {getIcon(url.title)}
-                                            </a>
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    </h3>
-                                  </header>
+                                    <span
+                                      style={{
+                                        fontSize: '0.7em',
+                                        background:
+                                          project.type === 'personal'
+                                            ? '#337ab7'
+                                            : '#5cb85c',
+                                        float: 'right',
+                                      }}
+                                      className="boot-label"
+                                    >
+                                      {project.type}
+                                    </span>
+                                  </h3>
+                                </header>
 
-                                  {project.winner ? (
-                                    <div className="winner-container">
-                                      <i className="fa fa-trophy trophy winner-icon" />
-                                      <p className="winner-text">{`${
-                                        project.winner.platform
-                                      }`}</p>
-                                    </div>
-                                  ) : null}
-
-                                  <p>{project.description}</p>
-
-                                  <div>
-                                    <i className="fa fa-wrench" />
-                                    {project.tags.map((tag, index) => (
-                                      <Tag tag={tag} key={index} url="#" />
-                                    ))}
+                                {project.winner ? (
+                                  <div className="winner-container">
+                                    <i className="fa fa-trophy trophy winner-icon" />
+                                    <p className="winner-text">{`${
+                                      project.winner.platform
+                                    }`}</p>
                                   </div>
-                                </section>
-                              </div>
+                                ) : null}
+
+                                <p>{project.description}</p>
+                              </section>
+
+                              <footer className="project-desc">
+                                <div>
+                                  <i className="fa fa-wrench" />
+                                  {project.tags.map((tag, index) => (
+                                    <Tag tag={tag} key={index} url="#" />
+                                  ))}
+                                </div>
+                                <h4>
+                                  <ul className="unorderedList project-urls">
+                                    {project.url.map((url, index) => (
+                                      <li
+                                        key={index}
+                                        className="inlineListItem"
+                                      >
+                                        <a href={url.url} target="_blank">
+                                          {url.title}
+
+                                          {getIcon(url.title)}
+                                        </a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </h4>
+                              </footer>
                             </div>
                           </ScrollableAnchor>
                         </Col>

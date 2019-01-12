@@ -2,12 +2,11 @@ import React from 'react'
 import '../../styles/widgets.scss'
 export default props => (
   <div className="AboutBlogWidget">
-    <p>Hi, I am Meha. I am a Full Stack developer based in Dhaka.</p>
+    <p>Hi, I am Meha, a full stack software engineer based in Dhaka.</p>
     <p>
-      After spending some time in software industry I felt I should start
-      writing about things I do, as well as about things I learn everyday.
-      Because one day it might be very helpful to someone out there. If you find
-      any inconsistency feel free to{' '}
+      "Learning in Public" is my personal blog to share things I learn every
+      day. I beleive it might be helpful to someone out there to learn
+      something. If you find any inconsistency feel free to{' '}
       <a
         href="https://github.com/mehamasum/gatsby-blog"
         target="_blank"

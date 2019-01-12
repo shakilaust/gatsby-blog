@@ -155,9 +155,9 @@ $headerHeight: 54px;
 }
 
 .nav > .nav-links {
-  display: inline;
   float: right;
-  padding: 0 1rem;
+  background: $primaryColor;
+  padding: 0 2rem;
 }
 
 .nav > .nav-links > a {
@@ -220,7 +220,7 @@ $headerHeight: 54px;
     height: 0px;
   }
   .nav > #nav-check:checked + .nav-links {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 54px);
     overflow-y: auto;
   }
 }

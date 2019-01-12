@@ -2,7 +2,7 @@
 
 .AboutBlogWidget {
   background-color: $primaryColor;
-  color: white;
+  color: $primaryTextColor;
   padding: 1em;
-  border-top: 5px solid $primaryColorDarker;
+  border-top: 5px solid $primarySpecialTextColor;
 }

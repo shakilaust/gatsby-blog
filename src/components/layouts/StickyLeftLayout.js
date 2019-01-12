@@ -1,6 +1,5 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import '../../styles/index.scss'
 import SEO from '../../components/seo/SEO'
 import Footer from '../layouts/Footer'
 import '../../styles/index.scss'

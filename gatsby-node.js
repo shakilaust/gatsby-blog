@@ -7,6 +7,8 @@ const ListCategoryTemplate = path.resolve(
 )
 const ListTagTemplate = path.resolve('./src/templates/ListTagTemplate.js')
 
+const ENTRIES_PER_PAGE = 10
+
 const buildQuery = `
 {
   allMarkdownRemark(
@@ -109,7 +111,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Blog list
         generateListPages(
           createPage,
-          1,
+          ENTRIES_PER_PAGE,
           posts.length,
           `/blog`,
           BlogListTemplate
@@ -119,7 +121,7 @@ exports.createPages = ({ graphql, actions }) => {
         Object.keys(tagCount).forEach(tag => {
           generateListPages(
             createPage,
-            3,
+            ENTRIES_PER_PAGE,
             tagCount[tag],
             `/blog/tags/${tag}`,
             ListTagTemplate,
@@ -132,7 +134,7 @@ exports.createPages = ({ graphql, actions }) => {
         Object.keys(catCount).forEach(cat => {
           generateListPages(
             createPage,
-            1,
+            ENTRIES_PER_PAGE,
             catCount[cat],
             `/blog/categories/${cat}`,
             ListCategoryTemplate,

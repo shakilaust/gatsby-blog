@@ -1,8 +1,24 @@
 [
   {
+    "name": "A social gaming platform",
+    "hash": "ronangon",
+    "type": "work",
+    "year": "2018",
+    "url": [
+      {
+        "title": "Website",
+        "url": "#"
+      }
+    ],
+    "description": "An edutainment based analytical skills development platform for young adults",
+    "thumbnail": "/images/projects/ronangon.png",
+    "winner": null,
+    "tags": ["React", "Redux", "Django", "DRF", "PostgreSQL"]
+  },
+  {
     "name": "Slack with Voice",
     "hash": "swv",
-    "kid": false,
+    "type": "personal",
     "year": "2018",
     "url": [
       {
@@ -21,7 +37,7 @@
   {
     "name": "Bear",
     "hash": "bear",
-    "kid": false,
+    "type": "personal",
     "year": "2017",
     "url": [
       {
@@ -40,7 +56,7 @@
   {
     "name": "Apprise",
     "hash": "apprise",
-    "kid": false,
+    "type": "personal",
     "year": "2017",
     "url": [
       {
@@ -59,7 +75,7 @@
   {
     "name": "Rupai",
     "hash": "rupai",
-    "kid": false,
+    "type": "personal",
     "year": "2017",
     "url": [
       {
@@ -79,7 +95,7 @@
   {
     "name": "Draw in Trello",
     "hash": "draw-in-trello",
-    "kid": false,
+    "type": "kid",
     "year": "2017",
     "url": [
       {
@@ -95,7 +111,7 @@
   {
     "name": "Deal or No Deal",
     "hash": "dond",
-    "kid": false,
+    "type": "personal",
     "year": "2017",
     "url": [
       {
@@ -111,7 +127,7 @@
   {
     "name": "WiChat",
     "hash": "wichat",
-    "kid": false,
+    "type": "personal",
     "year": "2016",
     "url": [
       {
@@ -130,7 +146,7 @@
   {
     "name": "LiveHealthy",
     "hash": "live-healthy",
-    "kid": false,
+    "type": "personal",
     "year": "2016",
     "url": [
       {
@@ -149,7 +165,7 @@
   {
     "name": "OverDrive",
     "hash": "overdrive",
-    "kid": false,
+    "type": "personal",
     "year": "2016",
     "url": [
       {
@@ -165,7 +181,7 @@
   {
     "name": "Lalbus",
     "hash": "lalbus",
-    "kid": true,
+    "type": "kid",
     "year": "2016",
     "url": [
       {
@@ -181,7 +197,7 @@
   {
     "name": "VisuQSort",
     "hash": "visuqsort",
-    "kid": true,
+    "type": "kid",
     "year": "2016",
     "url": [
       {
@@ -197,7 +213,7 @@
   {
     "name": "Elegant Resume",
     "hash": "elegant-resume",
-    "kid": true,
+    "type": "kid",
     "year": "2016",
     "url": [
       {
@@ -213,7 +229,7 @@
   {
     "name": "Classic Snake",
     "hash": "snake",
-    "kid": true,
+    "type": "kid",
     "year": "2015",
     "url": [
       {
@@ -229,7 +245,7 @@
   {
     "name": "DY Ball",
     "hash": "dy-ball",
-    "kid": true,
+    "type": "kid",
     "year": "2014",
     "url": [
       {
