@@ -3,32 +3,20 @@
   margin-bottom: 3rem;
 }
 
+@media only screen and (max-width: 768px) {
+  .bio-section {
+    margin: 0;
+  }
+}
+
 .date {
   font-size: 80%;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul > li::before {
-  content: '•';
-  margin: 0 1rem 0 0;
-  color: #b1b1b1;
+  padding-inline-start: 2rem;
 }
 
 ul > li > p {
-  margin: 0 0 1rem 2rem;
-}
-
-ul > li > ul {
-  list-style: none;
-  padding: 0 2rem;
-}
-
-ul > li > ul > li::before {
-  content: '▪';
-  margin: 0 1rem 0 0;
-  color: #b1b1b1;
+  margin-top: 0;
 }
