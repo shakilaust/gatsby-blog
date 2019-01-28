@@ -53,6 +53,7 @@ class Layout extends React.Component {
                 marginTop: '54px',
                 background: theme.primary.background,
                 color: theme.primary.text.normal,
+                transition: 'color 0.5s ease-out, background 0.5s ease-out',
               }}
             >
               <Row>
@@ -77,7 +78,12 @@ class Layout extends React.Component {
               </Row>
             </section>
 
-            <Footer />
+            <Footer
+              style={{
+                background: theme.primary.background,
+                color: theme.primary.text.normal,
+              }}
+            />
           </React.Fragment>
         )}
       </ThemeContext.Consumer>

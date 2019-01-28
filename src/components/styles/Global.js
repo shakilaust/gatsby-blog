@@ -8,13 +8,18 @@ export default class Style extends React.Component {
         dangerouslySetInnerHTML={{
           __html: `
           a {
-            color: ${theme.primary.text.link};
+            color: ${theme.primary.link.normal};
           }
           a:hover,
           a:focus {
-            color: ${theme.secondary.text.link};
+            color: ${theme.secondary.link.hover};
             text-decoration: underline;
             text-decoration-color: inherit;
+          }
+
+          .badge {
+            color: ${theme.badge.color};
+            background: ${theme.badge.background};
           }
         `,
         }}

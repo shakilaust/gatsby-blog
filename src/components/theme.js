@@ -6,12 +6,19 @@ export const themes = {
       background: '#f7f7f9',
       color: '#d72b3f',
     },
+    badge: {
+      background: 'rgba(0, 0, 0, 0.05)',
+      color: 'rgba(0, 0, 0, 0.68)',
+    },
     primary: {
       background: '#ffffff',
       text: {
         normal: '#000000',
         title: '#000000',
-        link: '#1d3c78',
+      },
+      link: {
+        normal: '#1d3c78',
+        hover: '#353a3e',
       },
     },
     secondary: {
@@ -19,7 +26,10 @@ export const themes = {
       text: {
         normal: '#000000',
         title: '#000000',
-        link: '#353a3e',
+      },
+      link: {
+        normal: '#1d3c78',
+        hover: '#353a3e',
       },
     },
   },
@@ -30,12 +40,19 @@ export const themes = {
       background: 'rgba(63,63,63,1)',
       color: '#e6e6e6',
     },
+    badge: {
+      background: 'rgb(255, 255, 255)',
+      color: 'rgba(0, 0, 0, 0.68)',
+    },
     primary: {
       background: '#282C35',
       text: {
         normal: 'rgba(255, 255, 255, 0.88)',
         title: '#ffffff',
-        link: '#7fc4ff',
+      },
+      link: {
+        normal: '#7fc4ff',
+        hover: '#7fc4ff',
       },
     },
     secondary: {
@@ -43,7 +60,10 @@ export const themes = {
       text: {
         normal: '#ffffff',
         title: '#ffffff',
-        link: '#7fc4ff',
+      },
+      link: {
+        normal: '#7fc4ff',
+        hover: '#7fc4ff',
       },
     },
   },

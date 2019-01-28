@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import SharingIsCaring from '../assets/images/sharing.svg'
 import Bio from '../components/Bio'
 import Layout from '../components/layouts/StickyLeftLayout'
 import Tag from '../components/Tag/Tag'
@@ -103,15 +102,6 @@ class BlogPostTemplate extends React.Component {
         </div>
 
         <div>
-          <img
-            src={SharingIsCaring}
-            alt={'Sharing is caring!'}
-            style={{
-              height: '32px',
-              float: 'left',
-              marginRight: '0.5em',
-            }}
-          />
           <div style={{ float: 'left' }}>
             <ShareWidget url={disqusConfig.url} text={disqusConfig.title} />
           </div>

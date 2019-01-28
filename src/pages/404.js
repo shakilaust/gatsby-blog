@@ -6,7 +6,35 @@ class NotFoundPage extends React.Component {
     return (
       <Layout location={this.props.location}>
         <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        <pre
+          style={{ lineHeight: 1.25, whiteSpace: 'pre' }}
+          dangerouslySetInnerHTML={{
+            __html: String.raw`
+              \          SORRY            /
+               \                         /
+                \    This page does     /
+                  ]   not exist yet.    [    ,'|
+                  ]                     [   /  |
+                  ]___               ___[ ,'   |
+                  ]  ]\             /[  [ |:   |
+                  ]  ] \           / [  [ |:   |
+                  ]  ]  ]         [  [  [ |:   |
+                  ]  ]  ]__     __[  [  [ |:   |
+                  ]  ]  ] ]\ _ /[ [  [  [ |:   |
+                  ]  ]  ] ] (#) [ [  [  [ :===='
+                  ]  ]  ]_].nHn.[_[  [  [
+                  ]  ]  ]  HHHHH. [  [  [
+                  ]  ] /   'HH("N  \ [  [
+                  ]__]/     HHH  "  \[__[
+                  ]         NNN         [
+                  ]         N/"         [
+                  ]         N H         [
+                /          N            \
+               /           q,            \
+              /                           \
+        `,
+          }}
+        />
       </Layout>
     )
   }

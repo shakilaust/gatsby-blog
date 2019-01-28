@@ -2,6 +2,7 @@
  * Copyright (c) 2015 instructure-react
  * Forked from https://github.com/aaronshaf/react-toggle/
 **/
+@import './variables';
 
 .react-toggle {
   touch-action: pan-x;
@@ -125,13 +126,13 @@
 }
 
 .react-toggle--focus .react-toggle-thumb {
-  -webkit-box-shadow: 0px 0px 3px 2px rgb(255, 167, 196);
-  -moz-box-shadow: 0px 0px 3px 2px rgb(255, 167, 196);
-  box-shadow: 0px 0px 2px 3px rgb(255, 167, 196);
+  -webkit-box-shadow: 0px 0px 3px 2px $primarySpecialTextColor;
+  -moz-box-shadow: 0px 0px 3px 2px $primarySpecialTextColor;
+  box-shadow: 0px 0px 2px 3px $primarySpecialTextColor;
 }
 
 .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
-  -webkit-box-shadow: 0px 0px 5px 5px rgb(255, 167, 196);
-  -moz-box-shadow: 0px 0px 5px 5px rgb(255, 167, 196);
-  box-shadow: 0px 0px 5px 5px rgb(255, 167, 196);
+  -webkit-box-shadow: 0px 0px 5px 5px $primarySpecialTextColor;
+  -moz-box-shadow: 0px 0px 5px 5px $primarySpecialTextColor;
+  box-shadow: 0px 0px 5px 5px $primarySpecialTextColor;
 }

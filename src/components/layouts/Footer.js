@@ -8,6 +8,7 @@ class Footer extends React.Component {
     return (
       <footer
         style={{
+          ...this.props.style,
           paddingTop: '4em',
           paddingBottom: '4em',
         }}
