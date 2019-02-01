@@ -133,6 +133,10 @@ $headerHeight: 54px;
   text-decoration: none;
 }
 
+.nav-title > a:hover {
+  color: $primaryTextColor;
+}
+
 .nav {
   height: $headerHeight;
   width: 100%;
