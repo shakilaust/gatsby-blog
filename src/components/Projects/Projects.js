@@ -4,7 +4,7 @@ import '../../styles/card.scss'
 import '../../styles/projects.scss'
 import 'rc-collapse/assets/index.css'
 import Collapse, { Panel } from 'rc-collapse'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import Tag from '../../components/Tag/Tag'
 import ScrollableAnchor, {
   configureAnchors,
@@ -32,9 +32,12 @@ class Projects extends Component {
     configureAnchors({
       scrollUrlHashUpdate: false,
     })
+
+
+    this.onChange = this.onChange.bind(this)
   }
 
-  onChange = activeKey => {
+  onChange(activeKey) {
     this.setState({
       activeKey,
     })
@@ -145,7 +148,8 @@ class Projects extends Component {
                                 <p>{project.description}</p>
                               </section>
 
-                              <footer className="project-desc">
+                              <footer className="project-desc" 
+                              style={{background: 'none'}}>
                                 <div>
                                   <i className="fa fa-wrench" />
                                   {project.tags.map((tag, index) => (

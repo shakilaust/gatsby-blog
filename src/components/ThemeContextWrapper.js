@@ -5,34 +5,19 @@ import { themes } from './theme'
 export const ThemeContext = React.createContext({
   theme: themes.light,
   setTheme: newTheme => {
-    console.log(newTheme)
+    
   },
 })
 
 class Wrapper extends React.Component {
-  handleDarkQueryChange = e => {
-    if (this.preferredTheme) {
-      return
-    }
-    this.setTheme(e.matches ? 'dark' : 'light')
-  }
-
-  setTheme = newTheme => {
-    console.log('setTheme called with', newTheme)
-    this.preferredTheme = newTheme
-    try {
-      localStorage.setItem('theme', newTheme)
-    } catch (err) {
-      // Ignore.
-    }
-    this.setState({ theme: themes[newTheme] })
-  }
-
   constructor(props) {
     super(props)
+    
+    this.handleDarkQueryChange = this.handleDarkQueryChange.bind(this)
+    this.setTheme = this.setTheme.bind(this)
+    
     try {
       this.preferredTheme = localStorage.getItem('theme')
-      console.log(this.preferredTheme)
     } catch (err) {
       // Ignore.
     }
@@ -47,7 +32,30 @@ class Wrapper extends React.Component {
         ],
       setTheme: this.setTheme,
     }
-    console.log(this.state)
+  }
+
+  handleDarkQueryChange(e) {
+    if (this.preferredTheme) {
+      return
+    }
+    this.setTheme(e.matches ? 'dark' : 'light')
+  }
+
+  setTheme(newTheme) {
+    this.preferredTheme = newTheme
+    try {
+      localStorage.setItem('theme', newTheme)
+    } catch (err) {
+      // Ignore.
+    }
+
+    
+
+    // TOOD: fix
+    // force refresh instead of setting state due to Disquis UI issue
+    // this.setState({ theme: themes[newTheme] })
+    setTimeout(() => window.location.reload(), 250)
+    
   }
 
   componentDidMount() {

@@ -107,61 +107,18 @@ class About extends React.Component {
                             </Link>
                             <p>
                               Working as a Full Stack engineer in building a
-                              robust SPA with a Rest API.
+                              robust SPA with a REST API.
                             </p>
                             <ul>
                               <li>
-                                Built the game simulator using{' '}
-                                <a
-                                  href="http://www.pixijs.com/"
-                                  target="_blank"
-                                >
-                                  PixiJS
-                                </a>{' '}
-                                and integrated it with the online IDE
+                                Developed a web based gaming environment with ReactJS, Redux and PixiJS
                               </li>
                               <li>
-                                Implemented messaging backend from scratch with
-                                RTC support via{' '}
-                                <a
-                                  href="https://channels.readthedocs.io"
-                                  target="_blank"
-                                >
-                                  django channels
-                                </a>
+                              Implemented messaging backend from scratch with Django, Django-channels
                               </li>
                             </ul>
                           </li>
                         </ul>
-
-                        <div>
-                          <i className="fa fa-wrench" />
-                          <Tag
-                            tag="React"
-                            url="https://reactjs.org/"
-                            external
-                          />
-                          <Tag
-                            tag="Redux"
-                            url="https://redux.js.org/"
-                            external
-                          />
-                          <Tag
-                            tag="Django"
-                            url="https://www.djangoproject.com/"
-                            external
-                          />
-                          <Tag
-                            tag="DRF"
-                            url="https://www.django-rest-framework.org/"
-                            external
-                          />
-                          <Tag
-                            tag="PostgreSQL"
-                            url="https://www.postgresql.org/"
-                            external
-                          />
-                        </div>
                       </div>
                     </div>
                     <div className="card card-content card-light">
@@ -209,29 +166,6 @@ class About extends React.Component {
                             </ul>
                           </li>
                         </ul>
-                        <div>
-                          <i className="fa fa-wrench" />
-                          <Tag
-                            tag="Python 2.7"
-                            url="https://www.python.org/"
-                            external
-                          />
-                          <Tag
-                            tag="Google Blockly"
-                            url="https://developers.google.com/blockly/"
-                            external
-                          />
-                          <Tag
-                            tag="OpenCV"
-                            url="https://opencv.org/"
-                            external
-                          />
-                          <Tag
-                            tag="Vanilla JS"
-                            url="http://vanilla-js.com/"
-                            external
-                          />
-                        </div>
                       </div>
                     </div>
                   </div>
