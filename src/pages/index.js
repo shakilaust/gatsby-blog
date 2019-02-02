@@ -63,7 +63,7 @@ class Index extends React.Component {
                   </li>
 
                   <li className="inlineListItem">
-                    <a href="#">
+                    <a href="https://github.com/mehamasum">
                       <i
                         className="fa fa-github"
                         style={{
@@ -75,7 +75,7 @@ class Index extends React.Component {
                   </li>
 
                   <li className="inlineListItem">
-                    <a href="#">
+                    <a href="https://linkedin.com/in/mehamasum">
                       <i
                         className="fa fa-linkedin"
                         style={{
