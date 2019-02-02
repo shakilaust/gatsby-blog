@@ -14,7 +14,7 @@ class Topics extends React.Component {
 
     return (
       <div>
-        <h4>Blog Posts by category</h4>
+        <h4>Posts by category</h4>
         <ul>
           {Object.keys(tagCount).map(key => (
             <li key={key}>

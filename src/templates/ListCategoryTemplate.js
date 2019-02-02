@@ -33,7 +33,7 @@ const ListCategoryTemplate = props => {
               },
             ]}
           />
-          <h1>{heading}</h1>
+          <h2>{heading}</h2>
         </React.Fragment>
       }
     />

@@ -8,11 +8,11 @@ class Summary extends React.Component {
     const { post } = this.props
     const title = post.frontmatter.title || post.fields.slug
     return (
-      <div className="card postPreview">
-        <div className="card-content flex1">
-          <h3 className="postPreviewHeading">
+      <div className="postPreview">
+        <div className="flex1">
+          <h1 className="postPreviewHeading">
             <Link to={post.fields.slug}>{title}</Link>
-          </h3>
+          </h1>
 
           <small>
             {post.frontmatter.date} in{' '}
@@ -31,7 +31,7 @@ class Summary extends React.Component {
         <div className="postPreviewThumbnail leftRoundedImage flex0">
           <Link to={post.fields.slug}>
             <div
-              className="leftRoundedImage backgroundCover sizeFull"
+              className="backgroundCover sizeFull"
               style={{
                 backgroundImage: `url(${post.frontmatter.thumbnail})`,
               }}

@@ -6,7 +6,7 @@ export default props => {
   const { links } = props
 
   return (
-    <ul className="unorderedList badge">
+    <ul className="unorderedList badge" style={{margin: 0}}>
       {links.slice(0, links.length - 1).map((link, index) => (
         <li className="inlineListItem" key={index}>
           <Link to={link.url}>{link.label}</Link>&nbsp;

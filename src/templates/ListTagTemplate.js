@@ -33,7 +33,7 @@ const ListTagTemplate = props => {
               },
             ]}
           />
-          <h1>{tagHeader}</h1>
+          <h2>{tagHeader}</h2>
         </React.Fragment>
       }
     />

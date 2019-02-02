@@ -25,7 +25,7 @@ class Bio extends React.Component {
         <div>
           Personal blog by{' '}
           <strong>
-            <a href="/about">Mehedi Hasan Masum</a>
+            <a href="/">Mehedi Hasan Masum</a>
             {'. '}
           </strong>
           <br />

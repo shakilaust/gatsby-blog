@@ -5,7 +5,7 @@ import '../../styles/index.scss'
 class Section extends React.Component {
   render() {
     return (
-      <section
+      <div
         style={{
           paddingTop: '1em',
           paddingBottom: '1em',
@@ -15,7 +15,7 @@ class Section extends React.Component {
         <div className="layoutRow">
           <Col sm={12}>{this.props.children}</Col>
         </div>
-      </section>
+      </div>
     )
   }
 }

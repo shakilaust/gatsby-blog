@@ -1,10 +1,9 @@
 import React from 'react'
-import Layout from '../components/layouts/Layout'
 
 class NotFoundPage extends React.Component {
   render() {
     return (
-      <Layout location={this.props.location}>
+      <React.Fragment>
         <h1>Not Found</h1>
         <pre
           style={{ lineHeight: 1.25, whiteSpace: 'pre' }}
@@ -35,7 +34,7 @@ class NotFoundPage extends React.Component {
         `,
           }}
         />
-      </Layout>
+      </React.Fragment>
     )
   }
 }

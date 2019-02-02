@@ -11,13 +11,6 @@ import CodeStyle from '../styles/Code'
 import GlobalStyle from '../styles/Global'
 
 class Layout extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      darkTheme: false,
-    }
-  }
-
   render() {
     return (
       <ThemeContext.Consumer>
@@ -26,63 +19,55 @@ class Layout extends React.Component {
             <SEO />
             <GlobalStyle theme={theme} />
             <CodeStyle theme={theme} />
-            <div className="fixedHeader">
-              <div className="nav">
-                <div className="nav-header">
-                  <div className="nav-title">
-                    <Link to="/">{'<Learning in public />'}</Link>
-                  </div>
-                </div>
-                <div className="nav-btn">
-                  <label htmlFor="nav-check">
-                    <i className="fa fa-bars" />
-                  </label>
-                </div>
-                <input type="checkbox" id="nav-check" />
-                <div className="nav-links">
-                  <Link to="/">Projects</Link>
-                  <Link to="/about">About Me</Link>
-                  <Link to="/blog">Blog</Link>
-                </div>
-              </div>
-            </div>
 
-            <section
-              className="midSection"
+            <div
+              className="indexRoot"
               style={{
-                marginTop: '54px',
                 background: theme.primary.background,
                 color: theme.primary.text.normal,
                 transition: 'color 0.5s ease-out, background 0.5s ease-out',
               }}
             >
-              <Row>
-                <Col
-                  xs={12}
-                  mdOffset={1}
-                  md={3}
-                  className="layoutColumn stickySidebar"
-                >
-                  {this.props.sidebar}
-                </Col>
+              <div className="container">
+                <Row>
+                  <Col xs={12} md={3} mdOffset={1} className="stickySidebar">
+                    <Toggle
+                      checked={theme.id === 'dark'}
+                      onChange={e => {
+                        setTheme(e.target.checked ? 'dark' : 'light')
+                      }}
+                    />
+                    <h1
+                      style={{
+                        fontSize: '2.5em',
+                      }}
+                    >
+                      <Link to="/blog" style={{ color: 'inherit' }}>
+                        {'<Learning in'}
+                        <br />
+                        {'public/>'}
+                      </Link>
+                    </h1>
+                    <h3>
+                      Personal Blog by <Link to="/">Meha Masum</Link>
+                    </h3>
 
-                <Col xs={12} md={7} className="layoutColumn">
-                  <Toggle
-                    checked={theme.id === 'dark'}
-                    onChange={e => {
-                      setTheme(e.target.checked ? 'dark' : 'light')
-                    }}
-                  />
-                  {this.props.children}
-                </Col>
-              </Row>
-            </section>
+                    <hr />
 
+                    {this.props.sidebar}
+                  </Col>
+
+                  <Col xs={12} md={7}>
+                    {this.props.children}
+                  </Col>
+                </Row>
+              </div>
+            </div>
             <Footer
-              style={{
-                background: theme.primary.background,
-                color: theme.primary.text.normal,
-              }}
+                style={{
+                    background: theme.primary.background,
+                    color: theme.primary.text.normal,
+                }}
             />
           </React.Fragment>
         )}

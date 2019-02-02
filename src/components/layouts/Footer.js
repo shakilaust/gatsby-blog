@@ -13,7 +13,7 @@ class Footer extends React.Component {
           paddingBottom: '4em',
         }}
       >
-        <div className="layoutRow">
+        <div className="container">
           <Col xs={12} md={6} className="footer-left-panel">
             <span
               style={{

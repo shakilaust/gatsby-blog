@@ -17,8 +17,8 @@ export const themes = {
         title: '#000000',
       },
       link: {
-        normal: '#1d3c78',
-        hover: '#353a3e',
+        normal: '#337ab7',
+        hover: '#23527c',
       },
     },
     secondary: {

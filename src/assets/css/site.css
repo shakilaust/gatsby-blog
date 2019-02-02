@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('http://fonts.googleapis.com/css?family=Lato|Oswald:700|Open+Sans:400,700');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
 }
 
 .indexRoot {
@@ -12,8 +13,12 @@ body {
 /* Larger than mobile */
 @media (min-width: 400px) {
   .indexRoot {
-    padding: 4em 3em;
+    padding: 4em 0;
   }
+}
+
+.cryptedmail:after {
+  content: 'mehamasum@gmail.com';
 }
 
 h1 {
@@ -94,10 +99,6 @@ article > header address + time::before {
 }
 
 #___gatsby > * {
-  width: 100%;
-}
-
-#___gatsby > * > * {
   width: 100%;
 }
 

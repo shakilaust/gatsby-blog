@@ -16,7 +16,7 @@ class Topics extends React.Component {
 
     return (
       <div>
-        <h4>Blog topics</h4>
+        <h4>Posts by topics</h4>
 
         <TagCloud
           minSize={12}
