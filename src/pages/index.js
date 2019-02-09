@@ -24,7 +24,7 @@ class Index extends React.Component {
         <div>
           <div className="container indexRoot">
             <Row>
-              <Col xs={12} md={3} mdOffset={1} style={{marginBottom: '2em'}}>
+              <Col xs={12} md={3} mdOffset={1} style={{ marginBottom: '2em' }}>
                 <img
                   alt="Mehedi Hasan Masum's avatar"
                   src={avatar}
@@ -185,7 +185,7 @@ class Index extends React.Component {
                     {projects.map((project, index) => {
                       return (
                         <Col
-                            key={project.hash}
+                          key={project.hash}
                           xs={12}
                           md={6}
                           style={{ paddingLeft: 0, flex: '1 1 auto' }}
@@ -219,11 +219,12 @@ class Index extends React.Component {
                               <div style={{ marginTop: '0.5em' }}>
                                 {project.tags.map((tag, index) => (
                                   <span
-                                      key={`${project.name}${index}`}
+                                    key={`${project.name}${index}`}
                                     style={{
                                       fontSize: '85%',
                                       verticalAlign: 'baseline',
                                       background: '#eee',
+                                      borderColor: '#eee',
                                       marginRight: '0.5rem',
                                       marginBottom: '0.5rem',
                                       borderRadius: '5px',

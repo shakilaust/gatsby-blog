@@ -4,7 +4,7 @@ date: '2018-12-21T16:01:01.087Z'
 category: 'General'
 tags: ['middleware', 'reduxjs']
 thumbnail: '/images/posts/redux.png'
-spoiler: Do redux middleware confuse you? Take a deep breath and read on.
+spoiler: Does redux middleware confuse you? Take a deep breath and read on.
 ---
 
 This is a common structure of every redux middleware:

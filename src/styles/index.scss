@@ -12,6 +12,10 @@
   padding: 0;
 }
 
+.unorderedList .inlineListItem:first-child {
+  margin-left: 0;
+}
+
 .layoutColumn {
   padding: 1em 1em;
 }

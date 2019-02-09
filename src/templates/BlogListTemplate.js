@@ -2,14 +2,33 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import '../styles/index.scss'
 import BlogList from '../components/PostList/BlogList'
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
 
 class BlogListTemplate extends React.Component {
   render() {
     return (
       <BlogList
+        blogroot
         data={this.props.data}
         pageContext={this.props.pageContext}
         location={this.props.location}
+        topContent={
+          <React.Fragment>
+            <Breadcrumb
+              links={[
+                {
+                  url: '/',
+                  label: 'root',
+                },
+                {
+                  url: '/blog',
+                  label: 'blog',
+                },
+              ]}
+            />
+            <h2>All posts</h2>
+          </React.Fragment>
+        }
       />
     )
   }
