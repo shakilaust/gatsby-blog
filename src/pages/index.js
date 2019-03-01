@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 import { Row, Col } from 'react-bootstrap'
 import SEO from '../components/seo/SEO'
 import avatar from '../assets/images/avatar.jpg'
-import Tag from '../components/Tag/Tag'
 
 class Index extends React.Component {
   render() {
@@ -35,7 +34,6 @@ class Index extends React.Component {
                   }}
                 />
                 <h1 style={{ fontSize: '2.5em' }}>Mehedi Hasan Masum</h1>
-
                 <a href="tel:+8801521112085">+880 152 111 20 85</a>
                 <address>Dhaka, Bangladesh</address>
                 <p>
@@ -51,15 +49,15 @@ class Index extends React.Component {
 
                 <ul className="unorderedList">
                   <li className="inlineListItem" style={{ marginLeft: 0 }}>
-                    <Link to="/blog">
+                    <a href="https://stackoverflow.com/users/4135289/mehamasum">
                       <i
-                        className="fa fa-rss"
+                        className="fa fa-stack-overflow"
                         style={{
                           marginRight: '0.5rem',
                         }}
                       />
-                      Blog
-                    </Link>
+                      SO
+                    </a>
                   </li>
 
                   <li className="inlineListItem">
@@ -86,6 +84,20 @@ class Index extends React.Component {
                     </a>
                   </li>
                 </ul>
+
+                <br />
+
+                <div>
+                  <Link to="/blog">
+                    <i
+                      className="fa fa-rss"
+                      style={{
+                        marginRight: '0.5rem',
+                      }}
+                    />
+                    Read Articles
+                  </Link>
+                </div>
               </Col>
               <Col xs={12} md={7}>
                 <section>

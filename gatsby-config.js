@@ -79,7 +79,7 @@ module.exports = {
         short_name: SITE_CONFIG.shortName,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#3c78d8`,
         display: `minimal-ui`,
         icon: `static/images/meta/favicon.png`,
       },

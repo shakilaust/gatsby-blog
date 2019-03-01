@@ -7,11 +7,12 @@ import { Link } from 'gatsby'
 import RSS from '../../components/widgets/RSS'
 import TagCloud from '../widgets/TagCloud'
 import { ThemeContext } from '../ThemeContextWrapper'
-import Toggle from '../Toogle'
+import Switch from 'react-switch'
 import GlobalStyle from '../styles/Global'
 import '../../styles/index.scss'
 import AllCategories from '../widgets/AllCategories'
 import Footer from '../layouts/Footer'
+import Emoji from '../Emoji'
 
 class BlogList extends React.Component {
   render() {
@@ -46,11 +47,26 @@ class BlogList extends React.Component {
                 <div className="container">
                   <Row>
                     <Col xs={12} md={3} mdOffset={1}>
-                      <Toggle
+                      <Switch
+                        onColor="#222"
                         checked={theme.id === 'dark'}
                         onChange={e => {
-                          setTheme(e.target.checked ? 'dark' : 'light')
+                          setTheme(e ? 'dark' : 'light')
                         }}
+                        uncheckedIcon={
+                          <Emoji
+                            symbol="☀️"
+                            style={{ lineHeight: '28px', marginLeft: '7px' }}
+                          />
+                        }
+                        checkedIcon={
+                          <Emoji
+                            symbol="🌙"
+                            style={{ lineHeight: '28px', marginLeft: '7px' }}
+                          />
+                        }
+                        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                        activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
                       />
                       <h1
                         style={{

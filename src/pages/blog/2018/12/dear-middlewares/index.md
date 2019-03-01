@@ -18,7 +18,7 @@ const middleware = store => next => action => {
 }
 ```
 
-When I first started, it really intimidated me- what's with all those arrows?. Then of course when I got to know them a little bit better, it was pretty clear. That's what we will try to do in this post. We will start from ground up and reach that `store => next => action =>` thingy gradually.
+When I first started, it really intimidated me- what's with all those arrows? Then of course when I got to know them a little bit better, it was pretty clear. That's what we will try to do in this post. We will start from ground up and reach that `store => next => action =>` thingy gradually.
 
 If you are familiar with the concept of middleware you can skip the next section and go directly to [Redux's version of middleware](#redux-middleware).
 

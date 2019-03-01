@@ -6,9 +6,10 @@ import '../../styles/index.scss'
 import '../../styles/post.scss'
 import { Link } from 'gatsby'
 import { ThemeContext } from '../ThemeContextWrapper'
-import Toggle from '../Toogle'
 import CodeStyle from '../styles/Code'
 import GlobalStyle from '../styles/Global'
+import Switch from 'react-switch'
+import Emoji from '../../components/Emoji'
 
 class Layout extends React.Component {
   render() {
@@ -31,11 +32,26 @@ class Layout extends React.Component {
               <div className="container">
                 <Row>
                   <Col xs={12} md={3} mdOffset={1} className="stickySidebar">
-                    <Toggle
+                    <Switch
+                      onColor="#222"
                       checked={theme.id === 'dark'}
                       onChange={e => {
-                        setTheme(e.target.checked ? 'dark' : 'light')
+                        setTheme(e ? 'dark' : 'light')
                       }}
+                      uncheckedIcon={
+                        <Emoji
+                          symbol="☀️"
+                          style={{ lineHeight: '28px', marginLeft: '7px' }}
+                        />
+                      }
+                      checkedIcon={
+                        <Emoji
+                          symbol="🌙"
+                          style={{ lineHeight: '28px', marginLeft: '7px' }}
+                        />
+                      }
+                      boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                      activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
                     />
                     <h1
                       style={{
@@ -64,10 +80,10 @@ class Layout extends React.Component {
               </div>
             </div>
             <Footer
-                style={{
-                    background: theme.primary.background,
-                    color: theme.primary.text.normal,
-                }}
+              style={{
+                background: theme.primary.background,
+                color: theme.primary.text.normal,
+              }}
             />
           </React.Fragment>
         )}

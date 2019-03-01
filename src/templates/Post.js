@@ -5,7 +5,6 @@ import Layout from '../components/layouts/StickyLeftLayout'
 import Tag from '../components/Tag/Tag'
 import { Row, Col } from 'react-bootstrap'
 import PostSummary from '../components/PostSummary/PostSummary'
-import Disqus from 'disqus-react'
 import ShareWidget from '../components/Share/Share'
 import SEO from '../components/seo/SEO'
 
@@ -18,24 +17,14 @@ const postStyle = {
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-
     const { blogTitle, blogSlogan, author } = this.props.data.site.siteMetadata
-
-    const fbAppId = this.props.data.site.siteMetadata.fbAppId
     const { previousPage, nextPage, slug } = this.props.pageContext
 
-    const disqusShortname = 'mehamasum'
-    const disqusConfig = {
+    const pageConfig = {
       url: `${this.props.location.href}`,
       identifier: slug,
       title: post.frontmatter.title,
     }
-
-    const GITHUB_USERNAME = 'mehamasum'
-    const GITHUB_REPO_NAME = 'mehamasum.github.io'
-
-    const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/blog/src/pages${slug}index.md`
 
     return (
       <Layout
@@ -103,7 +92,7 @@ class BlogPostTemplate extends React.Component {
 
         <div>
           <div style={{ float: 'left' }}>
-            <ShareWidget url={disqusConfig.url} text={disqusConfig.title} />
+            <ShareWidget url={pageConfig.url} text={pageConfig.title} />
           </div>
         </div>
 
@@ -132,14 +121,6 @@ class BlogPostTemplate extends React.Component {
             </Row>
           </div>
         ) : null}
-
-        <div style={{ margin: '1rem 0' }}>
-          <hr />
-          <Disqus.DiscussionEmbed
-            shortname={disqusShortname}
-            config={disqusConfig}
-          />
-        </div>
 
         <div />
       </Layout>

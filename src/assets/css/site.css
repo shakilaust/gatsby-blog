@@ -18,7 +18,7 @@ body {
  *   480-less    - phone landscape & smaller
  * --------------------------------------------
  */
-@media all and (min-width: 1024px) and (max-width: 1280px) {
+@media all and (min-width: 1024px) {
   .indexRoot {
     padding: 4em 0;
   }
@@ -32,7 +32,7 @@ body {
 
 @media all and (min-width: 480px) and (max-width: 768px) {
   .indexRoot {
-    padding: 2em 1em;
+    padding: 3em 1em;
   }
 }
 
@@ -49,6 +49,13 @@ body {
 h1 {
   font-family: 'Oswald', 'Georgia', 'Times New Roman', serif;
   color: #3c78d8;
+}
+
+.roundedBackground {
+  background-color: #3c78d8;
+  color: white;
+  border-radius: 5px;
+  padding: '1em 1em';
 }
 
 section > h1 {

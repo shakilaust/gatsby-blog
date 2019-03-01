@@ -46,21 +46,6 @@ class Bio extends React.Component {
               />
               @mehamasum
             </a>
-            {' | '}
-            <Link
-              to="/contact"
-              style={{
-                marginLeft: '0.25em',
-              }}
-            >
-              <i
-                className="fa fa-envelope-o"
-                style={{
-                  marginRight: '0.25em',
-                }}
-              />
-              Message
-            </Link>
           </span>
         </div>
       </div>

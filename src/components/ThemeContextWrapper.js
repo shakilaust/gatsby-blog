@@ -4,18 +4,16 @@ import { themes } from './theme'
 
 export const ThemeContext = React.createContext({
   theme: themes.light,
-  setTheme: newTheme => {
-    
-  },
+  setTheme: newTheme => {},
 })
 
 class Wrapper extends React.Component {
   constructor(props) {
     super(props)
-    
+
     this.handleDarkQueryChange = this.handleDarkQueryChange.bind(this)
     this.setTheme = this.setTheme.bind(this)
-    
+
     try {
       this.preferredTheme = localStorage.getItem('theme')
     } catch (err) {
@@ -48,14 +46,7 @@ class Wrapper extends React.Component {
     } catch (err) {
       // Ignore.
     }
-
-    
-
-    // TOOD: fix
-    // force refresh instead of setting state due to Disquis UI issue
-    // this.setState({ theme: themes[newTheme] })
-    setTimeout(() => window.location.reload(), 250)
-    
+    this.setState({ theme: themes[newTheme] })
   }
 
   componentDidMount() {
