@@ -51,13 +51,6 @@ h1 {
   color: #3c78d8;
 }
 
-.roundedBackground {
-  background-color: #3c78d8;
-  color: white;
-  border-radius: 5px;
-  padding: '1em 1em';
-}
-
 section > h1 {
   font-size: 1.4em;
   line-height: 120%;
@@ -162,4 +155,18 @@ blockquote {
 
 hr {
   border-top: 2px solid #e7e9ee;
+}
+
+a {
+  text-decoration: none;
+  color: #3c78d8;
+  transition: all 0.5s ease;
+}
+
+a:hover {
+  color: #264a85;
+}
+
+a:visited {
+  color: #463cd8;
 }

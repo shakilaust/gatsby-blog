@@ -47,8 +47,13 @@ class Index extends React.Component {
                   />
                 </p>
 
-                <ul className="unorderedList">
-                  <li className="inlineListItem" style={{ marginLeft: 0 }}>
+                <ul
+                  style={{
+                    listStyleType: 'none',
+                    padding: 0,
+                  }}
+                >
+                  <li style={{ marginLeft: 0 }}>
                     <a href="https://stackoverflow.com/users/4135289/mehamasum">
                       <i
                         className="fa fa-stack-overflow"
@@ -56,11 +61,11 @@ class Index extends React.Component {
                           marginRight: '0.5rem',
                         }}
                       />
-                      SO
+                      Stackoverflow
                     </a>
                   </li>
 
-                  <li className="inlineListItem">
+                  <li>
                     <a href="https://github.com/mehamasum">
                       <i
                         className="fa fa-github"
@@ -72,7 +77,7 @@ class Index extends React.Component {
                     </a>
                   </li>
 
-                  <li className="inlineListItem">
+                  <li>
                     <a href="https://linkedin.com/in/mehamasum">
                       <i
                         className="fa fa-linkedin"
