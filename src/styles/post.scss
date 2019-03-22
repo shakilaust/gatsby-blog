@@ -105,7 +105,7 @@ $headerHeight: 54px;
 @media (min-width: 992px) {
   .stickySidebar {
     position: sticky;
-    // top: $headerHeight;
+    top: 4em;
     overflow-y: auto;
   }
 }

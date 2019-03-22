@@ -170,7 +170,7 @@ class Index extends React.Component {
                       <strong>Thesis</strong>
                       <span>
                         M. H. Masum, T. S. Rifat, S. M. Tareeq, H. Heickal,{' '}
-                        <a href="http://icetc.org">
+                        <a href="https://dl.acm.org/citation.cfm?id=3290535">
                           A Framework for Developing Graphically Programmable
                           Low-cost Robotics Kit for Classroom Education.
                         </a>
