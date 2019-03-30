@@ -106,6 +106,23 @@ class Index extends React.Component {
               </Col>
               <Col xs={12} md={7}>
                 <section>
+                  <p
+                    style={{
+                      paddingLeft: 15,
+                      borderLeft: '3px solid #ccc',
+                      fontStyle: 'italic',
+                    }}
+                  >
+                    Programmer <strike>and undergrad student</strike>.<br />
+                    Led my team to win 5 international hackathons in college.
+                    <br />
+                    Love AI and open source. Believer of ‘Roll up your sleeves
+                    and get it done’.
+                    <br />
+                  </p>
+                </section>
+
+                <section>
                   <h1>Work</h1>
                   <article>
                     <header>
