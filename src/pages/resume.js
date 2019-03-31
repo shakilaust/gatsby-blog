@@ -3,8 +3,18 @@ import SEO from '../components/seo/SEO'
 import { StaticQuery, graphql } from 'gatsby'
 
 export default class Resume extends React.Component {
+  colorful(url) {
+    if (url.indexOf('?color=true') != -1) return true
+    return false
+  }
   render() {
-    const { title, desc, banner, pathname, article } = this.props
+    console.log(this.props)
+    const { title, desc, banner, location } = this.props
+    let pdfUrl =
+      'https://mehamasum.github.io/docs/Resume_Mehedi-Hasan-Masum_CSEDU'
+    if (this.colorful(location.search)) pdfUrl += '_'
+    pdfUrl += '.pdf'
+
     return (
       <StaticQuery
         query={query}
@@ -24,7 +34,7 @@ export default class Resume extends React.Component {
                 pathname={this.props.location.pathname}
               />
               <iframe
-                src="https://docs.google.com/viewer?url=https://mehamasum.github.io/docs/Resume_Mehedi-Hasan-Masum_CSEDU.pdf&amp;embedded=true"
+                src={`https://docs.google.com/viewer?url=${pdfUrl}&amp;embedded=true`}
                 frameBorder="0"
                 style={{
                   position: 'absolute',
