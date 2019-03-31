@@ -8,8 +8,7 @@ export default class Resume extends React.Component {
     return false
   }
   render() {
-    console.log(this.props)
-    const { title, desc, banner, location } = this.props
+    const { location } = this.props
     let pdfUrl =
       'https://mehamasum.github.io/docs/Resume_Mehedi-Hasan-Masum_CSEDU'
     if (this.colorful(location.search)) pdfUrl += '_'
