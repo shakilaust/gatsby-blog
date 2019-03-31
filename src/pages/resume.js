@@ -33,7 +33,7 @@ export default class Resume extends React.Component {
                 pathname={this.props.location.pathname}
               />
               <iframe
-                src={`https://docs.google.com/viewer?url=${pdfUrl}&amp;embedded=true`}
+                src={`https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`}
                 frameBorder="0"
                 style={{
                   position: 'absolute',
