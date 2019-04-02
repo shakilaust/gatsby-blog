@@ -170,3 +170,23 @@ a:hover {
 a:visited {
   color: #463cd8;
 }
+
+.print {
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  right: 0;
+  top: 12px;
+  width: 40px;
+  height: 40px;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.print:hover {
+  background: rgba(49, 49, 49, 0.75);
+  text-decoration: none !important;
+}

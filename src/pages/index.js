@@ -15,10 +15,16 @@ class Index extends React.Component {
       <React.Fragment>
         <SEO
           article={false}
-          title={`Meha Masum's software portfolio`}
+          title={`Meha Masum's Resume`}
           desc={`Mehedi Hasan Masum's profile, software portfolio and personal blog`}
           pathname={this.props.location.pathname}
         />
+
+        <header>
+          <Link to="/resume/" className="print">
+            <i className="fa fa-print" />
+          </Link>
+        </header>
 
         <div>
           <div className="container indexRoot">
@@ -114,7 +120,7 @@ class Index extends React.Component {
                     }}
                   >
                     Programmer <strike>and undergrad student</strike>.<br />
-                    Led my team to win 5 international hackathons in college.
+                    Led my team to 5 international hackathon titles in college.
                     <br />
                     Love AI and open source. Believer of ‘Roll up your sleeves
                     and get it done’.
@@ -281,6 +287,17 @@ class Index extends React.Component {
             </Row>
           </div>
         </div>
+
+        <footer
+          style={{
+            padding: 16,
+          }}
+        >
+          <small style={{ float: 'right', margin: 16 }}>
+            Layout inspired by{' '}
+            <a href="https://resume.joaomoreno.com/">João Moreno</a>
+          </small>
+        </footer>
       </React.Fragment>
     )
   }
