@@ -13,7 +13,7 @@
     "description": "An edutainment based analytical skills development platform for young adults",
     "thumbnail": "/images/projects/ronangon.png",
     "winner": null,
-    "tags": ["React", "Redux", "Django", "DRF", "PostgreSQL"]
+    "tags": ["react", "redux", "django", "django-rest-framework", "postgresql"]
   },
   {
     "name": "Slack with Voice",
@@ -32,7 +32,7 @@
       "title": "Best Student Software",
       "platform": "Alexa Skills Challenge: Life Hacks"
     },
-    "tags": ["NodeJS", "AWS Lambda", "Alexa Skill Kit", "Slack API"]
+    "tags": ["node.js", "aws-lambda", "alexa-skills-kit", "slack-api"]
   },
   {
     "name": "Bear",
@@ -51,7 +51,7 @@
       "title": "Best Education Software",
       "platform": "Cisco Spark The Industry Challenge"
     },
-    "tags": ["NodeJS", "Botkit", "NoSQL"]
+    "tags": ["node.js", "botkit", "nosql"]
   },
   {
     "name": "Apprise",
@@ -70,7 +70,7 @@
       "title": "Second Prize",
       "platform": "Ford Hack and Role Indore"
     },
-    "tags": ["Java", "Android SDK", "PHP", "MySQL", "Microsoft Azure"]
+    "tags": ["java", "android", "php", "mysql", "azure"]
   },
   {
     "name": "Rupai",
@@ -90,7 +90,7 @@
     "description": "A web based visual programming editor for interfacing DIY Robotics kits",
     "thumbnail": "/images/projects/rupai.png",
     "winner": null,
-    "tags": ["Google Blockly", "Arduino", "Raspberry Pi", "Python"]
+    "tags": ["blockly", "arduino", "raspberry-pi", "python"]
   },
   {
     "name": "Draw in Trello",
@@ -106,7 +106,7 @@
     "description": "A lightweight 'in-app' diagram maker plugin for Trello",
     "thumbnail": "/images/projects/draw-in-trello.png",
     "winner": null,
-    "tags": ["Vanilla JS", "mxGraph"]
+    "tags": ["vanilla-js", "mxgraph"]
   },
   {
     "name": "Deal or No Deal",
@@ -122,7 +122,12 @@
     "description": "An interactive game for Google Assistant",
     "thumbnail": "/images/projects/dond.png",
     "winner": null,
-    "tags": ["NodeJS", "API.AI", "Google cloud"]
+    "tags": [
+      "actions-on-google",
+      "node.js",
+      "dialogflow",
+      "google-cloud-functions"
+    ]
   },
   {
     "name": "WiChat",
@@ -138,10 +143,10 @@
     "description": "A Snapchat like Android application for sharing texts and images that connects nearby users by creating a WiFi Hotspot",
     "thumbnail": "/images/projects/wichat.png",
     "winner": {
-      "title": "Best Mobile App in Java Tools Challenge",
+      "title": "Best Mobile App in java Tools Challenge",
       "platform": "Microsoft Visual Studio Marketplace Hackfest"
     },
-    "tags": ["Java", "Java Socket", "Android SDK"]
+    "tags": ["java", "networking", "sockets", "android"]
   },
   {
     "name": "LiveHealthy",
@@ -160,7 +165,7 @@
       "title": "Best Student Software",
       "platform": "Redhat Code Healthy with OpenShift"
     },
-    "tags": ["Redhat Openshift", "PHP", "MySQL", "Java", "Android SDK"]
+    "tags": ["openshift", "php", "mysql", "java", "android"]
   },
   {
     "name": "OverDrive",
@@ -176,7 +181,7 @@
     "description": "A DropBox like file hosting and sharing web app intended for local networks (i.e. lab/classroom)",
     "thumbnail": "/images/projects/overdrive.png",
     "winner": null,
-    "tags": ["C++", "POCO", "Vanilla JS"]
+    "tags": ["c", "c++", "poco", "vanilla-js"]
   },
   {
     "name": "Lalbus",
@@ -192,7 +197,7 @@
     "description": "Bus tracking and schedule management web app for University of Dhaka",
     "thumbnail": "/images/projects/lalbus.png",
     "winner": null,
-    "tags": ["PHP", "MySQL", "jQuery"]
+    "tags": ["php", "mysql", "jquery"]
   },
   {
     "name": "VisuQSort",
@@ -208,7 +213,7 @@
     "description": "Visualization on sorting algorithms in an Interactive Android App",
     "thumbnail": "/images/projects/visuQSort.png",
     "winner": null,
-    "tags": ["Java", "Android SDK"]
+    "tags": ["java", "android"]
   },
   {
     "name": "Elegant Resume",
@@ -224,7 +229,7 @@
     "description": "Dashboard based web app maker, for non-tech people ",
     "thumbnail": "/images/projects/elegant-resume.png",
     "winner": null,
-    "tags": ["PHP", "MySQL", "jQuery"]
+    "tags": ["php", "mysql", "jquery"]
   },
   {
     "name": "Classic Snake",
@@ -240,7 +245,7 @@
     "description": "ASCII charecter based Snake game in assembly language",
     "thumbnail": "/images/projects/snake.png",
     "winner": null,
-    "tags": ["Assembly x86", "TASM"]
+    "tags": ["assembly", "x86", "tasm"]
   },
   {
     "name": "DY Ball",
@@ -256,6 +261,6 @@
     "description": "Clone of famous DX Ball game",
     "thumbnail": "/images/projects/dy-ball.png",
     "winner": null,
-    "tags": ["C", "C++", "BGI"]
+    "tags": ["c", "c++", "graphics", "bgi"]
   }
 ]

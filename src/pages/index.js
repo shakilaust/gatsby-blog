@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { Row, Col } from 'react-bootstrap'
 import SEO from '../components/seo/SEO'
 import avatar from '../assets/images/avatar.jpg'
+import '../styles/portfolio.scss'
 
 class Index extends React.Component {
   render() {
@@ -21,281 +22,335 @@ class Index extends React.Component {
         />
 
         <header>
-          <Link to="/resume/" className="print">
-            <i className="fa fa-print" />
+          <Link
+            to="/resume/"
+            className="print"
+            aria-label="Printable Resume"
+            title="Printable Resume"
+          >
+            <i aria-hidden="true" className="fa fa-print" />
           </Link>
         </header>
 
-        <div>
-          <div className="container indexRoot">
-            <Row>
-              <Col xs={12} md={3} mdOffset={1} style={{ marginBottom: '2em' }}>
-                <img
-                  alt="Mehedi Hasan Masum's avatar"
-                  src={avatar}
-                  style={{
-                    width: 100,
-                    height: 100,
-                    borderRadius: '50%',
-                  }}
-                />
-                <h1 style={{ fontSize: '2.5em' }}>Mehedi Hasan Masum</h1>
-                <a href="tel:+8801521112085">+880 152 111 20 85</a>
-                <address>Dhaka, Bangladesh</address>
-                <p>
-                  <a
-                    href="#"
-                    className="cryptedmail"
-                    onClick={() => {
-                      window.location.href = 'mailto:mehamasum@gmail.com'
-                      return false
-                    }}
+        <main className="indexRoot container">
+          <Row>
+            <Col xs={12} md={3} mdOffset={1}>
+              <section className="resume-section">
+                <div className="avatar-wrapper" aria-hidden="true">
+                  <img
+                    alt="Mehedi Hasan Masum's avatar"
+                    src={avatar}
+                    className="avatar"
                   />
-                </p>
+                </div>
 
-                <ul
+                <h1
                   style={{
-                    listStyleType: 'none',
-                    padding: 0,
+                    fontSize: '2.5em',
+                    textTransform: 'none',
+                    marginBottom: '0.25em',
                   }}
                 >
-                  <li style={{ marginLeft: 0 }}>
-                    <a href="https://stackoverflow.com/users/4135289/mehamasum">
-                      <i
-                        className="fa fa-stack-overflow"
-                        style={{
-                          marginRight: '0.5rem',
-                        }}
-                      />
-                      Stackoverflow
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://github.com/mehamasum">
-                      <i
-                        className="fa fa-github"
-                        style={{
-                          marginRight: '0.5rem',
-                        }}
-                      />
-                      Github
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://linkedin.com/in/mehamasum">
-                      <i
-                        className="fa fa-linkedin"
-                        style={{
-                          marginRight: '0.5rem',
-                        }}
-                      />
-                      LinkedIn
-                    </a>
-                  </li>
-                </ul>
-
-                <br />
+                  Mehedi Hasan Masum
+                </h1>
 
                 <div>
-                  <Link to="/blog">
-                    <i
-                      className="fa fa-rss"
-                      style={{
-                        marginRight: '0.5rem',
-                      }}
-                    />
-                    Read Articles
-                  </Link>
-                </div>
-              </Col>
-              <Col xs={12} md={7}>
-                <section>
-                  <p
+                  <span
                     style={{
-                      paddingLeft: 15,
-                      borderLeft: '3px solid #ccc',
-                      fontStyle: 'italic',
+                      fontSize: '1.1em',
                     }}
                   >
-                    Programmer <strike>and undergrad student</strike>.<br />
-                    Led my team to 5 international hackathon titles in college.
+                    {'Software Engineer at '}
+                    <a href="http://codemarshal.com">CodeMarshal</a>
+                  </span>
+                </div>
+
+                <p>
+                  <div aria-hidden="true">
+                    <i
+                      aria-hidden="true"
+                      className="fa left-icon fa-map-marker"
+                    />
+                    <span>Dhaka, Bangladesh</span>
+                  </div>
+
+                  <div aria-hidden="true">
+                    <a href="tel:+8801521112085" title="Make a phone call">
+                      <i aria-hidden="true" className="fa left-icon fa-phone" />
+                      +880 152 111 20 85
+                    </a>
+                  </div>
+
+                  <div aria-hidden="true">
+                    <a
+                      href="#"
+                      className="cryptedmail"
+                      onClick={() => {
+                        window.location.href = 'mailto:mehamasum@gmail.com'
+                        return false
+                      }}
+                      title="Send email"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="fa left-icon fa-envelope"
+                      />
+                    </a>
+                  </div>
+                </p>
+
+                <div style={{ margin: '2em 0 1em 0' }}>
+                  <a
+                    href="https://stackoverflow.com/users/4135289/mehamasum"
+                    title="StackOverflow profile"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa social fa-stack-overflow"
+                    />
+                  </a>
+
+                  <a href="https://github.com/mehamasum" title="Github profile">
+                    <i aria-hidden="true" className="fa social fa-github" />
+                  </a>
+
+                  <a
+                    href="https://linkedin.com/in/mehamasum"
+                    title="LinkedIn profile"
+                  >
+                    <i aria-hidden="true" className="fa social fa-linkedin" />
+                  </a>
+
+                  <Link to="/blog" title="Blog Posts">
+                    <i aria-hidden="true" className="fa social fa-rss" />
+                  </Link>
+                </div>
+              </section>
+            </Col>
+            <Col xs={12} md={7}>
+              <section className="resume-section">
+                <p style={{ fontStyle: 'italic' }}>
+                  Programmer and lifelong learner.
+                  <br />
+                  Led my team to 5 international hackathon titles back in
+                  college.
+                  <br />
+                  Love AI and open source. Believer of ‘Roll up your sleeves and
+                  get it done’.
+                  <br />
+                </p>
+
+                <div className="bio-section">
+                  <div>
+                    <div className="preference-label">
+                      <span>I want to work with</span>
+                    </div>
+                    <div>
+                      <span className="post-tag">python</span>
+                      <span className="post-tag">rest</span>
+                      <span className="post-tag">graphql</span>
+                      <span className="post-tag">node.js</span>
+                      <span className="post-tag">react</span>
+                    </div>
+
+                    <div className="dislike">
+                      <div className="preference-label">
+                        <span>I prefer not to work with</span>
+                      </div>
+                      <div>
+                        <span className="post-tag disliked-tag">android</span>
+                        <span className="post-tag disliked-tag">jquery</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <hr />
+
+              <section className="resume-section">
+                <h1>Work</h1>
+                <article>
+                  <header>
+                    <h1>Software Engineer</h1>
+                    <span>
+                      <a href="http://codemarshal.com">CodeMarshal</a>
+                    </span>
+                    <span>
+                      <address>Dhaka, Bangladesh</address>
+                      <time>Since Feb 2018</time>
+                    </span>
+                  </header>
+                  <section>
+                    Front- and back-end engineering work on{' '}
+                    <a href="http://demo.ronangon.com">Ronangon</a> platform.
+                    Developed a web based gaming environment with ReactJS, Redux
+                    and PixiJS. Implemented messaging backend from scratch with
+                    Django, Django-channels.
+                  </section>
+
+                  <footer>
+                    <div>
+                      <span className="post-tag">django-rest-framework</span>
+                      <span className="post-tag">django-channels</span>
+                      <span className="post-tag">react</span>
+                      <span className="post-tag">redux</span>
+                      <span className="post-tag">pixi</span>
+                      <span className="post-tag">postgresql</span>
+                    </div>
+                  </footer>
+                </article>
+                <article>
+                  <header>
+                    <h1>Research Assistant</h1>
+                    <span>
+                      <a href="http://cse.du.ac.bd/robolab">
+                        Robotics Lab, CSE, DU
+                      </a>
+                    </span>
+                    <span>
+                      <address>Dhaka, Bangladesh</address>
+                      <time>July 2015 to July 2018</time>
+                    </span>
+                  </header>
+                  <section>
+                    Front- and back-end engineering and Machine Learning R&D for{' '}
+                    <a href="https://github.com/RoboPi-CSEDU/rupai">Rupai</a>, a
+                    graphically programmable robotics kit, funded by Ministry of
+                    Education, Govt. of Bangladesh.
+                  </section>
+                  <footer>
+                    <div>
+                      <span className="post-tag">python2</span>
+                      <span className="post-tag">opencv</span>
+                      <span className="post-tag">numpy</span>
+                      <span className="post-tag">image-processing</span>
+                      <span className="post-tag">blockly</span>
+                      <span className="post-tag">php</span>
+                    </div>
+                  </footer>
+                </article>
+              </section>
+
+              <section className="resume-section">
+                <h1>Education</h1>
+                <article>
+                  <header>
+                    <h1>BSc in Computer Science</h1>
+                    <span>
+                      <a href="http://www.cse.du.ac.bd/">University of Dhaka</a>
+                    </span>
+                    <span>
+                      <address>Dhaka, Bangladesh</address>
+                      <time>Batch of 2018</time>
+                    </span>
+                  </header>
+                  <section>
+                    <strong>CGPA</strong>
+                    <span>3.81 / 4.0</span> <br />
+                    <strong>Thesis</strong>
+                    <span>
+                      M. H. Masum, T. S. Rifat, S. M. Tareeq, H. Heickal,{' '}
+                      <a href="https://dl.acm.org/citation.cfm?id=3290535">
+                        A Framework for Developing Graphically Programmable
+                        Low-cost Robotics Kit for Classroom Education.
+                      </a>
+                    </span>
                     <br />
-                    Love AI and open source. Believer of ‘Roll up your sleeves
-                    and get it done’.
-                    <br />
-                  </p>
-                </section>
+                    <ul>
+                      <li>
+                        Represented University of Dhaka in{' '}
+                        <a href="https://icpc.baylor.edu/regionals/finder/dhaka-2015">
+                          2015 ACM-ICPC Asia Dhaka
+                        </a>{' '}
+                        On Site Regional Contest (Team: DU_Introspection).
+                      </li>
+                      <li>
+                        University scholarship for academic excellence in 2014
+                      </li>
+                      <li>
+                        National Education Board scholarship for 2013 Higher
+                        Secondary School Certificate result.
+                      </li>
+                    </ul>
+                  </section>
+                </article>
+              </section>
 
-                <section>
-                  <h1>Work</h1>
-                  <article>
-                    <header>
-                      <h1>Software Engineer</h1>
-                      <span>
-                        <a href="http://codemarshal.com">CodeMarshal</a>
-                      </span>
-                      <span>
-                        <address>Dhaka, Bangladesh</address>
-                        <time>Since Feb 2018</time>
-                      </span>
-                    </header>
-                    <section>
-                      Front- and back-end engineering work on{' '}
-                      <a href="http://demo.ronangon.com">Ronangon</a> platform.
-                      Developed a web based gaming environment with ReactJS,
-                      Redux and PixiJS. Implemented messaging backend from
-                      scratch with Django, Django-channels.
-                    </section>
-                  </article>
-                  <article>
-                    <header>
-                      <h1>Research Assistant</h1>
-                      <span>
-                        <a href="http://cse.du.ac.bd/robolab">
-                          Robotics Lab, CSE, DU
-                        </a>
-                      </span>
-                      <span>
-                        <address>Dhaka, Bangladesh</address>
-                        <time>July 2015 to July 2018</time>
-                      </span>
-                    </header>
-                    <section>
-                      Front- and back-end engineering and Machine Learning R&D
-                      for{' '}
-                      <a href="https://github.com/RoboPi-CSEDU/rupai">Rupai</a>,
-                      a graphically programmable robotics kit, funded by
-                      Ministry of Education, Govt. of Bangladesh.
-                    </section>
-                  </article>
-                </section>
-
-                <section>
-                  <h1>Education</h1>
-                  <article>
-                    <header>
-                      <h1>BSc in Computer Science</h1>
-                      <span>
-                        <a href="http://www.cse.du.ac.bd/">
-                          University of Dhaka
-                        </a>
-                      </span>
-                      <span>
-                        <address>Dhaka, Bangladesh</address>
-                        <time>Batch of 2018</time>
-                      </span>
-                    </header>
-                    <section>
-                      <strong>CGPA</strong>
-                      <span>3.81 / 4.0</span> <br />
-                      <strong>Thesis</strong>
-                      <span>
-                        M. H. Masum, T. S. Rifat, S. M. Tareeq, H. Heickal,{' '}
-                        <a href="https://dl.acm.org/citation.cfm?id=3290535">
-                          A Framework for Developing Graphically Programmable
-                          Low-cost Robotics Kit for Classroom Education.
-                        </a>
-                      </span>
-                      <br />
-                      <ul>
-                        <li>
-                          Represented University of Dhaka in{' '}
-                          <a href="https://icpc.baylor.edu/regionals/finder/dhaka-2015">
-                            2015 ACM-ICPC Asia Dhaka
-                          </a>{' '}
-                          On Site Regional Contest (Team: DU_Introspection).
-                        </li>
-                        <li>
-                          University scholarship for academic excellence in 2014
-                        </li>
-                        <li>
-                          National Education Board scholarship for 2013 Higher
-                          Secondary School Certificate result.
-                        </li>
-                      </ul>
-                    </section>
-                  </article>
-                </section>
-
-                <section>
-                  <h1>Projects</h1>
-                  <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {projects.map((project, index) => {
-                      return (
-                        <Col
-                          key={project.hash}
-                          xs={12}
-                          md={6}
-                          style={{ paddingLeft: 0, flex: '1 1 auto' }}
-                        >
-                          <article key={project.id}>
-                            <header>
-                              <h1>
-                                <a href={project.url[0].url} target="_blank">
-                                  {project.name}
-                                </a>
-                              </h1>
-                              {project.winner ? (
-                                <span>
-                                  <i
-                                    className="fa fa-trophy"
-                                    style={{
-                                      marginRight: '0.5rem',
-                                      color: '#ffca22',
-                                    }}
-                                  />
-                                  <span>{`${project.winner.platform}`}</span>
-                                </span>
-                              ) : null}
+              <section className="resume-section">
+                <h1>Projects</h1>
+                <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
+                  {projects.map((project, index) => {
+                    return (
+                      <Col
+                        key={project.hash}
+                        xs={12}
+                        md={6}
+                        style={{ paddingLeft: 0, flex: '1 1 auto' }}
+                      >
+                        <article key={project.id}>
+                          <header>
+                            <h1>
+                              <a
+                                href={project.url[0].url}
+                                target="_blank"
+                                rel="noopener"
+                                title={project.url[0].title}
+                              >
+                                {project.name}
+                              </a>
+                            </h1>
+                            {project.winner ? (
                               <span>
-                                <time>{project.year}</time>
+                                <i
+                                  aria-hidden="true"
+                                  className="fa left-icon fa-trophy"
+                                  style={{
+                                    color: '#ffca22',
+                                  }}
+                                />
+                                <span>{`${project.winner.platform}`}</span>
                               </span>
-                            </header>
-                            <section>
-                              {project.description}
+                            ) : null}
+                            <span>
+                              <time>{project.year}</time>
+                            </span>
+                          </header>
+                          <section>
+                            {project.description}
 
-                              <div style={{ marginTop: '0.5em' }}>
-                                {project.tags.map((tag, index) => (
-                                  <span
-                                    key={`${project.name}${index}`}
-                                    style={{
-                                      fontSize: '85%',
-                                      verticalAlign: 'baseline',
-                                      background: '#eee',
-                                      borderColor: '#eee',
-                                      marginRight: '0.5rem',
-                                      marginBottom: '0.5rem',
-                                      borderRadius: '5px',
-                                      display: 'inline-block',
-                                      padding: '0.2em 0.6em 0.2em 0.6em',
-                                    }}
-                                  >
-                                    {tag}
-                                  </span>
-                                ))}
-                              </div>
-                            </section>
-                          </article>
-                        </Col>
-                      )
-                    })}
-                  </Row>
-                </section>
-              </Col>
-            </Row>
-          </div>
-        </div>
+                            <div style={{ marginTop: '0.5em' }}>
+                              {project.tags.map((tag, index) => (
+                                <span
+                                  key={`${project.name}${index}`}
+                                  className="post-tag"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </section>
+                        </article>
+                      </Col>
+                    )
+                  })}
+                </Row>
+              </section>
+            </Col>
+          </Row>
+        </main>
 
-        <footer
-          style={{
-            padding: 16,
-          }}
-        >
+        <footer>
           <small style={{ float: 'right', margin: 16 }}>
-            Layout inspired by{' '}
-            <a href="https://resume.joaomoreno.com/">João Moreno</a>
+            {'Layout inspired by '}
+            <a
+              href="https://resume.joaomoreno.com/"
+              title="João Moreno's website"
+              target="_blank"
+              rel="noreferrer"
+            >
+              João Moreno
+            </a>
           </small>
         </footer>
       </React.Fragment>

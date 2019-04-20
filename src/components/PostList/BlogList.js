@@ -16,7 +16,6 @@ import Emoji from '../Emoji'
 
 class BlogList extends React.Component {
   render() {
-    console.log(this.props)
     const { data } = this.props
     const { blogTitle, blogSlogan, author } = data.site.siteMetadata
     const posts = data.allMarkdownRemark.edges

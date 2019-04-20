@@ -29,6 +29,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout
         location={this.props.location}
+        hideIntro
         sidebar={
           <div>
             <h4>Content</h4>
@@ -48,6 +49,12 @@ class BlogPostTemplate extends React.Component {
         />
 
         <div>
+          <div>
+            <Link to="/blog">
+              <i className="fa fa-angle-left" /> All Posts
+            </Link>
+          </div>
+
           <h1
             style={{
               marginBottom: '0',
@@ -106,7 +113,7 @@ class BlogPostTemplate extends React.Component {
           <div>
             <hr />
 
-            <h4>Read more stories...</h4>
+            <h4>Read more posts...</h4>
             <Row>
               {nextPage && (
                 <Col xs={12} lg={6} style={postStyle}>

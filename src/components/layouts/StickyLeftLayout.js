@@ -53,22 +53,26 @@ class Layout extends React.Component {
                       boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
                       activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
                     />
-                    <h1
-                      style={{
-                        fontSize: '2.5em',
-                      }}
-                    >
-                      <Link to="/blog" style={{ color: 'inherit' }}>
-                        {'<Learning in'}
-                        <br />
-                        {'public/>'}
-                      </Link>
-                    </h1>
-                    <h3>
-                      Personal Blog by <Link to="/">Meha Masum</Link>
-                    </h3>
+                    {this.props.hideIntro ? null : (
+                      <React.Fragment>
+                        <h1
+                          style={{
+                            fontSize: '2.5em',
+                          }}
+                        >
+                          <Link to="/blog" style={{ color: 'inherit' }}>
+                            {'<Learning in'}
+                            <br />
+                            {'public/>'}
+                          </Link>
+                        </h1>
+                        <h3>
+                          Personal Blog by <Link to="/">Meha Masum</Link>
+                        </h3>
 
-                    <hr />
+                        <hr />
+                      </React.Fragment>
+                    )}
 
                     {this.props.sidebar}
                   </Col>

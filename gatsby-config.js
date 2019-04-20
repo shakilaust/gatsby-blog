@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-console.log('[Env version]: ', process.env.NODE_ENV)
-
 const SITE_CONFIG = {
   title: 'Meha Masum',
   shortName: 'Meha Masum',

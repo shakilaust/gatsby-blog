@@ -31,22 +31,7 @@ class Bio extends React.Component {
           <br />
           Software engineer based in Dhaka
           <br />
-          <span
-            style={{
-              fontSize: '80%',
-            }}
-          >
-            <a href="https://twitter.com/mehamasum" target="_blank">
-              <i
-                className="fa fa-twitter"
-                style={{
-                  color: '#1da1f2',
-                  marginRight: '0.25em',
-                }}
-              />
-              @mehamasum
-            </a>
-          </span>
+          <Link to="/blog">Read more articles</Link>
         </div>
       </div>
     )
