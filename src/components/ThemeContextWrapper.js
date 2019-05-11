@@ -66,4 +66,4 @@ class Wrapper extends React.Component {
   }
 }
 
-export default ({ element }) => <Wrapper>{element}</Wrapper>
+export default Wrapper

@@ -1,0 +1,33 @@
+@import './variables';
+
+$headerHeight: 54px;
+
+.header {
+  width: 100%;
+  padding: 1em 0;
+}
+
+.header a {
+  padding: 0.5em 0;
+  margin: 0 0.5em;
+  text-decoration: none !important;
+}
+
+.header a:hover {
+  text-decoration: none !important;
+  border-bottom: 2px solid #e1ecf4;
+}
+
+.active {
+  border-bottom: 2px solid #e1ecf4;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
+.nav-links {
+  height: 2em;
+  line-height: 2em;
+  float: right;
+}

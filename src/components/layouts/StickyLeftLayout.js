@@ -10,6 +10,7 @@ import CodeStyle from '../styles/Code'
 import GlobalStyle from '../styles/Global'
 import Switch from 'react-switch'
 import Emoji from '../../components/Emoji'
+import Navbar from '../../components/layouts/Navbar'
 
 class Layout extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class Layout extends React.Component {
             <SEO />
             <GlobalStyle theme={theme} />
             <CodeStyle theme={theme} />
+            <Navbar location={this.props.location} />
 
             <div
               className="indexRoot"
@@ -29,30 +31,32 @@ class Layout extends React.Component {
                 transition: 'color 0.5s ease-out, background 0.5s ease-out',
               }}
             >
-              <div className="container">
+              <div>
                 <Row>
                   <Col xs={12} md={3} mdOffset={1} className="stickySidebar">
-                    <Switch
-                      onColor="#222"
-                      checked={theme.id === 'dark'}
-                      onChange={e => {
-                        setTheme(e ? 'dark' : 'light')
-                      }}
-                      uncheckedIcon={
-                        <Emoji
-                          symbol="☀️"
-                          style={{ lineHeight: '28px', marginLeft: '7px' }}
-                        />
-                      }
-                      checkedIcon={
-                        <Emoji
-                          symbol="🌙"
-                          style={{ lineHeight: '28px', marginLeft: '7px' }}
-                        />
-                      }
-                      boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-                      activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-                    />
+                    <div style={{ display: 'none' }}>
+                      <Switch
+                        onColor="#222"
+                        checked={theme.id === 'dark'}
+                        onChange={e => {
+                          setTheme(e ? 'dark' : 'light')
+                        }}
+                        uncheckedIcon={
+                          <Emoji
+                            symbol="☀️"
+                            style={{ lineHeight: '28px', marginLeft: '7px' }}
+                          />
+                        }
+                        checkedIcon={
+                          <Emoji
+                            symbol="🌙"
+                            style={{ lineHeight: '28px', marginLeft: '7px' }}
+                          />
+                        }
+                        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                        activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                      />
+                    </div>
                     {this.props.hideIntro ? null : (
                       <React.Fragment>
                         <h1

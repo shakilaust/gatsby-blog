@@ -1,6 +1,7 @@
 import React from 'react'
 import SEO from '../components/seo/SEO'
 import { StaticQuery, graphql } from 'gatsby'
+import Navbar from '../components/layouts/Navbar'
 
 export default class Resume extends React.Component {
   render() {
@@ -26,6 +27,9 @@ export default class Resume extends React.Component {
                 desc={`Mehedi Hasan Masum's Resume | PDF Download`}
                 pathname={this.props.location.pathname}
               />
+
+              <Navbar location={this.props.location} />
+
               <iframe
                 src={`https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`}
                 frameBorder="0"

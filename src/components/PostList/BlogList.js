@@ -13,13 +13,43 @@ import '../../styles/index.scss'
 import AllCategories from '../widgets/AllCategories'
 import Footer from '../layouts/Footer'
 import Emoji from '../Emoji'
+import Navbar from '../../components/layouts/Navbar'
 
 class BlogList extends React.Component {
+  constructor(props) {
+    super(props)
+
+    let nativeHiddenPreference = false
+    try {
+      nativeHiddenPreference = localStorage.getItem('nativeHidden')
+    } catch (err) {
+      // Ignore.
+    }
+
+    this.state = {
+      nativeHidden: nativeHiddenPreference === 'true' ? true : false,
+    }
+    this.toggleNative = this.toggleNative.bind(this)
+  }
+
+  toggleNative() {
+    this.setState(state => {
+      const hidden = !state.nativeHidden
+      try {
+        localStorage.setItem('nativeHidden', hidden)
+      } catch (err) {
+        // Ignore.
+      }
+      return {
+        nativeHidden: hidden,
+      }
+    })
+  }
+
   render() {
     const { data } = this.props
     const { blogTitle, blogSlogan, author } = data.site.siteMetadata
     const posts = data.allMarkdownRemark.edges
-    const { previous, next, current, total } = this.props.pageContext
 
     return (
       <ThemeContext.Consumer>
@@ -34,6 +64,8 @@ class BlogList extends React.Component {
 
             <GlobalStyle theme={theme} />
 
+            <Navbar location={this.props.location} />
+
             <div>
               <div
                 className="indexRoot"
@@ -43,30 +75,32 @@ class BlogList extends React.Component {
                   transition: 'color 0.5s ease-out, background 0.5s ease-out',
                 }}
               >
-                <div className="container">
+                <div>
                   <Row>
                     <Col xs={12} md={3} mdOffset={1}>
-                      <Switch
-                        onColor="#222"
-                        checked={theme.id === 'dark'}
-                        onChange={e => {
-                          setTheme(e ? 'dark' : 'light')
-                        }}
-                        uncheckedIcon={
-                          <Emoji
-                            symbol="☀️"
-                            style={{ lineHeight: '28px', marginLeft: '7px' }}
-                          />
-                        }
-                        checkedIcon={
-                          <Emoji
-                            symbol="🌙"
-                            style={{ lineHeight: '28px', marginLeft: '7px' }}
-                          />
-                        }
-                        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-                        activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-                      />
+                      <div style={{ display: 'none' }}>
+                        <Switch
+                          onColor="#222"
+                          checked={theme.id === 'dark'}
+                          onChange={e => {
+                            setTheme(e ? 'dark' : 'light')
+                          }}
+                          uncheckedIcon={
+                            <Emoji
+                              symbol="☀️"
+                              style={{ lineHeight: '28px', marginLeft: '7px' }}
+                            />
+                          }
+                          checkedIcon={
+                            <Emoji
+                              symbol="🌙"
+                              style={{ lineHeight: '28px', marginLeft: '7px' }}
+                            />
+                          }
+                          boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                          activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                        />
+                      </div>
                       <h1
                         style={{
                           fontSize: '2.5em',
@@ -105,31 +139,36 @@ class BlogList extends React.Component {
                     <Col xs={12} md={7}>
                       <section style={{ margin: '2em 0' }}>
                         {this.props.topContent ? this.props.topContent : null}
+
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={this.state.nativeHidden}
+                            onChange={this.toggleNative}
+                          />{' '}
+                          Hide non-english posts
+                        </label>
+
                         {this.props.topContent ? <hr /> : null}
-                        {posts.map(post => {
-                          return (
-                            <article
-                              key={post.node.id}
-                              style={{
-                                marginBottom: '1em',
-                              }}
-                            >
-                              <PostSummary post={post.node} />
-                            </article>
+
+                        {posts
+                          .filter(post =>
+                            this.state.nativeHidden
+                              ? post.node.frontmatter.category !== 'Native'
+                              : post
                           )
-                        })}
-                        <Pagination
-                          previous={{
-                            url: previous,
-                            label: 'Previous',
-                          }}
-                          next={{
-                            url: next,
-                            label: 'Next',
-                          }}
-                          current={current}
-                          total={total}
-                        />
+                          .map(post => {
+                            return (
+                              <article
+                                key={post.node.id}
+                                style={{
+                                  marginBottom: '1em',
+                                }}
+                              >
+                                <PostSummary post={post.node} />
+                              </article>
+                            )
+                          })}
                       </section>
                     </Col>
                   </Row>

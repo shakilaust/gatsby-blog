@@ -9,7 +9,18 @@ class Summary extends React.Component {
     const title = post.frontmatter.title || post.fields.slug
     return (
       <div className="postPreview">
-        <div className="flex1">
+        <div className="postPreviewThumbnail">
+          <Link to={post.fields.slug}>
+            <div
+              className="backgroundCover sizeFull"
+              style={{
+                backgroundImage: `url(${post.frontmatter.thumbnail})`,
+              }}
+            />
+          </Link>
+        </div>
+
+        <div>
           <h1 className="postPreviewHeading">
             <Link to={post.fields.slug}>{title}</Link>
           </h1>
@@ -27,16 +38,6 @@ class Summary extends React.Component {
           <div style={{ margin: '1rem 0' }}>
             <Link to={post.fields.slug}>Read More </Link>▸
           </div>
-        </div>
-        <div className="postPreviewThumbnail leftRoundedImage flex0">
-          <Link to={post.fields.slug}>
-            <div
-              className="backgroundCover sizeFull"
-              style={{
-                backgroundImage: `url(${post.frontmatter.thumbnail})`,
-              }}
-            />
-          </Link>
         </div>
       </div>
     )

@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlogList from '../components/PostList/BlogList'
-import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
 
 const ListCategoryTemplate = props => {
   const { category } = props.pageContext
@@ -17,22 +16,6 @@ const ListCategoryTemplate = props => {
       location={props.location}
       topContent={
         <React.Fragment>
-          <Breadcrumb
-            links={[
-              {
-                url: '/',
-                label: 'root',
-              },
-              {
-                url: '/blog',
-                label: 'blog',
-              },
-              {
-                url: '#',
-                label: `all posts in "${category}"`,
-              },
-            ]}
-          />
           <h2>{heading}</h2>
         </React.Fragment>
       }
@@ -43,7 +26,7 @@ const ListCategoryTemplate = props => {
 export default ListCategoryTemplate
 
 export const pageQuery = graphql`
-  query($category: String, $limit: Int!, $skip: Int!) {
+  query($category: String) {
     site {
       siteMetadata {
         title
@@ -56,8 +39,6 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { category: { eq: $category } } }
-      limit: $limit
-      skip: $skip
     ) {
       totalCount
       edges {

@@ -20,19 +20,19 @@ body {
  */
 @media all and (min-width: 1024px) {
   .indexRoot {
-    padding: 4em 0;
+    padding: 2em 0;
   }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .indexRoot {
-    padding: 3em 1em;
+    padding: 2em 1em;
   }
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
   .indexRoot {
-    padding: 3em 1em;
+    padding: 2em 1em;
   }
 }
 
@@ -63,4 +63,8 @@ a:hover {
 .row {
   margin-left: 0;
   margin-right: 0;
+}
+
+.left-icon {
+  margin-right: 0.5rem;
 }

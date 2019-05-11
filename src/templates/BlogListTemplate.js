@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import '../styles/index.scss'
 import BlogList from '../components/PostList/BlogList'
-import Breadcrumb from '../components/Breadcrumb/Breadcrumb'
 
 class BlogListTemplate extends React.Component {
   render() {
@@ -14,18 +13,6 @@ class BlogListTemplate extends React.Component {
         location={this.props.location}
         topContent={
           <React.Fragment>
-            <Breadcrumb
-              links={[
-                {
-                  url: '/',
-                  label: 'root',
-                },
-                {
-                  url: '/blog',
-                  label: 'blog',
-                },
-              ]}
-            />
             <h2>All posts</h2>
           </React.Fragment>
         }
@@ -37,7 +24,7 @@ class BlogListTemplate extends React.Component {
 export default BlogListTemplate
 
 export const blogListQuery = graphql`
-  query blogListQuery($skip: Int!, $limit: Int!) {
+  query blogListQuery {
     site {
       siteMetadata {
         title
@@ -47,11 +34,7 @@ export const blogListQuery = graphql`
       }
     }
 
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {

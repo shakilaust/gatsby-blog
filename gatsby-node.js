@@ -7,8 +7,6 @@ const ListCategoryTemplate = path.resolve(
 )
 const ListTagTemplate = path.resolve('./src/templates/ListTagTemplate.js')
 
-const ENTRIES_PER_PAGE = 10
-
 const buildQuery = `
 {
   allMarkdownRemark(
@@ -28,6 +26,8 @@ const buildQuery = `
           title
           tags
           category
+          thumbnail
+          spoiler
         }
       }
     }
@@ -35,36 +35,14 @@ const buildQuery = `
 }
 `
 
-const generateListPages = (
-  createPage,
-  postsPerPage,
-  total,
-  path,
-  template,
-  queryKey,
-  queryValue
-) => {
-  const numPages = Math.ceil(total / postsPerPage)
-  const hasNext = index =>
-    index < numPages - 1 ? `${path}/${index + 2}` : null
-  const hasPrev = index =>
-    index > 0 ? (index === 1 ? path : `${path}/${index}`) : null
-
-  for (let i = 0; i < numPages; i++) {
-    createPage({
-      path: i === 0 ? path : `${path}/${i + 1}`,
-      component: template,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        current: i + 1,
-        total: numPages,
-        previous: hasPrev(i),
-        next: hasNext(i),
-        [queryKey]: queryValue,
-      },
-    })
-  }
+const generateListPages = (createPage, path, template, query) => {
+  createPage({
+    path,
+    component: template,
+    context: {
+      ...query,
+    },
+  })
 }
 
 exports.createPages = ({ graphql, actions }) => {
@@ -108,37 +86,22 @@ exports.createPages = ({ graphql, actions }) => {
         })
 
         // Blog list
-        generateListPages(
-          createPage,
-          ENTRIES_PER_PAGE,
-          posts.length,
-          `/blog`,
-          BlogListTemplate
-        )
+        generateListPages(createPage, `/blog`, BlogListTemplate)
 
         // Tag pages
         Object.keys(tagCount).forEach(tag => {
-          generateListPages(
-            createPage,
-            ENTRIES_PER_PAGE,
-            tagCount[tag],
-            `/blog/tags/${tag}`,
-            ListTagTemplate,
-            'tag',
-            tag
-          )
+          generateListPages(createPage, `/blog/tags/${tag}`, ListTagTemplate, {
+            tag: tag,
+          })
         })
 
         // Category pages
         Object.keys(catCount).forEach(cat => {
           generateListPages(
             createPage,
-            ENTRIES_PER_PAGE,
-            catCount[cat],
             `/blog/categories/${cat}`,
             ListCategoryTemplate,
-            'category',
-            cat
+            { category: cat }
           )
         })
       })

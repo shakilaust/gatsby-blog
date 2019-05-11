@@ -7,11 +7,12 @@ import { Row, Col } from 'react-bootstrap'
 import PostSummary from '../components/PostSummary/PostSummary'
 import ShareWidget from '../components/Share/Share'
 import SEO from '../components/seo/SEO'
+import Navbar from '../components/layouts/Navbar'
 
 const _ = require('lodash')
 
 const postStyle = {
-  padding: '1rem',
+  padding: '1rem 0',
 }
 
 class BlogPostTemplate extends React.Component {
