@@ -160,7 +160,7 @@ class Index extends React.Component {
                       </div>
                       <div>
                         <span className="post-tag interest-tag">salad</span>
-                        <span className="post-tag interest-tag">workout</span>
+                        <span className="post-tag interest-tag">running</span>
                         <span className="post-tag interest-tag">pop music</span>
                         <span className="post-tag interest-tag">tv series</span>
                         <span className="post-tag interest-tag">travel</span>
@@ -287,6 +287,7 @@ class Index extends React.Component {
                   {projects.map((project, index) => {
                     return (
                       <Col
+                        id={project.hash}
                         key={project.hash}
                         xs={12}
                         md={6}
